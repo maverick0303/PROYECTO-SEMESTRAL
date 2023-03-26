@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 .imagenav{
     width: 50px;
     height: 40px;
@@ -9,29 +12,114 @@
     background-color: rgb(255, 255, 255);
 }
 
+/*
 .dropdown:hover .dropdown-menu {
     display: block;
   }
 
-  .navbar-nav > li {
+.navbar-nav > li {
     position: relative;
-  }  
+}  
+*/
 
 .navbar {
     background-color: rgb(255, 136, 0);
 }
 
+.btn{
+    transition: .3s;
+    background-color: rgb(255, 136, 0);
+    color: white;
+    margin-bottom: 40px;
+}
+
+.btn:hover{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+
+.img{
+    width: 100%;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.img2{
+    width: 100%;
+    max-width: 500px;
+}
+
+.borde{
+    border-style: solid;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: .3s;
+    border-width: 1px; 
+    border-color: white;
+    background-color: white;
+}
+
+.borde:hover{
+    border-color: black;
+}
+
+.borde2{
+    width: 100%;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 1px; 
+    border-color: rgb(0, 0, 0);
+}
+
+.borde-line{
+    border-left-style: solid;
+    border-width: 1px;
+}
+
+
+p{
+    margin-bottom: 0px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.precio{
+    text-align: center;
+    font-family: 'Open Sans';
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(255, 136, 0);
+}
+
+.precio2{
+    text-align: left;
+    font-family: 'Open Sans';
+    font-size: 30px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: rgb(255, 136, 0);
+}
+
 .textos{
     text-align: center;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: 'Open Sans';
     font-size: 15px;
-    font-weight: bolder;
-    color: black;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    
 }
 
 .titulos{
     color: rgb(0, 0, 0);
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 69px;
     font-weight: bolder;
 }
@@ -39,12 +127,6 @@
 .row{
     margin-top: 30px;
     margin-bottom: 30px;
-}
-
-.img{
-    width: 100%;
-    max-width: 200px;
-    max-height: 200px;
 }
 
 *{

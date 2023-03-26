@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instrumentos de viento</title>
+    <title>Bombo</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link type="text/css" rel="stylesheet" href="CSS/design.css">
-</head>
+    <link type="text/css" rel="stylesheet" href="../CSS/design.css">
 
+    <style>
+        .titulos{
+            text-align: left;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
 <body class="body">
     <div class="container">
         <nav class="navbar fixed-top navbar-expand-lg navbar-light">
@@ -23,21 +29,21 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active dropdown">
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Tienda
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="tienda.html">Tienda</a>
+                            <a class="dropdown-item" href="../tienda.html">Tienda</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="prod_percusion.html">Instrumentos de percusion</a>
+                            <a class="dropdown-item" href="../prod_percusion.html">Instrumentos de percusion</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="prod_cuerda.html">Instrumentos de cuerda</a>
+                            <a class="dropdown-item" href="../prod_cuerda.html">Instrumentos de cuerda</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="prod_idiofono.html">Instrumentos de idiofonos</a>
+                            <a class="dropdown-item" href="../prod_idiofono.html">Instrumentos de idiofonos</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="prod_viento.html">Instrumentos de viento</a>
+                            <a class="dropdown-item" href="../prod_viento.html">Instrumentos de viento</a>
                             <div class="dropdown-divider"></div>
                         </div>
                     </li>
@@ -86,22 +92,19 @@
                 </script>
             </div>
         </nav>
+        
+        <div class="row borde2">
+            <div class="col-md-6"><img class="img2" src="../IMG/bombo2.jpg" alt="bombo"></div>
+            <div class="col-md-6 textos borde-line">
+                <h1 class="titulos">BOMBO</h1>
+                <p class="precio2">$ 30.102</p>
 
-        <div class="row">
-            <div class="col-md-12">
-                <h1 class="titulos">Instrumentos de viento</h1>
+                <button class="btn btn-primary d-block text-left" type="button">Agregar al Carrito</button>
+
+                <p class="textos">El bombo es un tambor grande y profundo con una membrana tensada que se golpea para producir un sonido grave y resonante.</p>
             </div>
         </div>
 
-        <div class="row">
-            <a href="" class="col-md-2 textos borde"><img class="img" src="IMG/armonica.jpg" alt="armonica">ARMONICA <p class="precio">$7.990</p></a>
-            <a href="" class="col-md-2 textos borde"><img class="img" src="IMG/saxofon.jpg" alt="saxofon">SAXOFON <p class="precio">$449.900</p></a>
-            <a href="" class="col-md-2 textos borde"><img class="img" src="IMG/flauta.jpg" alt="flauta">FLAUTA <p class="precio">$9.990</p></a>
-            <a href="" class="col-md-2 textos borde"><img class="img" src="IMG/tuba.jpg" alt="tuba">TUBA <p class="precio">$1.419.990</p></a>
-            <a href="" class="col-md-2 textos borde"><img class="img" src="IMG/trompeta.jpg" alt="trompeta">TROMPETA <p class="precio">$199.990</p></a>
-            <a href="" class="col-md-2 textos borde"><img class="img" src="IMG/trombon.jpg" alt="trombon">TROMBON <p class="precio">$131.180</p></a>
-        </div>
-        <br>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -114,5 +117,4 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 </body>
-
 </html>
