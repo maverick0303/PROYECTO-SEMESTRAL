@@ -1,0 +1,12 @@
+body{
+    background-image: url(/fondos/fondo10.jpg);
+}
+
+h2{
+    color: white;
+    font-size: 50px;
+    font-weight: bolder;
+    text-align: center;
+    border: double rgba(0, 0, 0, 0.712);
+    background-color: rgba(0, 0, 0, 0.651);
+}
