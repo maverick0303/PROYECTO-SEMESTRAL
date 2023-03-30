@@ -1,6 +1,3 @@
-body{
-    background-image: url(/fondos/fondo10.jpg);
-}
 
 h2{
     color: white;
@@ -23,4 +20,5 @@ h2{
     margin-left: 50px;
     margin-right: 50px;
     text-align: center;
+    
 }
