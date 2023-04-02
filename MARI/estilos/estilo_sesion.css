@@ -4,14 +4,15 @@
     padding: 0;
     font-family: 'poppins',sans-serif;
 }
+body{
+    background: url(/fondos/fondo3.jpg);
+}
 section{
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     width: 100%;
-    
-    background: url(/fondos/fondo3.jpg)no-repeat;
     background-position: center;
     background-size: cover;
 }
@@ -97,4 +98,111 @@ button{
 }
 .register p a:hover{
     text-decoration: underline;
+}
+/*BOTONES*/
+
+.btn-neon{
+    border-radius: 25px;
+    border-style:double;
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    color: #ffffff;
+    letter-spacing: 4px;
+    text-decoration: none;
+    font-size: 24px;
+    overflow: hidden;
+    transition: 0.2s;
+}
+.btn-neon:hover{
+    border-radius: 25px;
+    border-style:double;
+    color: #ffffff;
+    background: #185844;
+    box-shadow: 0 0 10px #185844, 0 0 40px #185844, 0 0 80px #185844;
+    transition-delay: 1s;
+ }
+.btn-neon span{
+    border-radius: 25px;
+    border-style:double;
+    color: #ffffff;
+    position: absolute;
+    display: block;
+}
+#span1{
+    border-radius: 25px;
+    border-style:double;
+    color: #ffffff;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent,#185844);
+ }
+ .btn-neon:hover #span1{
+    border-radius: 25px;
+    border-style:double;
+    color: #ffffff;
+    left: 100%;
+    transition: 1s;
+}
+ #span3{
+    border-radius: 25px;
+    border-style:double;
+    color: #ffffff;
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent,#185844);
+}
+ .btn-neon:hover #span3{
+    border-radius: 25px;
+    border-style:double;
+    color: #ffffff;
+    right: 100%;
+    transition: 1s;
+    transition-delay: 0.5s;
+}
+#span2{
+    border-radius: 25px;
+    border-style:double;
+    color: #ffffff;
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg,transparent,#185844);
+}
+.btn-neon:hover #span2{
+    border-radius: 25px;
+    border-style:double;
+    color: #ffffff;
+    top: 100%;
+    transition: 1s;
+    transition-delay: 0.25s;
+}
+#span4{
+    border-radius: 25px;
+    border-style:double;
+    color:  #ffffff;
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg,transparent,#185844);
+}
+.btn-neon:hover #span4{
+    border-radius: 25px;
+    border-style:double;
+    bottom: 100%;
+    transition: 1s;
+    transition-delay: 0.75s;
+}
+a{
+    font-size: 25px;
+    color: #ffffff;
+}
+p{
+    color: #fff;
 }

@@ -97,7 +97,7 @@ a:hover {
 
 .precio {
     text-align: center;
-    font-family: 'Open Sans';
+    font-family: 'Shrikhand', cursive;
     font-size: 16px;
     font-weight: bold;
     color: rgb(0, 0, 0);
@@ -105,7 +105,7 @@ a:hover {
 
 .precio2 {
     text-align: left;
-    font-family: 'Open Sans';
+    font-family: 'Shrikhand', cursive;
     font-size: 30px;
     margin-bottom: 30px;
     font-weight: bold;
