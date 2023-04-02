@@ -1,13 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&family=Shrikhand&display=swap');
 
-.imagenav{
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+
+.imagenav {
     width: 50px;
     height: 40px;
 }
 
 .navbar {
-    background-color: rgb(255, 136, 0);
+    background-color: rgb(255, 255, 255);
 }
 
 /*
@@ -20,40 +21,40 @@
 }  
 */
 
-.body{
+.body {
     margin-top: 80px;
     text-align: center;
     background-color: rgb(255, 255, 255);
-    background: url(/fondos/fondo2.jpg);
+    background: url(/fondos/fondo5.jpg);
 }
 
-.btn{
+.btn {
     transition: .3s;
-    background-color: rgb(255, 136, 0);
+    background-color: rgb(0, 0, 0);
     color: white;
     margin-bottom: 40px;
 }
 
-.btn:hover{
+.btn:hover {
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
 }
 
-.img{
+.img {
     width: 100%;
     max-width: 200px;
 }
 
-.img2{
+.img2 {
     width: 100%;
     max-width: 500px;
 }
 
-.borde{
+.borde {
     cursor: pointer;
     border-radius: 5px;
     transition: .3s;
-    border-width: 1px; 
+    border-width: 1px;
     background-color: rgb(255, 255, 255);
     width: 105%;
     /*
@@ -62,29 +63,29 @@
     */
 }
 
-.borde:hover{
+.borde:hover {
     background-color: #dbdbdb;
 }
 
-.borde2{
+.borde2 {
     width: 100%;
     border-style: solid;
     border-radius: 5px;
-    border-width: 1px; 
+    border-width: 1px;
     border-color: rgb(0, 0, 0);
     background-color: white;
 }
 
-.borde-line{
+.borde-line {
     border-left-style: solid;
     border-width: 1px;
 }
 
-p{
+p {
     margin-bottom: 0px;
 }
 
-a{
+a {
     text-decoration: none;
     color: black;
 }
@@ -94,63 +95,67 @@ a:hover {
     color: black;
 }
 
-.precio{
+.precio {
     text-align: center;
     font-family: 'Open Sans';
     font-size: 16px;
     font-weight: bold;
-    color: rgb(255, 136, 0);
+    color: rgb(0, 0, 0);
 }
 
-.precio2{
+.precio2 {
     text-align: left;
     font-family: 'Open Sans';
     font-size: 30px;
     margin-bottom: 30px;
     font-weight: bold;
-    color: rgb(255, 136, 0);
+    color: rgb(0, 0, 0);
 }
 
-.textos{
+.textos {
     text-align: center;
-    font-family: 'Open Sans';
-    font-size: 15px;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 20px;
     font-weight: bold;
     color: rgb(0, 0, 0);
-    
+
 }
 
-.titulos{
+.titulos {
     color: rgb(0, 0, 0);
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Shrikhand', cursive;
     font-size: 69px;
     font-weight: bolder;
 }
 
-.row{
+.row {
     margin-top: 30px;
     margin-bottom: 30px;
 }
 
-*{
+* {
     font-family: "poppins", sans-serif;
     margin: 0;
     padding: 0;
 }
-body{
+
+body {
     background-color: #333;
     height: 100vh;
 }
-.icons-size{
+
+.icons-size {
     color: #333;
     font-size: 14px;
 }
-.action{
+
+.action {
     position: fixed;
     right: 30px;
     top: 7px
 }
-.action .profile{
+
+.action .profile {
     border-radius: 50%;
     cursor: pointer;
     height: 50px;
@@ -158,17 +163,19 @@ body{
     position: relative;
     width: 50px;
 }
-.action .profile img{
+
+.action .profile img {
     width: 100%;
-    top:0;
+    top: 0;
     position: absolute;
     object-fit: cover;
     left: 0;
     height: 100%;
 }
-.action .menu{
-    background-color:#FFF;
-    box-sizing:0 5px 25px rgba(0,0,0,0.1);
+
+.action .menu {
+    background-color: #FFF;
+    box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     padding: 10px 20px;
     position: absolute;
@@ -179,22 +186,25 @@ body{
     visibility: hidden;
     opacity: 0;
 }
-.action .menu.active{
+
+.action .menu.active {
     opacity: 1;
     top: 80px;
     visibility: visible;
 }
-.action .menu::before{
-    background-color:#fff;
+
+.action .menu::before {
+    background-color: #fff;
     content: '';
     height: 20px;
     position: absolute;
     right: 30px;
-    transform:rotate(45deg);
-    top:-5px;
+    transform: rotate(45deg);
+    top: -5px;
     width: 20px;
 }
-.action .menu h3{
+
+.action .menu h3 {
     color: #555;
     font-size: 16px;
     font-weight: 600;
@@ -203,26 +213,30 @@ body{
     text-align: left;
     width: 100%;
 }
-.action .menu h3 div{
+
+.action .menu h3 div {
     color: #818181;
     font-size: 14px;
     font-weight: 400;
 }
-.action .menu ul li{
+
+.action .menu ul li {
     align-items: center;
-    border-top:1px solid rgba(0,0,0,0.05);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
     display: flex;
     justify-content: left;
     list-style: none;
     padding: 10px 0px;
 }
-.action .menu ul li img{
+
+.action .menu ul li img {
     max-width: 20px;
     margin-right: 10px;
     opacity: 0.5;
-    transition:0.5s
+    transition: 0.5s
 }
-.action .menu ul li a{
+
+.action .menu ul li a {
     display: inline-block;
     color: #555;
     font-size: 14px;
@@ -232,9 +246,11 @@ body{
     text-transform: uppercase;
     transition: 0.5s;
 }
-.action .menu ul li:hover img{
+
+.action .menu ul li:hover img {
     opacity: 1;
 }
-.action .menu ul li:hover a{
-    color:#0099ff;
+
+.action .menu ul li:hover a {
+    color: #0099ff;
 }
