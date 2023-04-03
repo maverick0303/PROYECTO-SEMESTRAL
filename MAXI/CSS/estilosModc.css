@@ -1,22 +1,33 @@
 
 /*Titulos*/
-h2{
-    color: white;
+.Titulo{
+    color: rgb(255, 255, 255);
     font-size: 50px;
     font-weight: bolder;
     text-align: center;
-    border: double rgba(0, 0, 0, 0.712);
-    background-color: rgba(0, 0, 0, 0.651);
+    border: double rgb(196, 134, 0);
+    background-color: rgba(0, 0, 0, 0.678);
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.Titulo2{
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+    font-weight: bolder;
+    text-align: center;
+    border: double rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.616);
+    font-family: Arial, Helvetica, sans-serif;
+
+}
 
 .colorP{
-    background-color:rgba(0, 0, 0, 0.726);
+    background-color:rgba(0, 0, 0, 0.445);
+    border: double rgba(196, 134, 0);
 }
 
 .letra{
-    color: white;
+    color: rgb(255, 255, 255);
     font-family: Arial, Helvetica, sans-serif;
     font-size: medium;
  
@@ -24,8 +35,10 @@ h2{
     
 }
 .colorF{
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.692);
+    border: double rgb(0, 0, 0);
 }
 .centrado{
     	text-align: center;
 }
+
