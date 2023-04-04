@@ -15,9 +15,9 @@
 <body class="body">
     <div class="container">
         <nav class="navbar fixed-top navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#"><img class="imagenav"
-                    src="https://media.tenor.com/SDwGg31pp4AAAAAC/maxwell-the-cat-maxwell.gif"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            <a class="navbar-brand"><img class="imagenav"
+                    src="/ERNESTO/IMG/logo.jpg"></a>
+            <button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -46,45 +46,45 @@
                 <form class="form-inline my-2 my-lg-0 mx-auto">
                     <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
                     <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Buscar</button>
+                    <a style="margin-left: 20px;" href="/MAXI/carrito.html"><img class="imagenav" src="/ERNESTO/IMG/1carro.png"></a>
                 </form>
-
-                <div class="action">
-                    <div class="profile" onclick="menuToggle();">
-                        <img src="https://media.tenor.com/SDwGg31pp4AAAAAC/maxwell-the-cat-maxwell.gif" alt="">
-                    </div>
-
-                    <div class="menu">
-                        <h3>
-                            Cuenta de usuario
-                            <div>
-                                Equipo desarollador
-                            </div>
-                        </h3>
-                        <ul>
-                            <li>
-                                <span class="material-icons icons-size"><img src="/ERNESTO/IMG/1icon-usuario.png"></span>
-                                <a href="/MARI/cuenta.html">Mi perfil</a>
-                            </li>
-
-                            <li>
-                                <span class="material-icons icons-size"><img src="/ERNESTO/IMG/1icon-lista.png"></span>
-                                <a href="/MAXI/histo_compra.html">Historial de compra</a>
-                            </li>
-
-                            <li>
-                                <span class="material-icons icons-size"><img src="/ERNESTO/IMG/1icon-cerrar-sesion.png"></span>
-                                <a href="/MARI/bienvenida.html">Salir</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <script>
-                    function menuToggle() {
-                        const toggleMenu = document.querySelector('.menu');
-                        toggleMenu.classList.toggle('active')
-                    }
-                </script>
             </div>
+            <div class="action">
+                <div class="profile" onclick="menuToggle();">
+                    <img src="https://media.tenor.com/SDwGg31pp4AAAAAC/maxwell-the-cat-maxwell.gif" alt="">
+                </div>
+
+                <div class="menu">
+                    <h3>
+                        Cuenta de usuario
+                        <div>
+                            Equipo desarollador
+                        </div>
+                    </h3>
+                    <ul>
+                        <li>
+                            <span class="material-icons icons-size"><img src="/ERNESTO/IMG/1icon-usuario.png"></span>
+                            <a href="/MARI/cuenta.html">Mi perfil</a>
+                        </li>
+
+                        <li>
+                            <span class="material-icons icons-size"><img src="/ERNESTO/IMG/1icon-lista.png"></span>
+                            <a href="/MAXI/histo_compra.html">Historial de compra</a>
+                        </li>
+
+                        <li>
+                            <span class="material-icons icons-size"><img src="/ERNESTO/IMG/1icon-cerrar-sesion.png"></span>
+                            <a href="/MARI/bienvenida.html">Salir</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <script>
+                function menuToggle() {
+                    const toggleMenu = document.querySelector('.menu');
+                    toggleMenu.classList.toggle('active')
+                }
+            </script>
         </nav>
 
         <div class="row">
@@ -94,18 +94,18 @@
         </div>
 
         <div class="row">
-            <a href="articulos/bombo.html" class="col-md-2">
-                <div class="textos borde card"><img class="img" src="IMG/bombo.png" alt="bombo">BOMBO <p class="precio">$88.990</p></div></a>
-            <a href="articulos/timbal.html" class="col-md-2">
-                <div class="textos borde card"><img class="img" src="IMG/timbal.png" alt="timbal">TIMBAL <p class="precio">$200.990</p></div></a>
-            <a href="articulos/platillo.html" class="col-md-2">
-                <div class="textos borde card"><img class="img" src="IMG/platillo.png" alt="platillo">PLATILLO <p class="precio">$10.990</p></div></a>
-            <a href="articulos/maracas.html" class="col-md-2">
-                <div class="textos borde card"><img class="img" src="IMG/maracas.png" alt="maracas">MARACAS <p class="precio">$3.180</p></div></a>
-            <a href="articulos/caja.html" class="col-md-2">
-                <div class="textos borde card"><img class="img" src="IMG/caja.png" alt="caja">CAJA <p class="precio">$83.180</p></div></a>
-            <a href="articulos/xilofono.html" class="col-md-2">
-                <div class="textos borde card"><img class="img" src="IMG/xilofono.png" alt="xilofono">XILOFONO <p class="precio">$42.000</p></div></a>
+            <div class="col-md-2"><a href="articulos/bombo.html" class="textos borde card">
+                <img class="img" src="IMG/bombo.png" alt="bombo"><br>BOMBO<p class="precio">$88.990</p></a></div>
+            <div class="col-md-2"><a href="articulos/timbal.html" class="textos borde card">
+                <img class="img" src="IMG/timbal.png" alt="timbal"><br>TIMBAL<p class="precio">$200.990</p></a></div>
+            <div class="col-md-2"><a href="articulos/platillo.html" class="textos borde card">
+                <img class="img" src="IMG/platillo.png" alt="platillo"><br>PLATILLO<p class="precio">$10.990</p></a></div>
+            <div class="col-md-2"><a href="articulos/maracas.html" class="textos borde card">
+                <img class="img" src="IMG/maracas.png" alt="maracas"><br>MARACAS<p class="precio">$3.180</p></a></div>
+            <div class="col-md-2"><a href="articulos/caja.html" class="textos borde card">
+                <img class="img" src="IMG/caja.png" alt="caja"><br>CAJA<p class="precio">$83.180</p></a></div>
+            <div class="col-md-2"><a href="articulos/xilofono.html" class="textos borde card">
+                <img class="img" src="IMG/xilofono.png" alt="xilofono"><br>XILOFONO<p class="precio">$42.000</p></a></div>
         </div>
         <br>
     </div>

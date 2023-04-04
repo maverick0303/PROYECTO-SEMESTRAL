@@ -15,9 +15,9 @@
 <body class="body">
     <div class="container">
         <nav class="navbar fixed-top navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#"><img class="imagenav"
-                    src="https://media.tenor.com/SDwGg31pp4AAAAAC/maxwell-the-cat-maxwell.gif"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            <a class="navbar-brand"><img class="imagenav"
+                    src="/ERNESTO/IMG/logo.jpg"></a>
+            <button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -46,45 +46,45 @@
                 <form class="form-inline my-2 my-lg-0 mx-auto">
                     <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
                     <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Buscar</button>
+                    <a style="margin-left: 20px;" href="/MAXI/carrito.html"><img class="imagenav" src="/ERNESTO/IMG/1carro.png"></a>
                 </form>
-
-                <div class="action">
-                    <div class="profile" onclick="menuToggle();">
-                        <img src="https://media.tenor.com/SDwGg31pp4AAAAAC/maxwell-the-cat-maxwell.gif" alt="">
-                    </div>
-
-                    <div class="menu">
-                        <h3>
-                            Cuenta de usuario
-                            <div>
-                                Equipo desarollador
-                            </div>
-                        </h3>
-                        <ul>
-                            <li>
-                                <span class="material-icons icons-size"><img src="/ERNESTO/IMG/1icon-usuario.png"></span>
-                                <a href="/MARI/cuenta.html">Mi perfil</a>
-                            </li>
-
-                            <li>
-                                <span class="material-icons icons-size"><img src="/ERNESTO/IMG/1icon-lista.png"></span>
-                                <a href="/MAXI/histo_compra.html">Historial de compra</a>
-                            </li>
-
-                            <li>
-                                <span class="material-icons icons-size"><img src="/ERNESTO/IMG/1icon-cerrar-sesion.png"></span>
-                                <a href="/MARI/bienvenida.html">Salir</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <script>
-                    function menuToggle() {
-                        const toggleMenu = document.querySelector('.menu');
-                        toggleMenu.classList.toggle('active')
-                    }
-                </script>
             </div>
+            <div class="action">
+                <div class="profile" onclick="menuToggle();">
+                    <img src="https://media.tenor.com/SDwGg31pp4AAAAAC/maxwell-the-cat-maxwell.gif" alt="">
+                </div>
+
+                <div class="menu">
+                    <h3>
+                        Cuenta de usuario
+                        <div>
+                            Equipo desarollador
+                        </div>
+                    </h3>
+                    <ul>
+                        <li>
+                            <span class="material-icons icons-size"><img src="/ERNESTO/IMG/1icon-usuario.png"></span>
+                            <a href="/MARI/cuenta.html">Mi perfil</a>
+                        </li>
+
+                        <li>
+                            <span class="material-icons icons-size"><img src="/ERNESTO/IMG/1icon-lista.png"></span>
+                            <a href="/MAXI/histo_compra.html">Historial de compra</a>
+                        </li>
+
+                        <li>
+                            <span class="material-icons icons-size"><img src="/ERNESTO/IMG/1icon-cerrar-sesion.png"></span>
+                            <a href="/MARI/bienvenida.html">Salir</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <script>
+                function menuToggle() {
+                    const toggleMenu = document.querySelector('.menu');
+                    toggleMenu.classList.toggle('active')
+                }
+            </script>
         </nav>
 
         <div class="row">
@@ -94,18 +94,18 @@
         </div>
 
         <div class="row">
-            <a href="articulos/violin.html" class="col-md-2">
-                <div class="textos borde card"><img class="img" src="IMG/violin.png" alt="violin">VIOLIN <p class="precio">$26.200</p></div>></a>
-            <a href="articulos/guitarra_electrica.html" class="col-md-2">
-                <div class="textos borde card"><img class="img" src="IMG/guitarra_electrica.png" alt="guitarra_electrica">GUITARRA ELECTRICA <p class="precio">$53.990</p></div>></a>
-            <a href="articulos/guitarra.html" class="col-md-2">
-                <div class="textos borde card"><img class="img" src="IMG/guitarra.png" alt="guitarra">GUITARRA <p class="precio">$34.990</p></div>></a>
-            <a href="articulos/arpa.html" class="col-md-2">
-                <div class="textos borde card"><img class="img" src="IMG/arpa.png" alt="arpa">ARPA <p class="precio">$465.990</p></div>></a>
-            <a href="articulos/banjo.html" class="col-md-2">
-                <div class="textos borde card"><img class="img" src="IMG/banjo.png" alt="banjo">BANJO <p class="precio">$290.990</p></div>></a>
-            <a href="articulos/piano.html" class="col-md-2">
-                <div class="textos borde card"><img class="img" src="IMG/piano.png" alt="piano">PIANO <p class="precio">$4.690.990</p></div>></a>
+            <div class="col-md-2"><a href="articulos/violin.html" class="textos borde card">
+                <img class="img" src="IMG/violin.png" alt="violin"><br>VIOLIN<p class="precio">$26.200</p></a></div>
+            <div class="col-md-2"><a href="articulos/guitarra_electrica.html" class="textos borde card">
+                <img class="img" src="IMG/guitarra_electrica.png" alt="guitarra_electrica"><br>GUITARRA ELECTRICA<p class="precio">$53.990</p></a></div>
+            <div class="col-md-2"><a href="articulos/guitarra.html" class="textos borde card">
+                <img class="img" src="IMG/guitarra.png" alt="guitarra"><br>GUITARRA<p class="precio">$34.990</p></a></div>
+            <div class="col-md-2"><a href="articulos/arpa.html" class="textos borde card">
+                <img class="img" src="IMG/arpa.png" alt="arpa"><br>ARPA<p class="precio">$465.990</p></a></div>
+            <div class="col-md-2"><a href="articulos/banjo.html" class="textos borde card">
+                <img class="img" src="IMG/banjo.png" alt="banjo"><br>BANJO<p class="precio">$290.990</p></a></div>
+            <div class="col-md-2"><a href="articulos/piano.html" class="textos borde card">
+                <img class="img" src="IMG/piano.png" alt="piano"><br>PIANO<p class="precio">$4.690.990</p></a></div>
         </div>
         <br>
     </div>

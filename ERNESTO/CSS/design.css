@@ -57,6 +57,9 @@
     border-width: 1px;
     background-color: rgb(255, 255, 255);
     box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.623);
+    display: block;
+    margin: 0 auto;
+
     /*
     background: transparent;
     backdrop-filter: blur(35px);

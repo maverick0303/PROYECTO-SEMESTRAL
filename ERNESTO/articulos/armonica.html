@@ -23,9 +23,9 @@
 <body class="body">
     <div class="container">
         <nav class="navbar fixed-top navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#"><img class="imagenav"
-                    src="https://media.tenor.com/SDwGg31pp4AAAAAC/maxwell-the-cat-maxwell.gif"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            <a class="navbar-brand"><img class="imagenav"
+                    src="/ERNESTO/IMG/logo.jpg"></a>
+            <button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -49,52 +49,50 @@
                             <div class="dropdown-divider"></div>
                         </div>
                     </li>
-
+                    
                 </ul>
                 <form class="form-inline my-2 my-lg-0 mx-auto">
                     <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
                     <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Buscar</button>
+                    <a style="margin-left: 20px;" href="/MAXI/carrito.html"><img class="imagenav" src="/ERNESTO/IMG/1carro.png"></a>
                 </form>
-
-                <div class="action">
-                    <div class="profile" onclick="menuToggle();">
-                        <img src="https://media.tenor.com/SDwGg31pp4AAAAAC/maxwell-the-cat-maxwell.gif" alt="">
-                    </div>
-
-                    <div class="menu">
-                        <h3>
-                            Cuenta de usuario
-                            <div>
-                                Equipo desarollador
-                            </div>
-                        </h3>
-                        <ul>
-                            <li>
-                                <span class="material-icons icons-size"><img
-                                        src="/ERNESTO/IMG/1icon-usuario.png"></span>
-                                <a href="/MARI/cuenta.html">Mi perfil</a>
-                            </li>
-
-                            <li>
-                                <span class="material-icons icons-size"><img src="/ERNESTO/IMG/1icon-lista.png"></span>
-                                <a href="/MAXI/histo_compra.html">Historial de compra</a>
-                            </li>
-
-                            <li>
-                                <span class="material-icons icons-size"><img
-                                        src="/ERNESTO/IMG/1icon-cerrar-sesion.png"></span>
-                                <a href="/MAXI/histo_compra.html">Salir</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <script>
-                    function menuToggle() {
-                        const toggleMenu = document.querySelector('.menu');
-                        toggleMenu.classList.toggle('active')
-                    }
-                </script>
             </div>
+            <div class="action">
+                <div class="profile" onclick="menuToggle();">
+                    <img src="https://media.tenor.com/SDwGg31pp4AAAAAC/maxwell-the-cat-maxwell.gif" alt="">
+                </div>
+
+                <div class="menu">
+                    <h3>
+                        Cuenta de usuario
+                        <div>
+                            Equipo desarollador
+                        </div>
+                    </h3>
+                    <ul>
+                        <li>
+                            <span class="material-icons icons-size"><img src="/ERNESTO/IMG/1icon-usuario.png"></span>
+                            <a href="/MARI/cuenta.html">Mi perfil</a>
+                        </li>
+
+                        <li>
+                            <span class="material-icons icons-size"><img src="/ERNESTO/IMG/1icon-lista.png"></span>
+                            <a href="/MAXI/histo_compra.html">Historial de compra</a>
+                        </li>
+
+                        <li>
+                            <span class="material-icons icons-size"><img src="/ERNESTO/IMG/1icon-cerrar-sesion.png"></span>
+                            <a href="/MARI/bienvenida.html">Salir</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <script>
+                function menuToggle() {
+                    const toggleMenu = document.querySelector('.menu');
+                    toggleMenu.classList.toggle('active')
+                }
+            </script>
         </nav>
 
         <div class="row borde2">
@@ -105,7 +103,7 @@
 
                 <button class="btn btn-primary d-block text-left" type="button">Agregar al Carrito</button>
 
-                <p class="textos"> Es un instrumento de viento, del grupo de instrumentos de viento de madera y metal,
+                <p class="textos">Es un instrumento de viento, del grupo de instrumentos de viento de madera y metal,
                     con lengüetas individuales por cada nota musical.</p>
             </div>
         </div>
