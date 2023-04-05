@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>formulario</title>
+    <title>Registro de nuevo usuario</title>
     <!--LINK DE BOOSTRAP-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -14,62 +14,55 @@
 </head>
 
 <body>
-    <section style="text-align: center;">
-        <div class="container">
-            <form class="row auto">
-                <div class="col-md-12" style="text-align: center;">
-                    <h1>Registro</h1>
-                </div>
-                <div class="col-md-5">
-                    <label for="">nombre</label>
-                    <input type="text" placeholder="escibe tus dos nombres">
-                </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-5">
-                    <label for="">apellido</label>
-                    <input type="text" placeholder="escribe tus apellido">
-                </div>
-                <div class="col-md-5">
-                    <label for="">rut/pasaporte</label>
-                    <input type="text" placeholder="escribe tu id">
-
-                </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-5">
-                    <label for="">direccion</label>
-                    <input type="text" placeholder="direccion">
-                </div>
-                <div class="col-md-5">
-                    <label for="">correo</label>
-                    <input type="text" placeholder="escriba su correp">
-                </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-5">
-                    <label for="">telefono</label>
-                    <input type="email" placeholder="escriba su n° de telefono">
-                </div>
-                <div class="col-md-5">
-                    <label for="">contraseña</label>
-                    <input type="password" placeholder="escriba su contraseña">
-                </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-5">
-                    <label for="">repetir contraseña</label>
-                    <input type="password" placeholder="repita su contraseña">
-                </div>
-
-                <div class="col-md-12">
-                    <br>
-                    <a href="">quieres volver a la pagina princial?</a>
-                </div>
-                <div class="col-md-12">
-                    <input type="submit" value="enviar">
-                </div>
-
-            </form>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm auto">
+                <section>
+                    <div class="form-box">
+                        <div class="form-value">
+                            <form action="" method="post" name="form1" enctype="multipart/form-data">
+                                <h2>Registro</h2>
+                                <div class="row">
+                                    <label for="">Nombre:</label>
+                                    <input type="text" class="form-control" name="nombre">
+                                </div>
+                                <div class="row">
+                                    <label for="">Apellido:</label>
+                                    <input type="text" class="form-control" name="Apellido">
+                                </div>
+                                <div class="row">
+                                    <label for="">Rut/Pasaporte:</label>
+                                    <input type="text" class="form-control" name="Rut">
+                                </div>
+                                <div class="row" >
+                                    <label for="">Contraseña:</label>
+                                    <input type="password" class="form-control" name="Contraseña">
+                                </div>
+                                <div class="row" >
+                                    <label for="">Repetir Contraseña:</label>
+                                    <input type="password" class="form-control" name="Contraseña">
+                                </div>
+                                <div class="row" >
+                                    <label for="">Dirección:</label>
+                                    <input type="text" class="form-control" name="Dirección">
+                                </div>
+                                <div class="row" >
+                                    <label for="">Teléfono:</label>
+                                    <input type="text" class="form-control" name="telefono">
+                                </div>
+                                <br>   
+                                <div class="row" >
+                                    <button><a href="/MARI/inicio_sesion.html">Iniciar Sesión</a> </button>
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </div>
-    </section>
 
+    </div>
     <!--JAVA SCRIPT DE BOOSTRAP-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

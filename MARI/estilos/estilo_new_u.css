@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -12,29 +13,51 @@ section{
     width: 100%;
     background-position: center;
     background-size: cover;
+}
+.form-box{
     position: relative;
     width: 650px;
-    height: 50px;
-    background: transparent;
-    border: 2px solid rgba(255,255,255,0.5);
+    height: 750px;
+    background: rgba(255, 235, 205, 0.384);
+    border: 2px solid rgba(255, 255, 255, 0.884);
     border-radius: 20px;
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(30px);
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
-
-body{
+h2{
+    font-size: 3.5em;
+    color: rgb(0, 0, 0);
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items:normal;
-    background: url(/fondos/fondo2.jpg);
-    width: 100%;
-    background-size: cover;
 }
-label{
-    color: bisque;
-    margin: 5px;
+
+a{
+    font-size: 25px;
+    color: #fff;
+}
+body{
+    background: url('/fondos/fondo8.jpg');
+}
+img{
+    width: 250px;
+    border-radius: 20px;
+}
+
+/*BOTONES*/
+
+button{
+    width: 75%;
+    height: 40px;
+    border-radius: 40px;
+    background: rgb(255, 255, 255);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+}
+a{
+    color: black;
+    text-decoration: none;
 }
