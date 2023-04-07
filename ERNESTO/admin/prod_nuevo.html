@@ -5,17 +5,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guitarra</title>
+    <title>Producto Nuevo</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link type="text/css" rel="stylesheet" href="../CSS/design.css">
+    <link type="text/css" rel="stylesheet" href="/ERNESTO/CSS/design.css">
 
     <style>
-        .titulos {
+        .borde2 {
             text-align: left;
-            margin-top: 20px;
-            margin-bottom: 30px;
+        }
+
+        .textos {
+            margin-left: 20px;
+        }
+
+        .form-control {
+            width: 90%;
+        }
+
+        .body {
+            background: rgb(255, 156, 63);
         }
     </style>
 </head>
@@ -23,15 +33,14 @@
 <body class="body">
     <div class="container">
         <nav class="navbar fixed-top navbar-expand-lg navbar-light">
-            <a class="navbar-brand"><img class="imagenav"
-                    src="/ERNESTO/IMG/logo.jpg"></a>
+            <a class="navbar-brand" href="CSS/secret/cielo.html"><img class="imagenav" src="/ERNESTO/IMG/logo.jpg"></a>
             <button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item dropdown">
+                    <li class="nav-item active dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Tienda
@@ -49,12 +58,13 @@
                             <div class="dropdown-divider"></div>
                         </div>
                     </li>
-                    
+
                 </ul>
                 <form class="form-inline my-2 my-lg-0 mx-auto">
                     <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
                     <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Buscar</button>
-                    <a style="margin-left: 20px;" href="/MAXI/carrito.html"><img class="imagenav" src="/ERNESTO/IMG/1carro.png"></a>
+                    <a style="margin-left: 20px;" href="/MAXI/carrito.html"><img class="imagenav"
+                            src="/ERNESTO/IMG/1carro.png"></a>
                 </form>
             </div>
             <div class="action">
@@ -81,7 +91,8 @@
                         </li>
 
                         <li>
-                            <span class="material-icons icons-size"><img src="/ERNESTO/IMG/1icon-cerrar-sesion.png"></span>
+                            <span class="material-icons icons-size"><img
+                                    src="/ERNESTO/IMG/1icon-cerrar-sesion.png"></span>
                             <a href="/MARI/bienvenida.html">Salir</a>
                         </li>
                     </ul>
@@ -95,20 +106,36 @@
             </script>
         </nav>
 
-        <div class="row borde2">
-            <div class="col-md-6"><img class="img2" src="../IMG/guitarra.png" alt="Guitarra"></div>
-            <div class="col-md-6 textos borde-line">
-                <h1 class="titulos">GUITARRA ACUSTICA</h1>
-                <p class="precio2">$ 34.990</p>
+        <div class="row">
+            <div class="col-md-12">
+                <form class="borde2">
+                    <div class="form-group">
+                        <br>
+                        <label for="prodname" class="textos">Nombre del producto: </label>
+                        <input id="prodname" class="textos form-control" type="text"><br>
 
-                <button class="btn btn-primary d-block text-left" type="button">Agregar al Carrito</button>
+                        <label for="prodprice" class="textos">Precio del producto: </label>
+                        <input id="prodprice" class="textos form-control" type="number"><br>
 
-                <p class="textos">La guitarra acústica es un tipo de guitarra en la que el sonido se produce por la
-                    vibración de las cuerdas y se propaga a intensidades audibles a través la resonancia de la caja
-                    armónica, sin necesidad de amplificación eléctrica.</p>
+                        <label for="proddesc" class="textos">Descripcion del producto: </label>
+                        <textarea id="proddesc" class="textos form-control" rows="5" cols="40"></textarea><br>
+
+                        <label for="prodstock" class="textos">Stock del producto: </label>
+                        <input id="prodstock" class="textos form-control" type="number"><br>
+
+                        <label for="prodfoto" class="textos">Foto del producto: </label>
+                        <input id="prodfoto" class="textos form-control" type="file"><br>
+
+                        <input class="btn btn-primary text-left" type="submit" value="Enviar"
+                            style="margin-left: 30px;">
+                        <input class="btn btn-primary text-left" type="reset" value="Borrar Datos">
+
+                    </div>
+                </form>
             </div>
         </div>
 
+        <br>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

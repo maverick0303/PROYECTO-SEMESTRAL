@@ -28,6 +28,10 @@
     background: url(/fondos/fondo5.jpg);
 }
 
+.button{
+    cursor: pointer;
+}
+
 .btn {
     transition: .3s;
     background-color: rgb(0, 0, 0);
