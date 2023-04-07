@@ -32,10 +32,7 @@ h2{
     text-align: center;
 }
 
-a{
-    font-size: 25px;
-    color: #fff;
-}
+
 body{
     background: url('/fondos/fondo1.jpg');
 }
@@ -58,6 +55,11 @@ button{
     font-weight: 600;
 }
 a{
+    font-size: 25px;
+    color: black;
+   
+}
+a:hover{ 
     color: black;
     text-decoration: none;
 }
