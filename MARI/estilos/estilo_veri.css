@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap');
+
+* {
+
+    font-family: 'poppins', sans-serif;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+.form-box {
+    position: relative;
+    width: 650px;
+    height: 650px;
+    background: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.884);
+    border-radius: 20px;
+    backdrop-filter: blur(30px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    margin: 15px;
+    font-size: 3.0rem;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+a {
+    font-size: 25px;
+    color: #fff;
+}
+
+body {
+
+    background: url('/fondos/fondo9.jpg');
+}
+
+img {
+    width: 250px;
+    border-radius: 20px;
+}
+p{
+    margin: 30px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+
+@media(max-width: 404px){
+    p{
+        font-size: 15px;
+    }
+}
+
+
+/*BOTONES*/
+
+button {
+    position: center;
+    width: 250px;
+    height: 40px;
+    border-radius: 40px;
+    background: rgb(255, 255, 255);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 5px;
+    font-weight: 600;
+}
+
+a {
+    color: rgb(0, 0, 0);
+}
+
+a:hover {
+    color: #000000;
+    text-decoration: none;
+}
+
+label {
+    color: #fff;
+    font-size: 1.3rem;
+}
+
