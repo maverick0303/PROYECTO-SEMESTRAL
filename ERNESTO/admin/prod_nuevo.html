@@ -25,7 +25,7 @@
         }
 
         .body {
-            background: rgb(255, 156, 63);
+            background: rgb(160, 149, 103);
         }
     </style>
 </head>
@@ -48,13 +48,13 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/ERNESTO/admin/tienda.html">Tienda</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/ERNESTO/prod_percusion.html">Instrumentos de percusion</a>
+                            <a class="dropdown-item" href="/ERNESTO/admin/prod_percusion.html">Instrumentos de percusion</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/ERNESTO/prod_cuerda.html">Instrumentos de cuerda</a>
+                            <a class="dropdown-item" href="/ERNESTO/admin/prod_cuerda.html">Instrumentos de cuerda</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/ERNESTO/prod_idiofono.html">Instrumentos de idiofonos</a>
+                            <a class="dropdown-item" href="/ERNESTO/admin/prod_idiofono.html">Instrumentos de idiofonos</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/ERNESTO/prod_viento.html">Instrumentos de viento</a>
+                            <a class="dropdown-item" href="/ERNESTO/admin/prod_viento.html">Instrumentos de viento</a>
                             <div class="dropdown-divider"></div>
                         </div>
                     </li>
@@ -116,6 +116,14 @@
 
                         <label for="prodprice" class="textos">Precio del producto: </label>
                         <input id="prodprice" class="textos form-control" type="text" value="$40.000"><br>
+
+                        <label for="prodtype" class="textos">Tipo de instrumento: </label>
+                        <select id="prodtype" class="textos form-control">
+                            <option value="1">Instrumento de percusion</option>
+                            <option value="2">Instrumento de cuerda</option>
+                            <option value="3">Instrumento de idiofonos</option>
+                            <option value="4">Instrumento de viento</option>
+                        </select><br>
 
                         <label for="proddesc" class="textos">Descripcion del producto: </label>
                         <textarea id="proddesc" class="textos form-control" rows="5" cols="40"> Básicamente es un tubo de madera, el cual se hace sonar al hacer vibrar los labios en el interior. </textarea><br>
