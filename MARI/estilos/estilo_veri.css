@@ -19,7 +19,7 @@ section {
 .form-box {
     position: relative;
     width: 650px;
-    height: 550px;
+    height: 650px;
     background: transparent;
     border: 2px solid rgba(0, 0, 0, 0.884);
     border-radius: 20px;
@@ -51,8 +51,8 @@ img {
     border-radius: 20px;
 }
 p{
-    margin-left: 0px;
-    text-align: justify;
+    margin: 30px;
+    text-align: center;
     color: #ffffff;
     font-size: 18px;
 }
