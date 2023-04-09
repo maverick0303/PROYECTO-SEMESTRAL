@@ -5,18 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instrumentos de cuerda</title>
+    <title>Producto Nuevo</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <link type="text/css" rel="stylesheet" href="/ERNESTO/CSS/design.css">
+
+    <style>
+        .borde2 {
+            text-align: left;
+        }
+
+        .textos {
+            margin-left: 20px;
+        }
+
+        .form-control {
+            width: 90%;
+        }
+
+        .body {
+            background: rgb(160, 149, 103);
+        }
+    </style>
 </head>
 
 <body class="body">
     <div class="container">
         <nav class="navbar fixed-top navbar-expand-lg navbar-light">
-            <a class="navbar-brand"><img class="imagenav"
-                    src="/ERNESTO/IMG/logo.jpg"></a>
+            <a class="navbar-brand" href="CSS/secret/cielo.html"><img class="imagenav" src="/ERNESTO/IMG/logo.jpg"></a>
             <button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -31,22 +48,25 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/ERNESTO/admin/tienda.html">Tienda</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/ERNESTO/admin/prod_percusion.html">Instrumentos de percusion</a>
+                            <a class="dropdown-item" href="/ERNESTO/admin/prod_percusion.html">Instrumentos de
+                                percusion</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/ERNESTO/admin/prod_cuerda.html">Instrumentos de cuerda</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/ERNESTO/admin/prod_idiofono.html">Instrumentos de idiofonos</a>
+                            <a class="dropdown-item" href="/ERNESTO/admin/prod_idiofono.html">Instrumentos de
+                                idiofonos</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/ERNESTO/admin/prod_viento.html">Instrumentos de viento</a>
                             <div class="dropdown-divider"></div>
                         </div>
                     </li>
-                    
+
                 </ul>
                 <form class="form-inline my-2 my-lg-0 mx-auto">
                     <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
                     <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Buscar</button>
-                    <a style="margin-left: 20px;" href="/MAXI/carrito.html"><img class="imagenav" src="/ERNESTO/IMG/1carro.png"></a>
+                    <a style="margin-left: 20px;" href="/MAXI/carrito.html"><img class="imagenav"
+                            src="/ERNESTO/IMG/1carro.png"></a>
                 </form>
             </div>
             <div class="action">
@@ -73,7 +93,8 @@
                         </li>
 
                         <li>
-                            <span class="material-icons icons-size"><img src="/ERNESTO/IMG/1icon-cerrar-sesion.png"></span>
+                            <span class="material-icons icons-size"><img
+                                    src="/ERNESTO/IMG/1icon-cerrar-sesion.png"></span>
                             <a href="/MARI/bienvenida.html">Salir</a>
                         </li>
                     </ul>
@@ -89,25 +110,37 @@
 
         <div class="row">
             <div class="col-md-12">
-                <h1 class="titulos">Instrumentos de cuerda</h1>
-                <a href="/ERNESTO/admin/pro_n_cuer.html"><button class="btn btn-primary text-left">Añadir producto</button></a>
+                <form class="borde2">
+                    <div class="form-group">
+                        <br>
+                        <label for="prodname" class="textos">Nombre del producto: </label>
+                        <input id="prodname" class="textos form-control" type="text" value="Violenchelo"><br>
+
+                        <label for="prodprice" class="textos">Precio del producto: </label>
+                        <input id="prodprice" class="textos form-control" type="text" value="$150.000"><br>
+
+                        <label for="proddesc" class="textos">Descripcion del producto: </label>
+                        <textarea id="proddesc" class="textos form-control" rows="5" cols="40">
+                            El violonchelo o violoncello es un instrumento musical de cuerda frotada,
+                            perteneciente a la familia del violín. En el seno de esta familia de instrumentos
+                            de orquesta, por su tamaño y su registro, el violonchelo ocupa un lugar situado
+                            entre las violas, los contrabajos y el octabajo. </textarea><br>
+
+                        <label for="prodstock" class="textos">Stock del producto: </label>
+                        <input id="prodstock" class="textos form-control" type="text" value="1500 unidades"><br>
+
+                        <label for="prodfoto" class="textos">Foto del producto: </label>
+                        <input id="prodfoto" class="textos form-control" type="file"><br>
+
+                        <input class="btn btn-primary text-left" type="submit" value="Enviar"
+                            style="margin-left: 30px;">
+                        <input class="btn btn-primary text-left" type="reset" value="Borrar Datos">
+
+                    </div>
+                </form>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-2"><a href="/ERNESTO/articulos/violin.html" class="textos borde card">
-                <img class="img" src="/ERNESTO/IMG/violin.png" alt="violin"><br>VIOLIN<p class="precio">$26.200</p></a></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/guitarra_electrica.html" class="textos borde card">
-                <img class="img" src="/ERNESTO/IMG/guitarra_electrica.png" alt="guitarra_electrica"><br>GUITARRA ELECTRICA<p class="precio">$53.990</p></a></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/guitarra.html" class="textos borde card">
-                <img class="img" src="/ERNESTO/IMG/guitarra.png" alt="guitarra"><br>GUITARRA<p class="precio">$34.990</p></a></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/arpa.html" class="textos borde card">
-                <img class="img" src="/ERNESTO/IMG/arpa.png" alt="arpa"><br>ARPA<p class="precio">$465.990</p></a></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/banjo.html" class="textos borde card">
-                <img class="img" src="/ERNESTO/IMG/banjo.png" alt="banjo"><br>BANJO<p class="precio">$290.990</p></a></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/piano.html" class="textos borde card">
-                <img class="img" src="/ERNESTO/IMG/piano.png" alt="piano"><br>PIANO<p class="precio">$4.690.990</p></a></div>
-        </div>
         <br>
     </div>
 
