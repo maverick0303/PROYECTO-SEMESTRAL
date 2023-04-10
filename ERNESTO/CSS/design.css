@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&family=Shrikhand&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
 
 .imagenav {
@@ -104,7 +106,7 @@ a:hover {
 
 .precio {
     text-align: center;
-    font-family: 'Shrikhand', cursive;
+    font-family: 'Rubik', sans-serif;
     font-size: 16px;
     font-weight: bold;
     color: rgb(0, 0, 0);
@@ -112,7 +114,7 @@ a:hover {
 
 .precio2 {
     text-align: left;
-    font-family: 'Shrikhand', cursive;
+    font-family: 'Rubik', sans-serif;
     font-size: 30px;
     margin-bottom: 30px;
     font-weight: bold;
