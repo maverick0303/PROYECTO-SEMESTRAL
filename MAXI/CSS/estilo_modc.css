@@ -148,9 +148,13 @@ a:hover {
     font-weight: bolder;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 868px) {
     .titulos {
-        font-size: 49px;
+        font-size: 39px;
+    }
+    .b2{
+        width: auto;
+        height: auto;
     }
   }
 
