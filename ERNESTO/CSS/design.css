@@ -121,6 +121,16 @@ a:hover {
     color: rgb(0, 0, 0);
 }
 
+.alertas {
+    text-align: left;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+    color: rgb(255, 0, 0);
+    margin-left: 30px;
+}
+
+
 .textos {
     text-align: center;
     font-family: 'Montserrat Alternates', sans-serif;

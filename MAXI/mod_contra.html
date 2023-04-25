@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
     <link type="text/css" rel="stylesheet" href="/MAXI/CSS/estilo_modc.css">
 
     <style>
@@ -96,41 +98,43 @@
         <div class="borde2">
             <div class="col-md-12">
                 <h1 class="titulos" style="text-align: center;">Cambiar contraseña:</h1>
-                <form action="">
+                <form id="form" action="">
                     <div class="row">
                         <div class="col-md-3"></div>
                         <div class="col-md-6">
-                            <label for="">Contraseña actual:</label>
-                            <input type="text" class="form-control">
+                            <label for="conactual">Contraseña actual:</label>
+                            <input id="conactual" type="password" class="form-control">
+                            <p class="alertas" id="conactualalert"></p>
                         </div>
                     </div>
                     <div class="col-md-3"></div>
                     <div class="row">
                         <div class="col-md-3"></div>
                         <div class="col-md-6">
-                            <label for="">Contraseña nueva:</label>
-                            <input type="text" class="form-control">
+                            <label for="connueva">Contraseña nueva:</label>
+                            <input id="connueva" type="password" class="form-control">
+                            <p class="alertas" id="connuevaalert"></p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-3"></div>
                         <div class="col-md-6">
-                            <label for="">Verificar contraseña:</label>
-                            <input type="text" class="form-control">
+                            <label for="converificar">Verificar contraseña:</label>
+                            <input id="converificar" type="password" class="form-control">
+                            <p class="alertas" id="converificaralert"></p>
                         </div>
                         <div class="col-md-3"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-3"></div>
                         <div class="col-md-6">
-                            <button class="b2"
-                                style="font-family: Montserrat Alternates, sans-serif; font-size: 30px; border-radius: 15px;">
-                                Guardar Contraseña
-                            </button>
+                            <input class="btn" type="submit" value="Guardar Contraseña"
+                            style="font-family: Montserrat Alternates, sans-serif; font-size: 30px; border-radius: 15px;">
                         </div>
                         <div class="col-md-3"></div>
                     </div>
                 </form>
+                <script src="/ERNESTO/JS/actualizar_contra.js"></script>
             </div>
         </div>
     </div>

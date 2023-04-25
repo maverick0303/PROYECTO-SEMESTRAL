@@ -28,6 +28,15 @@ input{
     font-family: 'Montserrat Alternates', sans-serif;
 }
 
+.alertas {
+    text-align: left;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+    color: rgb(255, 0, 0);
+    margin-left: 30px;
+}
+
 .body {
     margin-top: 80px;
     text-align: center;

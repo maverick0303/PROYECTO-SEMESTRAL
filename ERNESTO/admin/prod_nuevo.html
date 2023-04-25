@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
     <link type="text/css" rel="stylesheet" href="/ERNESTO/CSS/design.css">
 
     <style>
@@ -107,15 +109,18 @@
         </nav>
 
         <div class="row">
-            <div class="col-md-12">
-                <form class="borde2">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <form class="borde2" id="form">
                     <div class="form-group">
                         <br>
                         <label for="prodname" class="textos">Nombre del producto: </label>
-                        <input id="prodname" class="textos form-control" type="text" value="Didyeridú"><br>
+                        <input id="prodname" class="textos form-control" type="text">
+                        <p class="alertas" id="namealert"></p><br>
 
                         <label for="prodprice" class="textos">Precio del producto: </label>
-                        <input id="prodprice" class="textos form-control" type="text" value="$40.000"><br>
+                        <input id="prodprice" class="textos form-control" type="text">
+                        <p class="alertas" id="pricealert"></p><br>
 
                         <label for="prodtype" class="textos">Tipo de instrumento: </label>
                         <select id="prodtype" class="textos form-control">
@@ -126,21 +131,25 @@
                         </select><br>
 
                         <label for="proddesc" class="textos">Descripcion del producto: </label>
-                        <textarea id="proddesc" class="textos form-control" rows="5" cols="40"> Básicamente es un tubo de madera, el cual se hace sonar al hacer vibrar los labios en el interior. </textarea><br>
+                        <textarea id="proddesc" class="textos form-control" rows="5" cols="40"></textarea>
+                        <p class="alertas" id="descalert"></p><br>
 
                         <label for="prodstock" class="textos">Stock del producto: </label>
-                        <input id="prodstock" class="textos form-control" type="text" value="1000 unidades"><br>
+                        <input id="prodstock" class="textos form-control" type="text">
+                        <p class="alertas" id="stockalert"></p><br>
 
                         <label for="prodfoto" class="textos">Foto del producto: </label>
-                        <input id="prodfoto" class="textos form-control" type="file"><br>
+                        <input id="prodfoto" class="textos form-control" type="file" accept="image/png">
+                        <p class="alertas" id="fotoalert"></p><br>
 
-                        <input class="btn btn-primary text-left" type="submit" value="Enviar"
-                            style="margin-left: 30px;">
+                        <input class="btn btn-primary text-left" type="submit" value="Enviar" style="margin-left: 30px;">
                         <input class="btn btn-primary text-left" type="reset" value="Borrar Datos">
 
                     </div>
                 </form>
+                <script src="/ERNESTO/JS/nuevo_producto.js"></script>
             </div>
+            <div class="col-md-2"></div>
         </div>
 
         <br>
