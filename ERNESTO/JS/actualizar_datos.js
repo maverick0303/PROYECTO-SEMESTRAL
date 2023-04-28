@@ -65,7 +65,7 @@ $(document).ready(function(){
         if(correo==""){
         }
         else{
-            const emailv = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            const emailv = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
             if(!emailv.test(correo)){
                 msjMostrar += "Ingrese un correo valido";
