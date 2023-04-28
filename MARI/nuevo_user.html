@@ -11,6 +11,8 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!--LINK DEL CSS-->
     <link rel="stylesheet" href="/MARI/estilos/estilo_new_u.css">
+    <!--LINK DEL JQUARY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 
 <body>
@@ -20,78 +22,103 @@
                 <section>
                     <div class="form-box">
                         <div class="form-value">
-                            <form action="" method="post" name="form1" enctype="multipart/form-data">
+                            <form method="post" name="form1" enctype="multipart/form-data" id="form">
                                 <h2>Registro</h2>
                                 <div class="row">
-                                    <div class="col-xl-6">
-                                        <label for="">Nombre:</label>
-                                        <input type="text" class="form-control" name="nombre">
+                                    <div class="col-xl-4">
+                                        <label for="nombre">Nombre:</label>
+                                        <input type="text" class="form-control" name="nombre" id="nombre">
+                                        <p class="alertas" id="namealert"></p>
                                     </div>
-                                    <div class="col-xl-6">
+                                    <div class="col-xl-4">
                                         <label for="">Apellido:</label>
-                                        <input type="text" class="form-control" name="Apellido">
+                                        <input type="text" class="form-control" name="Apellido" id="apellido">
+                                        <p class="alertas" id="apellialert"></p>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-12">
-                                        <label for="">Rut/Pasaporte:</label>
-                                        <input type="text" class="form-control" name="Rut">
+                                    <div class="col-xl-4">
+                                        <label for="">Rut:</label>
+                                        <input type="text" class="form-control" name="Rut" id="rut">
+                                        <p class="alertas" id="emailalert"></p>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-12">
                                         <label for="">Correo electrónico:</label>
-                                        <input type="email" class="form-control" name="email">
+                                        <input type="email" class="form-control" name="email" id="correo">
+                                        <p class="alertas" id="emailalert"></p>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xl-6">
+                                    <div class="col-xl-4">
                                         <label for="">Contraseña:</label>
-                                        <input type="password" class="form-control" name="Contraseña">
+                                        <input type="password" class="form-control" name="Contraseña" id="clave">
+                                        <p class="alertas" id="clavealert"></p>
                                     </div>
-                                    <div class="col-xl-6">
+                                    <div class="col-xl-4">
                                         <label for="">Repetir Contraseña:</label>
-                                        <input type="password" class="form-control" name="Contraseña">
+                                        <input type="password" class="form-control" name="Contraseña" id="r_clave">
+                                        <p class="alertas" id="r_repetiralert"></p>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <label for="">Teléfono:</label>
+                                        <input type="text" class="form-control" name="telefono" id="telefono">
+                                        <p class="alertas" id="phonealert"></p>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xl-6">
+                                    <div class="col-xl-5">
                                         <label for="">Dirección:</label>
-                                        <input type="text" class="form-control" name="Dirección">
+                                        <input type="text" class="form-control" name="Dirección" id="direccion">
+                                        <p class="alertas" id="direccionalert"></p>
                                     </div>
-                                    <div class="col-xl-6">
-                                        <label for="">Teléfono:</label>
-                                        <input type="text" class="form-control" name="telefono">
+                                    <div class="col-xl-4">
+                                        <label for="region">Región:</label>
+                                        <select name="regiones" id="regiones" class="form-control" id="region">
+                                            <option value="1">Región Metropolitana</option>
+                                            <option value="2">Región de Atacama</option>
+                                            <option value="3">Región de Valparaíso</option>
+                                            <option value="4">Región de O'Higgins</option>
+                                            <p class="alertas" id="regionalert"></p>
+                                        </select>
                                     </div>
+                                    <div class="col-xl-3">
+                                        <label for="comuna">Comuna:</label>
+                                        <select name="comuna" id="comuna" class="form-control" id="comuna">
+                                            <option value=" "></option>
+                                        </select>
+                                        <p class="alertas" id="regionalert"></p>
+                                    </div>
+
 
                                 </div>
                                 <br>
                                 <div class="row">
-                                    <div class="col-xl-1"></div>
-                                    <div class="col-xl-10">
-                                        <p>¿Ya tiene una cuenta?<a style="color:#fff" href="/MARI/inicio_sesion.html"> Inicia sesión</a></p>
+                                    <div class="col-xl-3"></div>
+                                    <div class="col-xl-7">
+                                        <p>¿Ya tiene una cuenta?<a style="color:#fff" href="/MARI/inicio_sesion.html">
+                                                Inicia sesión</a></p>
                                     </div>
-                                    <div class="col-xl-1"></div>
+                                    <div class="col-xl-2"></div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xl-3"></div>
-                                    <div class="col-xl-6">
-                                        <button><a href="/ERNESTO/tienda.html">Registrarse</a> </button>
+                                    <div class="col-xl-4"></div>
+                                    <div class="col-xl-4">
+                                        <button type="submit"><a href="/ERNESTO/tienda.html">Registrarse</a> </button>
                                     </div>
-                                    <div class="col-xl-3"></div>
+                                    <div class="col-xl-4"></div>
                                 </div>
-
+                                
                             </form>
-
+                            <script src="/MARI/validaciones/v_new_user.js"></script>
                         </div>
 
                     </div>
                 </section>
             </div>
         </div>
-
+        
     </div>
-
+    
     <!--JAVA SCRIPT DE BOOSTRAP-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -102,6 +129,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+        
 </body>
 
 
