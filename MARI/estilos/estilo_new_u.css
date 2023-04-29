@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&family=Shrikhand&display=swap');
+
 
 * {
 
@@ -18,12 +20,12 @@ section {
 
 .form-box {
     position: relative;
-    width: 950px;
-    height: 580px;
+    width: 1100px;
+    height: 600px;
     background: rgba(88, 30, 30, 0.884);
     border: 2px solid rgba(88, 30, 30, 0.884);
     border-radius: 20px;
-    backdrop-filter: blur(30px);
+    backdrop-filter: blur(1px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,10 +57,11 @@ p {
     font-size: 20px;
 }
 
+
 @media (max-width: 1180px) {
     .form-box {
-        width: 950px;
-        height: 850px;
+        width: 1050px;
+        height: 1010px;
     }
 
     .form-control {
@@ -79,16 +82,16 @@ p {
 .alertas {
     text-align: left;
     font-family: 'Montserrat Alternates', sans-serif;
-    font-size: 17px;
+    font-size: 14px;
     font-weight: bold;
-    color: rgb(255, 255, 255);
-    margin-left: 30px;
+    color: rgb(0, 238, 255);
+    margin: 3px;
 }
 
 
 /*BOTONES*/
 
-button {
+.button {
     position: center;
     width: 250px;
     height: 40px;
@@ -97,7 +100,7 @@ button {
     border: none;
     outline: none;
     cursor: pointer;
-    font-size: 5px;
+    font-size: 25px;
     font-weight: 600;
 }
 

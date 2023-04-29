@@ -11,6 +11,9 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!--LINK DEL CSS-->
     <link rel="stylesheet" href="/MARI/estilos/estilo_veri.css">
+    <!--LINK DE JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -20,49 +23,51 @@
                 <section>
                     <div class="form-box">
                         <div class="form-value">
-                            <form action="" method="post" name="form1" enctype="multipart/form-data">
+                            <form action="" method="post" name="form1" enctype="multipart/form-data" id="verificar">
                                 <h2>Recuperar clave</h2>
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-10">
                                         <p>
-                                            escoja una de las opciones que aparecen en la sección para que, pueda 
-                                            ingresar a la tienda y desde allí pueda modificar su contraseña.
+                                            escoja una de las opciones que aparecen abajo para que, pueda 
+                                            ingresar a la tienda y desde allí pueda cambiar su contraseña.
                                         </p>
                                     </div>
                                        
                                     <div class="col-md-1"></div>
                                 </div><br>
                                 <div class="row">
-                                    <div class="col-md-3"></div>
-                                    <div class="col-md-6">
-                                        <select name="Preguntas de recordatorio" id="">
-                                            <option value="">Seleccione una de estas opciones</option>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-8">
+                                        <select name="Preguntas de recordatorio" id="preguntas" class="custom-select" required>
+                                            <option value="" selected>Seleccione una de estas opciones</option>
                                             <option value="1">¿Cuándo fue la ultima vez que viajó?</option>
                                             <option value="2">¿Cuándo es su cumpleaños</option>
                                             <option value="3">¿Nombre completo de su madre?</option>
+                                            <p class="alertas" id="pregalert"></p>
                                         </select>
                                     </div>
-                                    <div class="col-md-3"></div>
+                                    <div class="col-md-2"></div>
                                 </div><br><br>
                                 <div class="row">
                                     <div class="col-md-3"></div>
                                     <div class="col-md-6">
                                         <label for="">Escriba su respuesta:</label>
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" id="respuesta">
+                                        <p class="alertas" id="respalert"></p>
                                     </div>
                                     <div class="col-md-3"></div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <div class="col-md-3"></div>
-                                    <div class="col-md-5">
-                                        <button><a href="/ERNESTO/tienda.html">Guardar</a></button>
+                                    <div class="col-md-4">
+                                        <input class="button" type="submit" src="/ERNESTO/tienda.html">
                                     </div>
-                                    <div class="col-md-4"></div>
+                                    <div class="col-md-5"></div>
                                 </div>
                             </form>
-
+                            <script src="/MARI/JS/verificar.js"></script>
                         </div>
 
                     </div>

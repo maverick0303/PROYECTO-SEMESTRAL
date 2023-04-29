@@ -11,6 +11,9 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!--LINK DEL CSS-->
     <link rel="stylesheet" href="/MARI/estilos/estilo_res.css">
+    <!--LINK DE JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -20,7 +23,7 @@
                 <section>
                     <div class="form-box">
                         <div class="form-value">
-                            <form action="" method="post" name="form1" enctype="multipart/form-data">
+                            <form action="/MARI/verificar.html" method="post" name="form1" enctype="multipart/form-data" id="restablecer">
                                 <h2>Recuperar clave</h2>
                                 <div class="row">
                                     <p>Ingresa tu correo electrónico y te enviaremos las instrucciones para una nueva
@@ -29,8 +32,9 @@
                                 <div class="row">
                                     <div class="col-xl-2"></div>
                                     <div class="col-xl-8">
-                                        <label for="">Correo electronico:</label>
-                                        <input type="email" class="form-control" value="juanitopirulin@gmail.com">
+                                        <label for="email">Correo electronico:</label>
+                                        <input id="correo" type="text" class="form-control" placeholder="juanitopirulin@gmail.com" >
+                                        <p class="alertas" id="emailalert"></p>
                                         <br>
                                     </div>
                                     <div class="col-xl-2"></div>
@@ -38,12 +42,12 @@
                                 <div class="row">
                                     <div class="col-xl-3"></div>
                                     <div class="col-xl-6">
-                                        <button><a href="verificar.html">Continuar</a></button>
+                                        <input class="button" type="submit" src="/MARI/verificar.html">
                                     </div>
                                     <div class="col-xl-3"></div>
                                 </div>
                             </form>
-
+                            <script src="/MARI/JS/restablecer.js"></script>
                         </div>
 
                     </div>

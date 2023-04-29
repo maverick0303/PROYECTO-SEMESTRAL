@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&family=Shrikhand&display=swap');
+
 
 * {
 
@@ -52,7 +54,7 @@ img {
 }
 p{
     margin-left: 0px;
-    text-align: justify;
+    text-align: center;
     color: #ffffff;
     font-size: 18px;
 }
@@ -62,12 +64,29 @@ p{
     p{
         font-size: 15px;
     }
+    .alertas{
+        font-size: 1px;
+    }
+    label{
+        
+        font-size: 10px;
+    }
+}
+/*ESTO ES DE JAVA*/
+.alertas {
+    text-align: center;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(0, 238, 255);
+    margin: 2px;
+    
 }
 
 
 /*BOTONES*/
 
-button {
+.button {
     position: center;
     width: 250px;
     height: 40px;
@@ -76,7 +95,7 @@ button {
     border: none;
     outline: none;
     cursor: pointer;
-    font-size: 5px;
+    font-size: 25px;
     font-weight: 600;
 }
 

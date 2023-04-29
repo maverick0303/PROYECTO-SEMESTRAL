@@ -22,48 +22,49 @@
                 <section>
                     <div class="form-box">
                         <div class="form-value">
-                            <form method="post" name="form1" enctype="multipart/form-data" id="form">
+                            <form method="post" enctype="multipart/form-data" id="nuevo">
                                 <h2>Registro</h2>
                                 <div class="row">
-                                    <div class="col-xl-4">
+                                    <div class="col-xl-3">
                                         <label for="nombre">Nombre:</label>
                                         <input type="text" class="form-control" name="nombre" id="nombre">
                                         <p class="alertas" id="namealert"></p>
                                     </div>
-                                    <div class="col-xl-4">
+                                    <div class="col-xl-3">
                                         <label for="">Apellido:</label>
                                         <input type="text" class="form-control" name="Apellido" id="apellido">
                                         <p class="alertas" id="apellialert"></p>
                                     </div>
-                                    <div class="col-xl-4">
+                                    <div class="col-xl-3">
                                         <label for="">Rut:</label>
                                         <input type="text" class="form-control" name="Rut" id="rut">
-                                        <p class="alertas" id="emailalert"></p>
+                                        <p class="alertas" id="rutalert"></p>
+                                    </div>
+                                    <div class="col-xl-3">
+                                        <label for="">Teléfono:</label>
+                                        <input type="text" class="form-control" name="telefono" id="telefono">
+                                        <p class="alertas" id="phonealert"></p>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-12">
                                         <label for="">Correo electrónico:</label>
-                                        <input type="email" class="form-control" name="email" id="correo">
+                                        <input type="text" class="form-control" name="email" id="correo">
                                         <p class="alertas" id="emailalert"></p>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xl-4">
-                                        <label for="">Contraseña:</label>
-                                        <input type="password" class="form-control" name="Contraseña" id="clave">
-                                        <p class="alertas" id="clavealert"></p>
+                                    <div class="col-xl-6">
+                                        <label for="connueva">Contraseña:</label>
+                                        <input type="password" class="form-control" name="Contraseña" id="connueva">
+                                        <p class="alertas" id="connuevaalert"></p>
                                     </div>
-                                    <div class="col-xl-4">
+                                    <div class="col-xl-6">
                                         <label for="">Repetir Contraseña:</label>
-                                        <input type="password" class="form-control" name="Contraseña" id="r_clave">
-                                        <p class="alertas" id="r_repetiralert"></p>
+                                        <input type="password" class="form-control" name="Contraseña" id="converificar">
+                                        <p class="alertas" id="converificaralert"></p>
                                     </div>
-                                    <div class="col-xl-4">
-                                        <label for="">Teléfono:</label>
-                                        <input type="text" class="form-control" name="telefono" id="telefono">
-                                        <p class="alertas" id="phonealert"></p>
-                                    </div>
+
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-5">
@@ -72,23 +73,23 @@
                                         <p class="alertas" id="direccionalert"></p>
                                     </div>
                                     <div class="col-xl-4">
-                                        <label for="region">Región:</label>
-                                        <select name="regiones" id="regiones" class="form-control" id="region">
-                                            <option value="1">Región Metropolitana</option>
-                                            <option value="2">Región de Atacama</option>
-                                            <option value="3">Región de Valparaíso</option>
-                                            <option value="4">Región de O'Higgins</option>
-                                            <p class="alertas" id="regionalert"></p>
+                                        <label for="first-select">Regiones:</label>
+                                        <select id="first-select" onchange="updateSecondSelect()" class="form-control" required>
+                                            <option value="" selected disabled>seleccione una opcion</option>
+                                            <option value="option1">Region Metropolitana</option>
+                                            <option value="option2">Region de Atacama</option>
+                                            <option value="option3">Region de Valparaiso</option>
+                                            <option value="option4">Region de O'higgins</option>
                                         </select>
                                     </div>
                                     <div class="col-xl-3">
-                                        <label for="comuna">Comuna:</label>
-                                        <select name="comuna" id="comuna" class="form-control" id="comuna">
-                                            <option value=" "></option>
+                                        <label for="second-select">Comunas:</label>
+                                        <select id="second-select" class="form-control" required>
+                                            <option value="" selected disabled>seleccione una opcion</option>
+                                            <!-- options will be dynamically added here -->
                                         </select>
                                         <p class="alertas" id="regionalert"></p>
                                     </div>
-
 
                                 </div>
                                 <br>
@@ -103,22 +104,152 @@
                                 <div class="row">
                                     <div class="col-xl-4"></div>
                                     <div class="col-xl-4">
-                                        <button type="submit"><a href="/ERNESTO/tienda.html">Registrarse</a> </button>
+                                        <input class="button" type="submit" value="Registrarse">
                                     </div>
                                     <div class="col-xl-4"></div>
                                 </div>
-                                
+
                             </form>
-                            <script src="/MARI/validaciones/v_new_user.js"></script>
+                            <script src="/MARI/JS/n_user.js"></script>
+                            <script>
+                                function updateSecondSelect() {
+                                    const firstSelect = document.getElementById("first-select");
+                                    const secondSelect = document.getElementById("second-select");
+
+                                    // clear existing options
+                                    secondSelect.innerHTML = "";
+
+                                    // get selected option from first select
+                                    const selectedOption = firstSelect.value;
+
+                                    // add appropriate options to second select based on selected option
+                                    if (selectedOption === "option1") {
+                                        const option1 = document.createElement("option");
+                                        option1.value = "option1a";
+                                        option1.text = "";
+                                        secondSelect.appendChild(option1);
+
+                                        const option2 = document.createElement("option");
+                                        option2.value = "option1b";
+                                        option2.text = "Independencia";
+                                        secondSelect.appendChild(option2);
+
+                                        
+                                        const option3 = document.createElement("option");
+                                        option3.value = "option1d";
+                                        option3.text = "Conchali";
+                                        secondSelect.appendChild(option3);
+
+                                        
+                                        const option4 = document.createElement("option");
+                                        option4.value = "option1b";
+                                        option4.text = "Vivaceta";
+                                        secondSelect.appendChild(option4);
+
+                                        
+                                        const option5= document.createElement("option");
+                                        option5.value = "option1b";
+                                        option5.text = "Huechuraba";
+                                        secondSelect.appendChild(option5);
+
+                                    } else if (selectedOption === "option2") {
+                                        const option1 = document.createElement("option");
+                                        option1.value = "option2a";
+                                        option1.text = "";
+                                        secondSelect.appendChild(option1);
+
+                                        const option2 = document.createElement("option");
+                                        option2.value = "option2b";
+                                        option2.text = "Caldera";
+                                        secondSelect.appendChild(option2);
+
+                                        
+                                        const option3 = document.createElement("option");
+                                        option3.value = "option1b";
+                                        option3.text = "Tierra Amarilla";
+                                        secondSelect.appendChild(option3);
+
+                                        const option4 = document.createElement("option");
+                                        option4.value = "option1b";
+                                        option4.text = "Copiapó";
+                                        secondSelect.appendChild(option4);
+
+                                        const option5= document.createElement("option");
+                                        option5.value = "option1b";
+                                        option5.text = "Huasco";
+                                        secondSelect.appendChild(option5);
+                                        
+                                        
+                                    } else if (selectedOption === "option3") {
+                                        const option1 = document.createElement("option");
+                                        option1.value = "option1a";
+                                        option1.text = "";
+                                        secondSelect.appendChild(option1);
+
+                                        const option2 = document.createElement("option");
+                                        option2.value = "option1b";
+                                        option2.text = "Calle Larga";
+                                        secondSelect.appendChild(option2);
+
+                                        
+                                        const option3 = document.createElement("option");
+                                        option3.value = "option1d";
+                                        option3.text = "Los Andes";
+                                        secondSelect.appendChild(option3);
+
+                                        
+                                        const option4 = document.createElement("option");
+                                        option4.value = "option1b";
+                                        option4.text = "Santo Domingo";
+                                        secondSelect.appendChild(option4);
+
+                                        
+                                        const option5= document.createElement("option");
+                                        option5.value = "option1b";
+                                        option5.text = "Zapallar";
+                                        secondSelect.appendChild(option5);
+
+                                    } else if (selectedOption === "option4") {
+                                        const option1 = document.createElement("option");
+                                        option1.value = "option1a";
+                                        option1.text = "";
+                                        secondSelect.appendChild(option1);
+
+                                        const option2 = document.createElement("option");
+                                        option2.value = "option1b";
+                                        option2.text = "Codegua";
+                                        secondSelect.appendChild(option2);
+
+                                        
+                                        const option3 = document.createElement("option");
+                                        option3.value = "option1d";
+                                        option3.text = "Coinco";
+                                        secondSelect.appendChild(option3);
+
+                                        
+                                        const option4 = document.createElement("option");
+                                        option4.value = "option1b";
+                                        option4.text = "Rancagua";
+                                        secondSelect.appendChild(option4);
+
+                                        
+                                        const option5= document.createElement("option");
+                                        option5.value = "option1b";
+                                        option5.text = "San Vicente de Tagua Tagua";
+                                        secondSelect.appendChild(option5);
+                                    }
+                                    
+                                }
+                            </script>
                         </div>
 
                     </div>
                 </section>
             </div>
         </div>
-        
+
     </div>
-    
+
     <!--JAVA SCRIPT DE BOOSTRAP-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -129,7 +260,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-        
+
 </body>
 
 

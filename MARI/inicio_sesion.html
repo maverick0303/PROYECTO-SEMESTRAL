@@ -11,6 +11,8 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!--LINK DEL CSS-->
     <link rel="stylesheet" href="/MARI/estilos/estilo_sesion.css">
+    <!--LINK DE JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 
 <body>
@@ -20,45 +22,48 @@
                 <section>
                     <div class="form-box">
                         <div class="form-value">
-                            <form action="" method="post" name="form1" enctype="multipart/form-data">
+                            <form action="" method="post" name="form1" enctype="multipart/form-data" id="inicio">
                                 <h2>Inicio de sesión</h2>
                                 <div class="row">
                                     <div class="col-xl ">
                                         <label for="">Correo electrónico:</label>
-                                        <input type="email" class="form-control">
+                                        <input type="text" class="form-control" id="correo">
+                                        <p class="alertas" id="correoalert"></p>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xl ">
-                                        <label for="">Contraseña:</label>
-                                        <input type="password" class="form-control" name="Contraseña">
+                                        <label for="clave">Contraseña:</label>
+                                        <input id="clave" type="password" class="form-control">
+                                        <p class="alertas" id="conactualalert"></p>
                                     </div>
                                 </div>
                                 <br><br>
                                 <div class="row">
                                     <div class="col-xl-1"></div>
                                     <div class="col-xl-10">
-                                        <p>¿no tienes una cuenta?<a style="color:#fff" href="/MARI/nuevo_user.html"> Registrese</a></p>
+                                        <p>¿no tienes una cuenta?<a style="color:#fff" href="/MARI/nuevo_user.html">
+                                                Registrese</a></p>
                                     </div>
                                     <div class="col-xl-1"></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-1"></div>
                                     <div class="col-xl-10">
-                                        <p>¿olvidó su contraseña? <a style="color:#ffffff;" href="/MARI/restablecer.html"> toque aquí</a></p>
+                                        <p>¿olvidó su contraseña? <a style="color:#ffffff;"
+                                                href="/MARI/restablecer.html"> toque aquí</a></p>
                                     </div>
                                     <div class="col-xl-1"></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-3"></div>
                                     <div class="col-xl-6">
-                                        <button><a href="/ERNESTO/tienda.html">Iniciar Sesión</a> </button>
+                                        <input class="button" type="submit" src="/ERNESTO/tienda.html">
                                     </div>
                                     <div class="col-xl-3"></div>
-
-
+                                </div>
                             </form>
-
+                            <script src="/MARI/JS/inicio_sesion.js"></script>
                         </div>
 
                     </div>

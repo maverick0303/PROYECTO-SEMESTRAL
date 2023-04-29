@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&family=Shrikhand&display=swap');
 
 * {
 
@@ -18,8 +19,8 @@ section {
 
 .form-box {
     position: relative;
-    width: 650px;
-    height: 550px;
+    width: 850px;
+    height: 620px;
     background: transparent;
     border: 2px solid rgba(0, 0, 0, 0.884);
     border-radius: 20px;
@@ -60,21 +61,34 @@ p{
     p{
         font-size: 15px;
     }
+    h2{
+        font-size: 35px;
+    }
 }
-
+/*esto es lo de java*/
+.alertas {
+    text-align: center;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(0, 238, 255);
+    margin: 2px;
+    
+}
 
 /*BOTONES*/
 
-button {
+.button {
     position: center;
     width: 250px;
     height: 40px;
+    color: #fff;
     border-radius: 40px;
     background: rgb(0, 0, 0);
     border: none;
     outline: none;
     cursor: pointer;
-    font-size: 5px;
+    font-size: 25px;
     font-weight: 600;
 }
 
