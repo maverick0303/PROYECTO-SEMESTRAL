@@ -209,7 +209,7 @@ $(document).ready(function () {
         }
         else {
             $("#direccionalert").html("");
-            window.location.href = "http://127.0.0.1:5501/ERNESTO/tienda.html";
+            window.location.href = "http://127.0.0.1:5501/MARI/inicio_sesion.html";
         }
 
         
