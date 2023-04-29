@@ -202,6 +202,17 @@ $(document).ready(function () {
             msjMostrar += "No puede estar vacio";
             enviar = true;
         }
+        else{
+            if(direccion.trim().length < 5){
+                msjMostrar += "La direccion debe tener almenos 5 caracteres";
+                enviar = true;
+            }
+
+            if(!/^[a-zñA-ZÑ0-9\s\.\#]+$/.test(direccion)){
+                msjMostrar += "<br>La direccion no puede tener caracteres especiales excepto '.' '#' ' '";
+                enviar = true;
+            }
+        }
 
         if (enviar) {
             $("#direccionalert").html(msjMostrar);

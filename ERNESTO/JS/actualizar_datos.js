@@ -130,7 +130,7 @@ $(document).ready(function(){
             }
 
             if(!/^[a-zñA-ZÑ0-9\s\.\#]+$/.test(direccion)){
-                msjMostrar += "<br>El nombre no puede tener caracteres especiales o numeros";
+                msjMostrar += "<br>La direccion no puede tener caracteres especiales excepto '.' '#' ' '";
                 enviar = true;
             }
         }
