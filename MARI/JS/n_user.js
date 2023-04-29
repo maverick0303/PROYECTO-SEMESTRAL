@@ -39,7 +39,7 @@ $(document).ready(function () {
 
         }
         msjMostrar = "";
-        enviar = false;
+        
 
         //VALIDAR APELLIDO:
 
@@ -68,7 +68,7 @@ $(document).ready(function () {
 
         }
         msjMostrar = "";
-        enviar = false;
+        
 
         //VALIDAR RUT:
         if (rut == "") {
@@ -91,7 +91,7 @@ $(document).ready(function () {
 
         }
         msjMostrar = "";
-        enviar = false;
+        
 
         //VALIDAR TELEFONO:
 
@@ -114,7 +114,7 @@ $(document).ready(function () {
             $("#phonealert").html("");
         }
         msjMostrar = "";
-        enviar = false;
+        
 
         //VALIDAR CORREO:
 
@@ -137,7 +137,7 @@ $(document).ready(function () {
             $("#emailalert").html("");
         }
         msjMostrar = "";
-        enviar = false;
+        
 
         //VALIDAR CONTRASEÑA Y REPETIR CONTRASEÑA:
 
@@ -173,7 +173,7 @@ $(document).ready(function () {
             $("#connuevaalert").html("");
         }
         msjMostrar = "";
-        enviar = false;
+        
 
         //REPETIR CONTRASEÑA:
 
@@ -194,7 +194,7 @@ $(document).ready(function () {
             $("#converificaralert").html("");
         }
         msjMostrar = "";
-        enviar = false;
+        
 
         //VERIFICAR DIRECCION:
 
@@ -217,7 +217,7 @@ $(document).ready(function () {
         msjMostrar = "";
         
        
-        enviar = false;
+        
     });
     
 });

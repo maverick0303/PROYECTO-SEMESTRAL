@@ -34,7 +34,7 @@ $(document).ready(function(){
             $("#namealert").html("");
         }
         msjMostrar = "";
-        enviar = false;
+        
 
 
         //VALIDACIONES APELLIDO
@@ -58,7 +58,7 @@ $(document).ready(function(){
             $("#apellialert").html("");
         }
         msjMostrar = "";
-        enviar = false;
+        
 
 
         //VALIDACIONES CORREO
@@ -79,7 +79,7 @@ $(document).ready(function(){
             $("#emailalert").html("");
         }
         msjMostrar = "";
-        enviar = false;
+        
 
 
         //VALIDACIONES TELEFONO
@@ -100,7 +100,7 @@ $(document).ready(function(){
             $("#phonealert").html("");
         }
         msjMostrar = "";
-        enviar = false;
+        
 
 
         //VALIDACIONES RUT
@@ -110,7 +110,7 @@ $(document).ready(function(){
             const rutv = /^[0-9]{1,2}\.[0-9]{3}\.[0-9]{3}-[0-9kK]{1}$/;
 
             if(!rutv.test(rut)){
-                msjMostrar += "Ingrese un rut valido";
+                msjMostrar += "Ingrese un rut con puntos y guio";
                 enviar = true;
             }
         }
@@ -121,7 +121,7 @@ $(document).ready(function(){
             $("#rutalert").html("");
         }
         msjMostrar = "";
-        enviar = false;
+        
 
     });
 });

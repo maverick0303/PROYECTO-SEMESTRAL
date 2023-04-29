@@ -128,34 +128,31 @@
                             <p class="alertas" id="phonealert"></p>
                         </div>
                     </div>
-                    <!-- DIRECCION SE TIENE QUE CAMBIAR. NO MODIFICAR-->
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="">Region:</label>
-                            <input type="text" class="form-control" placeholder="Metropolitana">
+                            <label for="first-select">Region:</label>
+                                <select id="first-select" onchange="updateSecondSelect()" class="form-control" required>
+                                    <option value="" selected disabled>seleccione una opcion</option>
+                                    <option value="option1">Region Metropolitana</option>
+                                    <option value="option2">Region de Atacama</option>
+                                    <option value="option3">Region de Valparaiso</option>
+                                    <option value="option4">Region de O'higgins</option>
+                                </select>
                         </div>
                         <div class="col-md-6">
-                            <label for="">Comuna:</label>
-                            <input type="text" class="form-control" placeholder="Huechuraba">
+                            <label for="second-select">Comuna:</label>
+                                <select id="second-select" class="form-control" required>
+                                    <option value="" selected disabled>seleccione una region</option>
+                                    <!-- options will be dynamically added here -->
+                                </select>
+                                <p class="alertas" id="regionalert"></p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="">Calle:</label>
+                            <label for="">Direccion:</label>
                             <input type="text" class="form-control" placeholder="Av.Pedro Fontova 1234">
                         </div>
-                        <div class="col-md-6">
-                            <label for="">Codigo postal:</label>
-                            <input type="text" class="form-control" placeholder="8320000">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label for="">Descipcion de la direccion:</label>
-                            <input type="email" class="form-control" placeholder="N.Departamento 230">
-                        </div>
-                        <!-- DIRECCION SE TIENE QUE CAMBIAR. NO MODIFICAR-->
-
                         <div class="col-md-6">
                             <label for="rut">Rut/Pasaporte:</label>
                             <input id="rut" type="text" class="form-control" placeholder="23.554.978-0">
@@ -181,6 +178,117 @@
                     </div>
                 </form>
                 <script src="/ERNESTO/JS/actualizar_datos.js"></script>
+                <script src="/MARI/JS/n_user.js"></script>
+                <script>
+                    function updateSecondSelect() {
+                        const firstSelect = document.getElementById("first-select");
+                        const secondSelect = document.getElementById("second-select");
+
+                        // clear existing options
+                        secondSelect.innerHTML = "<option value='' selected disabled>seleccione una opcion</option>";
+
+                        // get selected option from first select
+                        const selectedOption = firstSelect.value;
+
+                        // add appropriate options to second select based on selected option
+                        if (selectedOption === "option1") {
+                            const option2 = document.createElement("option");
+                            option2.value = "option1b";
+                            option2.text = "Independencia";
+                            secondSelect.appendChild(option2);
+
+                            
+                            const option3 = document.createElement("option");
+                            option3.value = "option1d";
+                            option3.text = "Conchali";
+                            secondSelect.appendChild(option3);
+
+                            
+                            const option4 = document.createElement("option");
+                            option4.value = "option1b";
+                            option4.text = "Vivaceta";
+                            secondSelect.appendChild(option4);
+
+                            
+                            const option5= document.createElement("option");
+                            option5.value = "option1b";
+                            option5.text = "Huechuraba";
+                            secondSelect.appendChild(option5);
+
+                        } else if (selectedOption === "option2") {
+                            const option2 = document.createElement("option");
+                            option2.value = "option2b";
+                            option2.text = "Caldera";
+                            secondSelect.appendChild(option2);
+
+                            
+                            const option3 = document.createElement("option");
+                            option3.value = "option1b";
+                            option3.text = "Tierra Amarilla";
+                            secondSelect.appendChild(option3);
+
+                            const option4 = document.createElement("option");
+                            option4.value = "option1b";
+                            option4.text = "Copiapó";
+                            secondSelect.appendChild(option4);
+
+                            const option5= document.createElement("option");
+                            option5.value = "option1b";
+                            option5.text = "Huasco";
+                            secondSelect.appendChild(option5);
+                            
+                            
+                        } else if (selectedOption === "option3") {
+                            const option2 = document.createElement("option");
+                            option2.value = "option1b";
+                            option2.text = "Calle Larga";
+                            secondSelect.appendChild(option2);
+
+                            
+                            const option3 = document.createElement("option");
+                            option3.value = "option1d";
+                            option3.text = "Los Andes";
+                            secondSelect.appendChild(option3);
+
+                            
+                            const option4 = document.createElement("option");
+                            option4.value = "option1b";
+                            option4.text = "Santo Domingo";
+                            secondSelect.appendChild(option4);
+
+                            
+                            const option5= document.createElement("option");
+                            option5.value = "option1b";
+                            option5.text = "Zapallar";
+                            secondSelect.appendChild(option5);
+
+                        } else if (selectedOption === "option4") {
+                            const option2 = document.createElement("option");
+                            option2.value = "option1b";
+                            option2.text = "Codegua";
+                            secondSelect.appendChild(option2);
+
+                            
+                            const option3 = document.createElement("option");
+                            option3.value = "option1d";
+                            option3.text = "Coinco";
+                            secondSelect.appendChild(option3);
+
+                            
+                            const option4 = document.createElement("option");
+                            option4.value = "option1b";
+                            option4.text = "Rancagua";
+                            secondSelect.appendChild(option4);
+
+                            
+                            const option5= document.createElement("option");
+                            option5.value = "option1b";
+                            option5.text = "San Vicente de Tagua Tagua";
+                            secondSelect.appendChild(option5);
+                        }
+                        
+                    }
+                </script>
             </div>
         </div>
     </div>

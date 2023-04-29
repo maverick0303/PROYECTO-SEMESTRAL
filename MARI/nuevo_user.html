@@ -73,7 +73,7 @@
                                         <p class="alertas" id="direccionalert"></p>
                                     </div>
                                     <div class="col-xl-4">
-                                        <label for="first-select">Regiones:</label>
+                                        <label for="first-select">Region:</label>
                                         <select id="first-select" onchange="updateSecondSelect()" class="form-control" required>
                                             <option value="" selected disabled>seleccione una opcion</option>
                                             <option value="option1">Region Metropolitana</option>
@@ -83,9 +83,9 @@
                                         </select>
                                     </div>
                                     <div class="col-xl-3">
-                                        <label for="second-select">Comunas:</label>
+                                        <label for="second-select">Comuna:</label>
                                         <select id="second-select" class="form-control" required>
-                                            <option value="" selected disabled>seleccione una opcion</option>
+                                            <option value="" selected disabled>seleccione una region</option>
                                             <!-- options will be dynamically added here -->
                                         </select>
                                         <p class="alertas" id="regionalert"></p>
@@ -109,11 +109,6 @@
                                     <div class="col-xl-4"></div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xl-12">
-                                        <label for="" id="none"></label>
-                                    </div>
-                                </div>
-
                             </form>
                             <script src="/MARI/JS/n_user.js"></script>
                             <script>
@@ -122,18 +117,13 @@
                                     const secondSelect = document.getElementById("second-select");
 
                                     // clear existing options
-                                    secondSelect.innerHTML = "";
+                                    secondSelect.innerHTML = "<option value='' selected disabled>seleccione una opcion</option>";
 
                                     // get selected option from first select
                                     const selectedOption = firstSelect.value;
 
                                     // add appropriate options to second select based on selected option
                                     if (selectedOption === "option1") {
-                                        const option1 = document.createElement("option");
-                                        option1.value = "option1a";
-                                        option1.text = "";
-                                        secondSelect.appendChild(option1);
-
                                         const option2 = document.createElement("option");
                                         option2.value = "option1b";
                                         option2.text = "Independencia";
@@ -158,11 +148,6 @@
                                         secondSelect.appendChild(option5);
 
                                     } else if (selectedOption === "option2") {
-                                        const option1 = document.createElement("option");
-                                        option1.value = "option2a";
-                                        option1.text = "";
-                                        secondSelect.appendChild(option1);
-
                                         const option2 = document.createElement("option");
                                         option2.value = "option2b";
                                         option2.text = "Caldera";
@@ -186,11 +171,6 @@
                                         
                                         
                                     } else if (selectedOption === "option3") {
-                                        const option1 = document.createElement("option");
-                                        option1.value = "option1a";
-                                        option1.text = "";
-                                        secondSelect.appendChild(option1);
-
                                         const option2 = document.createElement("option");
                                         option2.value = "option1b";
                                         option2.text = "Calle Larga";
@@ -215,11 +195,6 @@
                                         secondSelect.appendChild(option5);
 
                                     } else if (selectedOption === "option4") {
-                                        const option1 = document.createElement("option");
-                                        option1.value = "option1a";
-                                        option1.text = "";
-                                        secondSelect.appendChild(option1);
-
                                         const option2 = document.createElement("option");
                                         option2.value = "option1b";
                                         option2.text = "Codegua";

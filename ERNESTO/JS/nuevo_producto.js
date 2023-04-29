@@ -38,7 +38,7 @@ $(document).ready(function(){
             $("#namealert").html("");
         }
         msjMostrar = "";
-        enviar = false;
+        
 
         
         //VALIDACIONES PRECIO
@@ -59,7 +59,7 @@ $(document).ready(function(){
             $("#pricealert").html("");
         }
         msjMostrar = "";
-        enviar = false;
+        
 
 
         //VALIDACIONES DESCRIPCION
@@ -74,7 +74,7 @@ $(document).ready(function(){
             $("#descalert").html("");
         }
         msjMostrar = "";
-        enviar = false;
+        
         
 
         //VALIDACIONES STOCK
@@ -95,7 +95,7 @@ $(document).ready(function(){
             $("#stockalert").html("");
         }
         msjMostrar = "";
-        enviar = false;
+        
 
         
         //VALIDACIONES IMAGEN
@@ -127,7 +127,7 @@ $(document).ready(function(){
                         $("#fotoalert").html("");
                     }
                     msjMostrar = "";
-                    enviar = false;
+                    
 
                 }
                 img.src = event.target.result;
@@ -144,7 +144,7 @@ $(document).ready(function(){
             $("#fotoalert").html("");
         }
         msjMostrar = "";
-        enviar = false;
+        
 
     });
 });

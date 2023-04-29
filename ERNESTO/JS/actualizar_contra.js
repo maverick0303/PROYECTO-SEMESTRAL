@@ -44,7 +44,7 @@ $(document).ready(function(){
             $("#conactualalert").html("");
         }
         msjMostrar = "";
-        enviar = false;
+        
 
 
         //VALIDACIONES CONTRASEÑA NUEVA
@@ -80,7 +80,7 @@ $(document).ready(function(){
             $("#connuevaalert").html("");
         }
         msjMostrar = "";
-        enviar = false;
+        
 
 
         //VALIDACIONES CONTRASEÑA VERIFICAR
@@ -101,6 +101,6 @@ $(document).ready(function(){
             $("#converificaralert").html("");
         }
         msjMostrar = "";
-        enviar = false;
+        
     });
 });
