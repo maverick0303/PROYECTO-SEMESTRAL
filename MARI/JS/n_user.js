@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     $("#nuevo").submit(function (e) {
         e.preventDefault();
-        //VALIDAR NOMBRE
+        
         var nombre = $("#nombre").val();
         var apellido = $("#apellido").val();
         var rut = $("#rut").val();
@@ -12,10 +12,9 @@ $(document).ready(function () {
         var contra_verificar = nuevo.converificar.value;
         var direccion = $("#direccion").val();
 
-
         let msjMostrar = "";
         let enviar = false;
-
+        //VALIDAR NOMBRE
         if (nombre == "") {
             msjMostrar += "No puede estar vacio";
             enviar = true;
@@ -37,8 +36,10 @@ $(document).ready(function () {
         else {
             $("#namealert").html("");
 
+
         }
         msjMostrar = "";
+        enviar = false;
 
         //VALIDAR APELLIDO:
 
@@ -67,6 +68,7 @@ $(document).ready(function () {
 
         }
         msjMostrar = "";
+        enviar = false;
 
         //VALIDAR RUT:
         if (rut == "") {
@@ -86,6 +88,7 @@ $(document).ready(function () {
         }
         else {
             $("#rutalert").html("");
+
         }
         msjMostrar = "";
         enviar = false;
@@ -195,19 +198,25 @@ $(document).ready(function () {
 
         //VERIFICAR DIRECCION:
 
-        if(direccion == ""){
+        if (direccion == "") {
             msjMostrar += "No puede estar vacio";
             enviar = true;
         }
 
-        if(enviar){
+        if (enviar) {
             $("#direccionalert").html(msjMostrar);
+
         }
-        else{
+        else {
             $("#direccionalert").html("");
-            window.location.href="http://127.0.0.1:5501/ERNESTO/tienda.html"
+            window.location.href = "http://127.0.0.1:5501/ERNESTO/tienda.html";
         }
+
+        
+        
         msjMostrar = "";
+        
+       
         enviar = false;
     });
     
