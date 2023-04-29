@@ -7,6 +7,8 @@ $(document).ready(function(){
         var apellido    = $("#apelli").val();
         var correo      = $("#email").val();
         var telefono    = $("#phone").val();
+        var comuna      = $("#second-select").val();
+        var direccion   = $("#direc").val();
         var rut         = $("#rut").val();
 
         let msjMostrar = "";
@@ -101,6 +103,45 @@ $(document).ready(function(){
         }
         msjMostrar = "";
         
+
+
+        //VALIDACIONES COMUNA
+        if(comuna=="o1"){
+            msjMostrar += "seleccione una comuna";
+            enviar = true;
+        }
+        if(enviar){
+            $("#comunaalert").html(msjMostrar);
+        }
+        else{
+            $("#comunaalert").html("");
+        }
+        msjMostrar = "";
+
+
+
+        //VALIDACIONES DIRECCION
+        if(direccion==""){
+        }
+        else{
+            if(direccion.trim().length < 5){
+                msjMostrar += "La direccion debe tener almenos 5 caracteres";
+                enviar = true;
+            }
+
+            if(!/^[a-zñA-ZÑ0-9\s\.\#]+$/.test(direccion)){
+                msjMostrar += "<br>El nombre no puede tener caracteres especiales o numeros";
+                enviar = true;
+            }
+        }
+        if(enviar){
+            $("#direcalert").html(msjMostrar);
+        }
+        else{
+            $("#direcalert").html("");
+        }
+        msjMostrar = "";
+
 
 
         //VALIDACIONES RUT

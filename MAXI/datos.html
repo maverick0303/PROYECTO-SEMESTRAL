@@ -131,8 +131,8 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label for="first-select">Region:</label>
-                                <select id="first-select" onchange="updateSecondSelect()" class="form-control" required>
-                                    <option value="" selected disabled>seleccione una opcion</option>
+                                <select id="first-select" onchange="updateSecondSelect()" class="form-control">
+                                    <option value="option0">seleccione una opcion</option>
                                     <option value="option1">Region Metropolitana</option>
                                     <option value="option2">Region de Atacama</option>
                                     <option value="option3">Region de Valparaiso</option>
@@ -141,17 +141,18 @@
                         </div>
                         <div class="col-md-6">
                             <label for="second-select">Comuna:</label>
-                                <select id="second-select" class="form-control" required>
-                                    <option value="" selected disabled>seleccione una region</option>
+                                <select id="second-select" class="form-control">
+                                    <option value="o0" >seleccione una region</option>
                                     <!-- options will be dynamically added here -->
                                 </select>
-                                <p class="alertas" id="regionalert"></p>
+                                <p class="alertas" id="comunaalert"></p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="">Direccion:</label>
-                            <input type="text" class="form-control" placeholder="Av.Pedro Fontova 1234">
+                            <label for="direc">Direccion:</label>
+                            <input id="direc" type="text" class="form-control" placeholder="Av.Pedro Fontova 1234">
+                            <p class="alertas" id="direcalert"></p>
                         </div>
                         <div class="col-md-6">
                             <label for="rut">Rut/Pasaporte:</label>
@@ -185,13 +186,16 @@
                         const secondSelect = document.getElementById("second-select");
 
                         // clear existing options
-                        secondSelect.innerHTML = "<option value='' selected disabled>seleccione una opcion</option>";
+                        secondSelect.innerHTML = "<option value='o1'>seleccione una opcion</option>";
 
                         // get selected option from first select
                         const selectedOption = firstSelect.value;
 
                         // add appropriate options to second select based on selected option
-                        if (selectedOption === "option1") {
+                        if (selectedOption === "option0") {
+                            secondSelect.innerHTML = "<option value='o0'>seleccione una region</option>";
+
+                        } else if (selectedOption === "option1") {
                             const option2 = document.createElement("option");
                             option2.value = "option1b";
                             option2.text = "Independencia";
