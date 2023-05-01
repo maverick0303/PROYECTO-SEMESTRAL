@@ -23,7 +23,7 @@ $(document).ready(function () {
         else {
       
             if (!/^[a-zñA-ZÑ\s]+$/.test(nombre)) {
-                msjMostrar += "<br> No puede tener caracteres especiales,ni numeros";
+                msjMostrar += "<br> No puede tener caracteres especiales, ni numeros";
                 enviar = true;
             }
         }
