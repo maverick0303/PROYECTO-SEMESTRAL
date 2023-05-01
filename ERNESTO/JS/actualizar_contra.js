@@ -72,6 +72,10 @@ $(document).ready(function(){
                 msjMostrar += "<br>Se necesita almenos 1 carácter especial";
                 enviar = true;
             }
+            if(contra_nueva == contra_actual){
+                msjMostrar += "la contraseña nueva no puede ser igual a la anterior.";
+                enviar = true;
+            }
         }
         if(enviar){
             $("#connuevaalert").html(msjMostrar);

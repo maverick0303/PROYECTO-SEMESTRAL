@@ -21,10 +21,7 @@ $(document).ready(function(){
             enviar = true;
         }
         else{
-            if(nombre.trim().length < 5){
-                msjMostrar += "El nombre debe tener almenos 5 caracteres";
-                enviar = true;
-            }
+        
     
             if(!/^[a-zñA-ZÑ\s]+$/.test(nombre)){
                 msjMostrar += "<br>El nombre no puede tener caracteres especiales o numeros";

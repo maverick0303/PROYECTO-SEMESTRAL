@@ -13,12 +13,7 @@ $(document).ready(function () {
             msjMostrar += "No puede quedar vacio ";
             enviar = true;
         }
-        else {
-            if (respuesta.trim().length < 5) {
-                msjMostrar += "La respuesta debe tener almenos 5 caracteres";
-                enviar = true;
-            }
-        }
+
         if (enviar) {
             
             $("#respalert").html(msjMostrar);

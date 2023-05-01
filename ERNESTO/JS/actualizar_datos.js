@@ -19,10 +19,7 @@ $(document).ready(function(){
         if(nombre==""){
         }
         else{
-            if(nombre.trim().length < 5){
-                msjMostrar += "El nombre debe tener almenos 5 caracteres";
-                enviar = true;
-            }
+            
     
             if(!/^[a-zñA-ZÑ\s]+$/.test(nombre)){
                 msjMostrar += "<br>El nombre no puede tener caracteres especiales o numeros";
@@ -43,10 +40,7 @@ $(document).ready(function(){
         if(apellido==""){
         }
         else{
-            if(apellido.trim().length < 5){
-                msjMostrar += "El apellido debe tener almenos 5 caracteres";
-                enviar = true;
-            }
+           
     
             if(!/^[a-zñA-ZÑ\s]+$/.test(apellido)){
                 msjMostrar += "<br>El apellido no puede tener caracteres especiales o numeros";

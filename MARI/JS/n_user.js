@@ -21,10 +21,7 @@ $(document).ready(function () {
 
         }
         else {
-            if (nombre.trim().length < 5) {
-                msjMostrar += "Debe de tener almenos 5 caracteres";
-                enviar = true;
-            }
+      
             if (!/^[a-zñA-ZÑ\s]+$/.test(nombre)) {
                 msjMostrar += "<br> No puede tener caracteres especiales,ni numeros";
                 enviar = true;
@@ -51,10 +48,7 @@ $(document).ready(function () {
 
         }
         else {
-            if (apellido.trim().length < 5) {
-                msjMostrar += "Debe de tener almenos 5 caracteres";
-                enviar = true;
-            }
+      
             if (!/^[a-zñA-ZÑ\s]+$/.test(apellido)) {
                 msjMostrar += "<br>No puede tener caracteres especiales, ni numeros";
                 enviar = true;
