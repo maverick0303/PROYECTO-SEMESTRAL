@@ -20,7 +20,7 @@ section {
 .form-box {
     position: relative;
     width: 850px;
-    height: 620px;
+    height: 640px;
     background: transparent;
     border: 2px solid rgba(0, 0, 0, 0.884);
     border-radius: 20px;
@@ -64,15 +64,24 @@ p{
     h2{
         font-size: 35px;
     }
+    .form-box {
+        width: 1000px;
+        height: 800px;
+    }
+
+    .form-control {
+        height: 28px;
+    }
 }
+
 /*esto es lo de java*/
 .alertas {
     text-align: center;
     font-family: 'Montserrat Alternates', sans-serif;
-    font-size: 20px;
+    font-size: 17px;
     font-weight: bold;
     color: rgb(0, 238, 255);
-    margin: 2px;
+    margin: 1px;
     
 }
 
