@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +9,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link type="text/css" rel="stylesheet" href="/ERNESTO/CSS/design.css">
+    <link type="text/css" rel="stylesheet" href="{% static 'tiendita/css/ernesto/design.css' %}">
+    <style>
+        .body{
+            background: url("{% static 'tiendita/img/fondos/fondo5.jpg' %}");
+        }
+    </style>
 </head>
 
 <body class="body">
@@ -92,23 +97,23 @@
         <div class="row">
             <div class="col-md-12">
                 <h1 class="titulos">Instrumentos de percusion</h1>
-                <a href="/ERNESTO/admin/prod_nuevo.html"><button class="btn btn-primary text-left">Añadir producto</button></a>
+                <a href="{% url 'a_prod_nuevo' %}"><button class="btn btn-primary text-left">Añadir producto</button></a>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-2"><a href="/ERNESTO/articulos/bombo.html" class="textos borde card">
-                <img class="img" src="/ERNESTO/IMG/bombo.png" alt="bombo"><br>BOMBO<p class="precio">$88.990</p></a></div>
+                <img class="img" src="{% static 'tiendita/img/articulos/bombo.png' %}" alt="bombo"><br>BOMBO<p class="precio">$88.990</p></a></div>
             <div class="col-md-2"><a href="/ERNESTO/articulos/timbal.html" class="textos borde card">
-                <img class="img" src="/ERNESTO/IMG/timbal.png" alt="timbal"><br>TIMBAL<p class="precio">$200.990</p></a></div>
+                <img class="img" src="{% static 'tiendita/img/articulos/timbal.png' %}" alt="timbal"><br>TIMBAL<p class="precio">$200.990</p></a></div>
             <div class="col-md-2"><a href="/ERNESTO/articulos/platillo.html" class="textos borde card">
-                <img class="img" src="/ERNESTO/IMG/platillo.png" alt="platillo"><br>PLATILLO<p class="precio">$10.990</p></a></div>
+                <img class="img" src="{% static 'tiendita/img/articulos/platillo.png' %}" alt="platillo"><br>PLATILLO<p class="precio">$10.990</p></a></div>
             <div class="col-md-2"><a href="/ERNESTO/articulos/maracas.html" class="textos borde card">
-                <img class="img" src="/ERNESTO/IMG/maracas.png" alt="maracas"><br>MARACAS<p class="precio">$3.180</p></a></div>
+                <img class="img" src="{% static 'tiendita/img/articulos/maracas.png' %}" alt="maracas"><br>MARACAS<p class="precio">$3.180</p></a></div>
             <div class="col-md-2"><a href="/ERNESTO/articulos/caja.html" class="textos borde card">
-                <img class="img" src="/ERNESTO/IMG/caja.png" alt="caja"><br>CAJA<p class="precio">$83.180</p></a></div>
+                <img class="img" src="{% static 'tiendita/img/articulos/caja.png' %}" alt="caja"><br>CAJA<p class="precio">$83.180</p></a></div>
             <div class="col-md-2"><a href="/ERNESTO/articulos/xilofono.html" class="textos borde card">
-                <img class="img" src="/ERNESTO/IMG/xilofono.png" alt="xilofono"><br>XILOFONO<p class="precio">$42.000</p></a></div>
+                <img class="img" src="{% static 'tiendita/img/articulos/xilofono.png' %}" alt="xilofono"><br>XILOFONO<p class="precio">$42.000</p></a></div>
         </div>
         <br>
     </div>

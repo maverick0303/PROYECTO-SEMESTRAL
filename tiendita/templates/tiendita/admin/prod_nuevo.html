@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +11,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-    <link type="text/css" rel="stylesheet" href="/ERNESTO/CSS/design.css">
+    <link type="text/css" rel="stylesheet" href="{% static 'tiendita/css/ernesto/design.css' %}">
 
     <style>
         .borde2 {
@@ -149,7 +149,7 @@
 
                     </div>
                 </form>
-                <script src="/ERNESTO/JS/nuevo_producto.js"></script>
+                <script src="{% static 'tiendita/js/ernesto/nuevo_producto.js' %}"></script>
             </div>
             <div class="col-md-2"></div>
         </div>

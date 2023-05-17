@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +9,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link type="text/css" rel="stylesheet" href="/ERNESTO/CSS/design.css">
+    <link type="text/css" rel="stylesheet" href="{% static 'tiendita/css/ernesto/design.css' %}">
+    <style>
+        .body{
+            background: url("{% static 'tiendita/img/fondos/fondo5.jpg' %}");
+        }
+    </style>
 </head>
 
 <body class="body">
@@ -97,17 +102,17 @@
 
         <div class="row">
             <div class="col-md-2"><a href="/ERNESTO/articulos/violin.html" class="textos borde card">
-                <img class="img" src="/ERNESTO/IMG/violin.png" alt="violin"><br>VIOLIN<p class="precio">$26.200</p></a></div>
+                <img class="img" src="{% static 'tiendita/img/articulos/violin.png' %}" alt="violin"><br>VIOLIN<p class="precio">$26.200</p></a></div>
             <div class="col-md-2"><a href="/ERNESTO/articulos/guitarra_electrica.html" class="textos borde card">
-                <img class="img" src="/ERNESTO/IMG/guitarra_electrica.png" alt="guitarra_electrica"><br>GUITARRA ELECTRICA<p class="precio">$53.990</p></a></div>
+                <img class="img" src="{% static 'tiendita/img/articulos/guitarra_electrica.png' %}" alt="guitarra_electrica"><br>GUITARRA ELECTRICA<p class="precio">$53.990</p></a></div>
             <div class="col-md-2"><a href="/ERNESTO/articulos/guitarra.html" class="textos borde card">
-                <img class="img" src="/ERNESTO/IMG/guitarra.png" alt="guitarra"><br>GUITARRA<p class="precio">$34.990</p></a></div>
+                <img class="img" src="{% static 'tiendita/img/articulos/guitarra.png' %}" alt="guitarra"><br>GUITARRA<p class="precio">$34.990</p></a></div>
             <div class="col-md-2"><a href="/ERNESTO/articulos/arpa.html" class="textos borde card">
-                <img class="img" src="/ERNESTO/IMG/arpa.png" alt="arpa"><br>ARPA<p class="precio">$465.990</p></a></div>
+                <img class="img" src="{% static 'tiendita/img/articulos/arpa.png' %}" alt="arpa"><br>ARPA<p class="precio">$465.990</p></a></div>
             <div class="col-md-2"><a href="/ERNESTO/articulos/banjo.html" class="textos borde card">
-                <img class="img" src="/ERNESTO/IMG/banjo.png" alt="banjo"><br>BANJO<p class="precio">$290.990</p></a></div>
+                <img class="img" src="{% static 'tiendita/img/articulos/banjo.png' %}" alt="banjo"><br>BANJO<p class="precio">$290.990</p></a></div>
             <div class="col-md-2"><a href="/ERNESTO/articulos/piano.html" class="textos borde card">
-                <img class="img" src="/ERNESTO/IMG/piano.png" alt="piano"><br>PIANO<p class="precio">$4.690.990</p></a></div>
+                <img class="img" src="{% static 'tiendita/img/articulos/piano.png' %}" alt="piano"><br>PIANO<p class="precio">$4.690.990</p></a></div>
         </div>
         <br>
     </div>
