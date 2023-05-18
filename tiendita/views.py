@@ -55,3 +55,36 @@ def bombo(request):
 
 
 
+#INICIO
+
+def bienvenida(request):
+    return render(request,'tiendita/inicio_sesion/bienvenida.html')
+
+def inicio_sesion(resquest):
+    return render(resquest, 'tiendita/inicio_sesion/inicio_sesion.html')
+
+def nuevo_user(resquest):
+    return render(resquest, 'tiendita/inicio_sesion/nuevo_user.html')
+
+def restablecer(resquest):
+    return render(resquest,'tiendita/inicio_sesion/restablecer.html')
+
+def verificar(resquest):
+    return render(resquest, 'tiendita/inicio_sesion/verificar.html')
+
+
+#USUARIO
+
+def actu_datos(resquest):
+    return render(resquest, 'tiendita/usuario/actu_datos.html')
+
+def carrito(resquest):
+    return render(resquest, 'tiendita/usuario/carrito.html')
+
+def histo_compra(resquest):
+    return render (resquest, 'tiendita/usuario/histo_compra.html')
+
+def mod_contra(resquest):
+    return render (resquest, 'tiendita/usuario/mod_contra.html')
+
+
