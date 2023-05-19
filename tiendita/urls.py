@@ -5,7 +5,7 @@ from .views import (tienda,bombo,a_bombo,a_prod_cuerda,a_prod_idiofono,a_prod_pe
                     bienvenida, inicio_sesion,nuevo_user,restablecer,verificar,actu_datos,carrito,histo_compra,mod_contra)
 urlpatterns = [
     #TIENDA
-    path('tienda',tienda,name="tienda"),
+    path('',tienda,name="tienda"),
     path('bombo/',bombo,name="bombo"),
     path('a_bombo/',a_bombo,name="a_bombo"),
     path('a_prod_cuerda/',a_prod_cuerda,name="a_prod_cuerda"),
@@ -24,10 +24,10 @@ urlpatterns = [
     path('inicio_sesion/',inicio_sesion,name="inicio_sesion"),
     path('nuevo_user/',nuevo_user, name="nuevo_user"),
     path('restablecer/',restablecer, name="restablecer"),
-    path('verificar',verificar, name="verificar"),
+    path('verificar/',verificar, name="verificar"),
     #USUARIO
-    path('actu_datos',actu_datos,name="actu_datos"),
-    path('carrito', carrito, name="carrito"),
-    path('histo_compra', histo_compra, name= "histo_compra"),
-    path('',mod_contra, name="mod_contra"),
+    path('actu_datos/',actu_datos,name="actu_datos"),
+    path('carrito/', carrito, name="carrito"),
+    path('histo_compra/', histo_compra, name= "histo_compra"),
+    path('mod_contra/',mod_contra, name="mod_contra"),
 ]
