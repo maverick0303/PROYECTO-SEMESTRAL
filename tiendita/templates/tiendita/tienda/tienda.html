@@ -6,16 +6,15 @@
     {% endblock titulo %}
 
     {% block head %}
-    <link type="text/css" rel="stylesheet" href="{% static 'tiendita/css/ernesto/design.css' %}">
-    <style>
-        .body{
-            background: url("{% static 'tiendita/img/fondos/fondo5.jpg' %}");
-        }
-    </style>
+        <link type="text/css" rel="stylesheet" href="{% static 'tiendita/css/ernesto/design.css' %}">
+        <style>
+            .body{
+                background: url("{% static 'tiendita/img/fondos/fondo5.jpg' %}");
+            }
+        </style>
     {% endblock head %}
     
     {% block body %}
-    
         <div class="row">
             <div class="col-md-12">
                 <h1 class="titulos">Tienda cosas musicales</h1>
@@ -99,5 +98,8 @@
             <div class="col-md-2"></div>
         </div>
         <br>
-    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
     {% endblock body %}
