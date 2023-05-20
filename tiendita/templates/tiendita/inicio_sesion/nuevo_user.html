@@ -102,7 +102,7 @@
                                 <div class="row">
                                     <div class="col-xl-3"></div>
                                     <div class="col-xl-7">
-                                        <p>¿Ya tiene una cuenta?<a style="color:#fff" href="{% url 'inicio_sesion' %}"   "/MARI/inicio_sesion.html">
+                                        <p>¿Ya tiene una cuenta?<a style="color:#fff" href="{% url 'inicio_sesion' %}">
                                                 Inicia sesión</a></p>
                                     </div>
                                     <div class="col-xl-2"></div>
@@ -116,7 +116,7 @@
                                 </div>
                                 <div class="row">
                             </form>
-                            <script src="/MARI/JS/n_user.js"></script>
+                            <script src="{% static 'tiendita/js/maria/n_user.js' %}"></script>
                             <script>
                                 function updateSecondSelect() {
                                     const firstSelect = document.getElementById("first-select");
