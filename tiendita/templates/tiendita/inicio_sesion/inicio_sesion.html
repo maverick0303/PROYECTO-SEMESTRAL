@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    {% load static %}
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,7 +27,8 @@
                 <section>
                     <div class="form-box">
                         <div class="form-value">
-                            <form action="" method="post" name="form1" enctype="multipart/form-data" id="inicio">
+                            <form action="{% url 'tienda' %}" method="post" name="form1" enctype="multipart/form-data" id="inicio">
+                                {% csrf_token %}
                                 <h2>Inicio de sesión</h2>
                                 <div class="row">
                                     <div class="col-xl ">

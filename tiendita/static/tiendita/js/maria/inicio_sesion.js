@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $("#inicio").submit(function (e) {
 
-        e.preventDefault();
+        
         
         var correo = $("#correo").val();
 
@@ -23,6 +23,7 @@ $(document).ready(function () {
         }
         if (enviar) {
             $("#correoalert").html(msjMostrar);
+            e.preventDefault();
         }
         else {
             $("#correoalert").html("");
@@ -63,10 +64,11 @@ $(document).ready(function () {
         }
         if (enviar) {
             $("#conactualalert").html(msjMostrar);
+            e.preventDefault();
         }
         else {
             $("#conactualalert").html("");
-            window.location.href="http://127.0.0.1:5501/ERNESTO/tienda.html"
+            
             
         }
         msjMostrar = "";
