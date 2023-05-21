@@ -29,7 +29,8 @@
                 <section>
                     <div class="form-box">
                         <div class="form-value">
-                            <form action="" method="post" name="form1" enctype="multipart/form-data" id="verificar">
+                            <form action="{% url 'tienda' %}" method="post" name="form1" enctype="multipart/form-data" id="verificar">
+                                {% csrf_token %}
                                 <h2>Recuperar clave</h2>
                                 <div class="row">
                                     <div class="col-md-1"></div>
@@ -68,7 +69,7 @@
                                 <div class="row">
                                     <div class="col-md-3"></div>
                                     <div class="col-md-4">
-                                        <input class="button" type="submit" src="/ERNESTO/tienda.html">
+                                        <input class="button" type="submit" >
                                     </div>
                                     <div class="col-md-5"></div>
                                 </div>

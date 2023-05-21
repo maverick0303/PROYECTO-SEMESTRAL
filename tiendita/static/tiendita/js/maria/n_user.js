@@ -1,7 +1,6 @@
 $(document).ready(function () {
 
     $("#nuevo").submit(function (e) {
-        e.preventDefault();
         
         var nombre = $("#nombre").val();
         var apellido = $("#apellido").val();
@@ -29,6 +28,7 @@ $(document).ready(function () {
         }
         if (enviar) {
             $("#namealert").html(msjMostrar);
+            e.preventDefault();
         }
         else {
             $("#namealert").html("");
@@ -56,9 +56,12 @@ $(document).ready(function () {
         }
         if (enviar) {
             $("#apellialert").html(msjMostrar);
+            e.preventDefault();
+            
         }
         else {
             $("#apellialert").html("");
+            
 
         }
         msjMostrar = "";
@@ -79,6 +82,7 @@ $(document).ready(function () {
         }
         if (enviar) {
             $("#rutalert").html(msjMostrar);
+            e.preventDefault();
         }
         else {
             $("#rutalert").html("");
@@ -103,6 +107,7 @@ $(document).ready(function () {
         }
         if (enviar) {
             $("#phonealert").html(msjMostrar);
+            e.preventDefault();
         }
         else {
             $("#phonealert").html("");
@@ -126,6 +131,7 @@ $(document).ready(function () {
         }
         if (enviar) {
             $("#emailalert").html(msjMostrar);
+            e.preventDefault();
         }
         else {
             $("#emailalert").html("");
@@ -162,6 +168,7 @@ $(document).ready(function () {
         }
         if (enviar) {
             $("#connuevaalert").html(msjMostrar);
+            e.preventDefault();
         }
         else {
             $("#connuevaalert").html("");
@@ -183,6 +190,7 @@ $(document).ready(function () {
         }
         if (enviar) {
             $("#converificaralert").html(msjMostrar);
+            e.preventDefault();
         }
         else {
             $("#converificaralert").html("");
@@ -210,11 +218,13 @@ $(document).ready(function () {
 
         if (enviar) {
             $("#direccionalert").html(msjMostrar);
+            e.preventDefault();
+
 
         }
         else {
             $("#direccionalert").html("");
-            window.location.href = "http://127.0.0.1:5501/MARI/inicio_sesion.html";
+            
         }
 
         

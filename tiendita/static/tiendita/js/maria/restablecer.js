@@ -1,9 +1,6 @@
 $(document).ready(function () {
     $("#restablecer").submit(function (e) {
 
-        e.preventDefault();
-
-
         var correo = $("#correo").val();
 
 
@@ -25,13 +22,16 @@ $(document).ready(function () {
         }
         if (enviar) {
             $("#emailalert").html(msjMostrar);
+            e.preventDefault();
         }
         else {
             $("#emailalert").html("");
-            window.location.href='http://127.0.0.1:5501/MARI/verificar.html'
+            
+
+
         }
         msjMostrar = "";
-        
+
 
 
     });

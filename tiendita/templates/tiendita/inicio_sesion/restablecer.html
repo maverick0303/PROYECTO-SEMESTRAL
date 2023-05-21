@@ -29,7 +29,8 @@
                 <section>
                     <div class="form-box">
                         <div class="form-value">
-                            <form action="/MARI/verificar.html" method="post" name="form1" enctype="multipart/form-data" id="restablecer">
+                            <form action="{% url 'verificar' %}" method="post" name="form1" enctype="multipart/form-data" id="restablecer">
+                                {% csrf_token %}
                                 <h2>Recuperar clave</h2>
                                 <div class="row">
                                     <p>Ingresa tu correo electrónico y te enviaremos las instrucciones para una nueva
@@ -48,7 +49,7 @@
                                 <div class="row">
                                     <div class="col-xl-3"></div>
                                     <div class="col-xl-6">
-                                        <input class="button" type="submit" src="/MARI/verificar.html">
+                                        <input class="button" type="submit" >
                                     </div>
                                     <div class="col-xl-3"></div>
                                 </div>

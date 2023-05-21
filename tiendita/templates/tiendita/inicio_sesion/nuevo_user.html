@@ -28,7 +28,8 @@
                 <section>
                     <div class="form-box">
                         <div class="form-value">
-                            <form method="post" enctype="multipart/form-data" id="nuevo">
+                            <form action="{% url 'inicio_sesion' %}" method="post" enctype="multipart/form-data" id="nuevo">
+                                {% csrf_token %}
                                 <h2>Registro</h2>
                                 <div class="row">
                                     <div class="col-xl-3">

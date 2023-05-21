@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $("#verificar").submit(function (e) {
-        e.preventDefault();
+        
         var respuesta = $("#respuesta").val();
 
         let msjMostrar = "";
@@ -17,10 +17,11 @@ $(document).ready(function () {
         if (enviar) {
             
             $("#respalert").html(msjMostrar);
+            e.preventDefault();
         }
         else {
             $("#respalert").html("");
-            window.location.href="http://127.0.0.1:5501/ERNESTO/tienda.html"
+           
         }
         msjMostrar = "";
         
