@@ -2,7 +2,7 @@ const form = document.getElementById("form");
 $(document).ready(function(){
     $("#form").submit(function(e){
 
-        e.preventDefault();
+        
 
         var contra_actual        = form.conactual.value;
         var contra_nueva         = form.connueva.value;
@@ -39,6 +39,7 @@ $(document).ready(function(){
         }
         if(enviar){
             $("#conactualalert").html(msjMostrar);
+            e.preventDefault();
         }
         else{
             $("#conactualalert").html("");
@@ -79,6 +80,7 @@ $(document).ready(function(){
         }
         if(enviar){
             $("#connuevaalert").html(msjMostrar);
+            e.preventDefault();
         }
         else{
             $("#connuevaalert").html("");
@@ -100,6 +102,7 @@ $(document).ready(function(){
         }
         if(enviar){
             $("#converificaralert").html(msjMostrar);
+            e.preventDefault();
         }
         else{
             $("#converificaralert").html("");

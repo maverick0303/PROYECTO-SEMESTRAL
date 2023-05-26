@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $("#form").submit(function(e){
 
-        e.preventDefault();
+        
 
 
         var nombre         = $("#prodname").val(); 
@@ -30,6 +30,7 @@ $(document).ready(function(){
         }
         if(enviar){
             $("#namealert").html(msjMostrar);
+            e.preventDefault();
         }
         else{
             $("#namealert").html("");
@@ -51,6 +52,7 @@ $(document).ready(function(){
         }
         if(enviar){
             $("#pricealert").html(msjMostrar);
+            e.preventDefault();
         }
         else{
             $("#pricealert").html("");
@@ -66,6 +68,7 @@ $(document).ready(function(){
         }
         if(enviar){
             $("#descalert").html(msjMostrar);
+            e.preventDefault();
         }
         else{
             $("#descalert").html("");
@@ -87,6 +90,7 @@ $(document).ready(function(){
         }
         if(enviar){
             $("#stockalert").html(msjMostrar);
+            e.preventDefault();
         }
         else{
             $("#stockalert").html("");
@@ -119,6 +123,7 @@ $(document).ready(function(){
 
                     if(enviar){
                         $("#fotoalert").html(msjMostrar);
+                        e.preventDefault();
                     }
                     else{
                         $("#fotoalert").html("");
@@ -136,6 +141,7 @@ $(document).ready(function(){
 
         if(enviar){
             $("#fotoalert").html(msjMostrar);
+            e.preventDefault();
         }
         else{
             $("#fotoalert").html("");
