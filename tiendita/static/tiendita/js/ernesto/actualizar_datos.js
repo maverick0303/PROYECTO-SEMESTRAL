@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $("#form").submit(function(e){
 
-        e.preventDefault();
+        
 
         var nombre      = $("#name").val(); 
         var apellido    = $("#apelli").val();
@@ -28,6 +28,7 @@ $(document).ready(function(){
         }
         if(enviar){
             $("#namealert").html(msjMostrar);
+            e.preventDefault();
         }
         else{
             $("#namealert").html("");
@@ -49,6 +50,7 @@ $(document).ready(function(){
         }
         if(enviar){
             $("#apellialert").html(msjMostrar);
+            e.preventDefault();
         }
         else{
             $("#apellialert").html("");
@@ -70,6 +72,7 @@ $(document).ready(function(){
         }
         if(enviar){
             $("#emailalert").html(msjMostrar);
+            e.preventDefault();
         }
         else{
             $("#emailalert").html("");
@@ -91,6 +94,7 @@ $(document).ready(function(){
         }
         if(enviar){
             $("#phonealert").html(msjMostrar);
+            e.preventDefault();
         }
         else{
             $("#phonealert").html("");
@@ -106,6 +110,7 @@ $(document).ready(function(){
         }
         if(enviar){
             $("#comunaalert").html(msjMostrar);
+            e.preventDefault();
         }
         else{
             $("#comunaalert").html("");
@@ -130,6 +135,7 @@ $(document).ready(function(){
         }
         if(enviar){
             $("#direcalert").html(msjMostrar);
+            e.preventDefault();
         }
         else{
             $("#direcalert").html("");
@@ -151,6 +157,7 @@ $(document).ready(function(){
         }
         if(enviar){
             $("#rutalert").html(msjMostrar);
+            e.preventDefault();
         }
         else{
             $("#rutalert").html("");

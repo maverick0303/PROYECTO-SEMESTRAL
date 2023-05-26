@@ -5,6 +5,9 @@ class Rol(models.Model):
     id_rol = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=10)
 
+    def __str__(self) -> str:
+        return self.nombre
+
 class Pregunta(models.Model):
     id_pregunta = models.AutoField(primary_key=True)
     respuesta = models.CharField(max_length=30)
@@ -23,10 +26,16 @@ class Region(models.Model):
     id_region = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=20)
 
+    def __str__(self) -> str:
+        return self.nombre
+
 class Comuna(models.Model):
     id_comuna = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=20)
     region = models.ForeignKey(Region,on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return self.nombre
 
 class Direccion(models.Model):
     id_direccion = models.AutoField(primary_key=True)
@@ -47,14 +56,20 @@ class Categoria(models.Model):
     id_categoria = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=10)
 
+    def __str__(self) -> str:
+        return self.nombre
+
 class Producto(models.Model):
     cod_producto = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=30)
     precio = models.IntegerField()
-    descripcion = models.CharField(max_length=60)
+    descripcion = models.CharField(max_length=200)
     stock = models.IntegerField()  
     foto = models.ImageField(upload_to="tiendita")
     categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return self.nombre
 
 class Boleta(models.Model):
     id_boleta = models.AutoField(primary_key=True)
