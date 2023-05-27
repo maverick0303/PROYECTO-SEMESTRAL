@@ -1,8 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import (tienda,bombo,a_bombo,a_prod_cuerda,a_prod_idiofono,a_prod_percusion,
-                    a_prod_viento,a_prod_nuevo,a_tienda,prod_cuerda,prod_idiofono,prod_percusion,prod_viento,feriados,
-                    bienvenida, inicio_sesion,nuevo_user,restablecer,verificar,actu_datos,carrito,histo_compra,mod_contra)
+from .views import *
 urlpatterns = [
     #TIENDA
     path('',tienda,name="tienda"),
@@ -13,6 +11,7 @@ urlpatterns = [
     path('a_prod_percusion/',a_prod_percusion,name="a_prod_percusion"),
     path('a_prod_viento/',a_prod_viento,name="a_prod_viento"),
     path('a_prod_nuevo/',a_prod_nuevo,name="a_prod_nuevo"),
+    path('a_prod_agregar/',a_prod_agregar,name="a_prod_agregar"),
     path('a_tienda/',a_tienda,name="a_tienda"),
     path('prod_cuerda/',prod_cuerda,name="prod_cuerda"),
     path('prod_idiofono/',prod_idiofono,name="prod_idiofono"),

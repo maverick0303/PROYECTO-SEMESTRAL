@@ -63,7 +63,7 @@ class Producto(models.Model):
     cod_producto = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=30)
     precio = models.IntegerField()
-    descripcion = models.CharField(max_length=200)
+    descripcion = models.CharField(max_length=400)
     stock = models.IntegerField()  
     foto = models.ImageField(upload_to="tiendita")
     categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE)

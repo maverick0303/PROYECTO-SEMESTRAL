@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'tiendita/plantilla/navbar.html' %}
 {% load static %}
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Producto Nuevo</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+    {% block titulo %}
+    <title>Producto Nuevo</title>
+    {% endblock titulo %}
+    
+    {% block head %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
     <link type="text/css" rel="stylesheet" href="{% static 'tiendita/css/ernesto/design.css' %}">
@@ -30,119 +27,42 @@
             background: rgb(160, 149, 103);
         }
     </style>
-</head>
-
-<body class="body">
-    <div class="container">
-        <nav class="navbar fixed-top navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="CSS/secret/cielo.html"><img class="imagenav" src="/ERNESTO/IMG/logo.jpg"></a>
-            <button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Tienda
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/ERNESTO/admin/tienda.html">Tienda</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/ERNESTO/admin/prod_percusion.html">Instrumentos de percusion</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/ERNESTO/admin/prod_cuerda.html">Instrumentos de cuerda</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/ERNESTO/admin/prod_idiofono.html">Instrumentos de idiofonos</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/ERNESTO/admin/prod_viento.html">Instrumentos de viento</a>
-                            <div class="dropdown-divider"></div>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/ERNESTO/feriados.html">Feriados</a>
-                    </li>
-                </ul>
-                <form class="form-inline my-2 my-lg-0 mx-auto">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Buscar</button>
-                    <a style="margin-left: 20px;" href="/MAXI/carrito.html"><img class="imagenav"
-                            src="/ERNESTO/IMG/1carro.png"></a>
-                </form>
-            </div>
-            <div class="action">
-                <div class="profile" onclick="menuToggle();">
-                    <img src="https://media.tenor.com/SDwGg31pp4AAAAAC/maxwell-the-cat-maxwell.gif" alt="">
-                </div>
-
-                <div class="menu">
-                    <h3>
-                        Cuenta de usuario
-                        <div>
-                            Equipo desarollador
-                        </div>
-                    </h3>
-                    <ul>
-                        <li>
-                            <span class="material-icons icons-size"><img src="/ERNESTO/IMG/1icon-usuario.png"></span>
-                            <a href="/MAXI/datos.html">Mi perfil</a>
-                        </li>
-
-                        <li>
-                            <span class="material-icons icons-size"><img src="/ERNESTO/IMG/1icon-lista.png"></span>
-                            <a href="/MAXI/histo_compra.html">Historial de compra</a>
-                        </li>
-
-                        <li>
-                            <span class="material-icons icons-size"><img
-                                    src="/ERNESTO/IMG/1icon-cerrar-sesion.png"></span>
-                            <a href="/MARI/bienvenida.html">Salir</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <script>
-                function menuToggle() {
-                    const toggleMenu = document.querySelector('.menu');
-                    toggleMenu.classList.toggle('active')
-                }
-            </script>
-        </nav>
-
+    {% endblock head %}
+    
+    {% block body %}
+    
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-8">
-                <form class="borde2" id="form">
+                <form action="{% url 'a_prod_agregar' %}" class="borde2" method="POST" enctype="multipart/form-data" id="form">
                     {% csrf_token %}
                     <div class="form-group">
                         <br>
                         <label for="prodname" class="textos">Nombre del producto: </label>
-                        <input id="prodname" class="textos form-control" type="text">
+                        <input id="prodname" class="textos form-control" type="text" name="nombre">
                         <p class="alertas" id="namealert"></p><br>
 
                         <label for="prodprice" class="textos">Precio del producto: </label>
-                        <input id="prodprice" class="textos form-control" type="text">
+                        <input id="prodprice" class="textos form-control" type="text" name="precio">
                         <p class="alertas" id="pricealert"></p><br>
 
-                        <label for="prodtype" class="textos">Tipo de instrumento: </label>
-                        <select id="prodtype" class="textos form-control">
-                            <option value="1">Instrumento de percusion</option>
-                            <option value="2">Instrumento de cuerda</option>
-                            <option value="3">Instrumento de idiofonos</option>
-                            <option value="4">Instrumento de viento</option>
+                        <label for="prodtype" class="textos">Categoria de instrumento: </label>
+                        <select id="prodtype" class="textos form-control" name="categoria">
+                            {% for i in categoria %}
+                            <option value="{{i.id_categoria}}">Instrumento de {{i.nombre}}</option>
+                            {% endfor %}
                         </select><br>
 
                         <label for="proddesc" class="textos">Descripcion del producto: </label>
-                        <textarea id="proddesc" class="textos form-control" rows="5" cols="40"></textarea>
+                        <textarea id="proddesc" class="textos form-control" rows="5" cols="40" name="descripcion"></textarea>
                         <p class="alertas" id="descalert"></p><br>
 
                         <label for="prodstock" class="textos">Stock del producto: </label>
-                        <input id="prodstock" class="textos form-control" type="text">
+                        <input id="prodstock" class="textos form-control" type="text" name="stock">
                         <p class="alertas" id="stockalert"></p><br>
 
                         <label for="prodfoto" class="textos">Foto del producto: </label>
-                        <input id="prodfoto" class="textos form-control" type="file" accept="image/png">
+                        <input id="prodfoto" class="textos form-control" type="file" accept="image/png" name="foto">
                         <p class="alertas" id="fotoalert"></p><br>
 
                         <input class="btn btn-primary text-left" type="submit" value="Enviar" style="margin-left: 30px;">
@@ -156,17 +76,9 @@
         </div>
 
         <br>
-    </div>
+    
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-</body>
-
-</html>
+        {% endblock body %}

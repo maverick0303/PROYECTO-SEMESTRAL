@@ -1,6 +1,7 @@
 {% extends 'tiendita/plantilla/navbar.html' %}
 {% load static %}
 
+
     {% block titulo %}
     <title>Tienda</title>
     {% endblock titulo %}
@@ -20,6 +21,33 @@
                 <h1 class="titulos">Tienda cosas musicales</h1>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            {% for i in productos %}
+                {% if forloop.counter|divisibleby:5 and not forloop.first %}
+                        <div class="col-md-2"></div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                {% endif %}
+                <div class="col-md-2">
+                    <a href="{% url 'bombo' %}" class="textos borde card">
+                        <img class="img" src="{{ i.foto.url }}" alt="No disponible"><br>
+                        {{ i.nombre }}
+                        <p class="precio">${{ i.precio }}</p>
+                    </a>
+                </div>
+            {% endfor %}
+            <div class="col-md-2"></div>
+            
+        </div>
+
+
+
+
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-2"><a href="{% url 'bombo' %}" class="textos borde card">

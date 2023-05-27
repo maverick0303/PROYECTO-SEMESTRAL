@@ -1,5 +1,5 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
+from .models import *
 # Create your views here.
 
 #ADMIN
@@ -19,7 +19,25 @@ def a_prod_viento(request):
     return render(request,'tiendita/admin/prod_viento.html')
 
 def a_prod_nuevo(request):
-    return render(request,'tiendita/admin/prod_nuevo.html')
+    categoria = Categoria.objects.all()
+    contexto = {
+        "categoria": categoria
+    }
+    return render(request,'tiendita/admin/prod_nuevo.html',contexto)
+
+def a_prod_agregar(request):
+    nombreP = request.POST['nombre']
+    precioP = request.POST['precio']
+    categoriaP = request.POST['categoria']
+    descripcionP = request.POST['descripcion']
+    stockP = request.POST['stock']
+    fotoP = request.FILES['foto']
+
+    keycategoria = Categoria.objects.get(id_categoria = categoriaP)
+
+    Producto.objects.create(nombre = nombreP, precio = precioP, descripcion = descripcionP, stock = stockP, foto = fotoP, categoria = keycategoria)
+
+    return redirect('a_prod_nuevo')
 
 def a_tienda(request):
     return render(request,'tiendita/admin/tienda.html')
@@ -42,9 +60,9 @@ def feriados(request):
     return render(request,'tiendita/tienda/feriados.html')
 
 def tienda(request):
-    nombre="Leo"
+    productos = Producto.objects.all()
     contexto = {
-        "nomb":nombre
+        "productos":productos
     }
     return render(request,'tiendita/tienda/tienda.html',contexto)
 
