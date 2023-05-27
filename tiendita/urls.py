@@ -24,6 +24,7 @@ urlpatterns = [
     path('nuevo_user/',nuevo_user, name="nuevo_user"),
     path('restablecer/',restablecer, name="restablecer"),
     path('verificar/',verificar, name="verificar"),
+    path('verificar_agregar/',verificar_agregar, name="verificar_agregar"),
     #USUARIO
     path('actu_datos/',actu_datos,name="actu_datos"),
     path('carrito/', carrito, name="carrito"),

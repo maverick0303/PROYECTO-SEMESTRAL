@@ -29,7 +29,7 @@
                 <section>
                     <div class="form-box">
                         <div class="form-value">
-                            <form action="{% url 'tienda' %}" method="post" name="form1" enctype="multipart/form-data" id="verificar">
+                            <form action="{% url 'verificar_agregar' %}" method="POST" name="form1" enctype="multipart/form-data" id="verificar">
                                 {% csrf_token %}
                                 <h2>Recuperar clave</h2>
                                 <div class="row">
@@ -60,7 +60,7 @@
                                     <div class="col-md-3"></div>
                                     <div class="col-md-6">
                                         <label for="">Escriba su respuesta:</label>
-                                        <input type="text" class="form-control" id="respuesta">
+                                        <input type="text" class="form-control" id="respuesta" name="respuesta">
                                         <p class="alertas" id="respalert"></p>
                                     </div>
                                     <div class="col-md-3"></div>

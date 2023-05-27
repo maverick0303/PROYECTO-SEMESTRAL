@@ -12,6 +12,9 @@ class Pregunta(models.Model):
     id_pregunta = models.AutoField(primary_key=True)
     respuesta = models.CharField(max_length=30)
 
+    def __str__(self) -> str:
+        return self.respuesta
+
 class Usuario(models.Model):
     id_usuario = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=30)
