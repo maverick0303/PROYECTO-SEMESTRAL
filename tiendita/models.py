@@ -10,7 +10,7 @@ class Rol(models.Model):
 
 class Pregunta(models.Model):
     id_pregunta = models.AutoField(primary_key=True)
-    respuesta = models.CharField(max_length=30)
+    nombre = models.CharField(max_length=30)
 
     def __str__(self) -> str:
         return self.respuesta
@@ -22,6 +22,7 @@ class Usuario(models.Model):
     correo = models.CharField(max_length=30)
     clave = models.CharField(max_length=30)
     telefono = models.CharField(max_length=13)
+    respuesta = models.CharField(max_length=60)
     rol = models.ForeignKey(Rol,on_delete=models.CASCADE)
     pregunta = models.ForeignKey(Pregunta,on_delete=models.CASCADE)
 
