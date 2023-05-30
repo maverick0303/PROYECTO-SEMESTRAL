@@ -82,7 +82,28 @@ def inicio_sesion(request):
     return render(request, 'tiendita/inicio_sesion/inicio_sesion.html')
 
 def nuevo_user(request):
-    return render(request, 'tiendita/inicio_sesion/nuevo_user.html')
+    region = Region.objects.all()
+    comuna = Comuna.objects.all()
+    contexto = {
+        "region": region,
+        "comuna": comuna
+    }
+
+    return render(request, 'tiendita/inicio_sesion/nuevo_user.html',contexto)
+
+def nuevo_user_agregar(request):
+    nombre = request.POST ['nombre']
+    rut = request.POST ['Rut']
+    telefono = request.POST ['telefono']
+    correo = request.POST ['email']
+    contraseña = request.POST ['Contraseña']
+
+    region = request.POST ['region']
+    
+
+    Usuario.objects.create(nombre = nombre, rut = rut , telefono = telefono , correo = correo , contraseña = clave)
+    
+    return redirect('tienda')
 
 def restablecer(request):
     return render(request,'tiendita/inicio_sesion/restablecer.html')
@@ -108,6 +129,7 @@ def histo_compra(request):
     return render (request, 'tiendita/usuario/histo_compra.html')
 
 def mod_contra(request):
+
     return render (request, 'tiendita/usuario/mod_contra.html')
 
 

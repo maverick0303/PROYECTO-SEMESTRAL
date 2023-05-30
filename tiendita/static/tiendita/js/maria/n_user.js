@@ -1,7 +1,18 @@
 $(document).ready(function () {
+      //validar la comuna y la region:
 
+      const $region = $('#region');
+      const $comuna = $('#comuna');
+
+      $region.change(function () {
+          $comuna.val('');
+
+          $comuna.prop('disabled', !Boolean($region.val()));
+          $comuna.find('option[data-region]').hide();
+          $comuna.find('option[data-region="' + $region.val() + '"]').show();
+      });
     $("#nuevo").submit(function (e) {
-        
+
         var nombre = $("#nombre").val();
         var apellido = $("#apellido").val();
         var rut = $("#rut").val();
@@ -13,6 +24,7 @@ $(document).ready(function () {
 
         let msjMostrar = "";
         let enviar = false;
+
         //VALIDAR NOMBRE
         if (nombre == "") {
             msjMostrar += "No puede estar vacio";
@@ -20,7 +32,7 @@ $(document).ready(function () {
 
         }
         else {
-      
+
             if (!/^[a-zñA-ZÑ\s]+$/.test(nombre)) {
                 msjMostrar += "<br> No puede tener caracteres especiales, ni numeros";
                 enviar = true;
@@ -36,7 +48,7 @@ $(document).ready(function () {
 
         }
         msjMostrar = "";
-        
+
 
         //VALIDAR APELLIDO:
 
@@ -48,7 +60,7 @@ $(document).ready(function () {
 
         }
         else {
-      
+
             if (!/^[a-zñA-ZÑ\s]+$/.test(apellido)) {
                 msjMostrar += "<br>No puede tener caracteres especiales, ni numeros";
                 enviar = true;
@@ -57,15 +69,15 @@ $(document).ready(function () {
         if (enviar) {
             $("#apellialert").html(msjMostrar);
             e.preventDefault();
-            
+
         }
         else {
             $("#apellialert").html("");
-            
+
 
         }
         msjMostrar = "";
-        
+
 
         //VALIDAR RUT:
         if (rut == "") {
@@ -89,7 +101,7 @@ $(document).ready(function () {
 
         }
         msjMostrar = "";
-        
+
 
         //VALIDAR TELEFONO:
 
@@ -113,7 +125,7 @@ $(document).ready(function () {
             $("#phonealert").html("");
         }
         msjMostrar = "";
-        
+
 
         //VALIDAR CORREO:
 
@@ -137,7 +149,7 @@ $(document).ready(function () {
             $("#emailalert").html("");
         }
         msjMostrar = "";
-        
+
 
         //VALIDAR CONTRASEÑA Y REPETIR CONTRASEÑA:
 
@@ -174,7 +186,7 @@ $(document).ready(function () {
             $("#connuevaalert").html("");
         }
         msjMostrar = "";
-        
+
 
         //REPETIR CONTRASEÑA:
 
@@ -196,7 +208,7 @@ $(document).ready(function () {
             $("#converificaralert").html("");
         }
         msjMostrar = "";
-        
+
 
         //VERIFICAR DIRECCION:
 
@@ -204,13 +216,13 @@ $(document).ready(function () {
             msjMostrar += "No puede estar vacio";
             enviar = true;
         }
-        else{
-            if(direccion.trim().length < 5){
+        else {
+            if (direccion.trim().length < 5) {
                 msjMostrar += "La direccion debe tener almenos 5 caracteres";
                 enviar = true;
             }
 
-            if(!/^[a-zñA-ZÑ0-9\s\.\#]+$/.test(direccion)){
+            if (!/^[a-zñA-ZÑ0-9\s\.\#]+$/.test(direccion)) {
                 msjMostrar += "<br>La direccion no puede tener caracteres especiales excepto '.' '#' ' '";
                 enviar = true;
             }
@@ -224,16 +236,16 @@ $(document).ready(function () {
         }
         else {
             $("#direccionalert").html("");
-            
+
         }
 
-        
-        
+
+
         msjMostrar = "";
-        
-       
-        
+
+
+
     });
-    
+
 });
 
