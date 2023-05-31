@@ -34,9 +34,9 @@
                         <div class="col-md-2"></div>
                 {% endif %}
                 <div class="col-md-2">
-                    <a href="{% url 'bombo' %}" class="textos borde card">
+                    <a href="{% url 'producto' i.cod_producto %}" class="textos borde card">
                         <img class="img" src="{{ i.foto.url }}" alt="No disponible"><br>
-                        {{ i.nombre }}
+                        {{ i.nombre|upper }}
                         <p class="precio">${{ i.precio }}</p>
                     </a>
                 </div>
@@ -50,7 +50,7 @@
 
         <div class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-2"><a href="{% url 'bombo' %}" class="textos borde card">
+            <div class="col-md-2"><a href="" class="textos borde card">
                 <img class="img" src="{% static 'tiendita/img/articulos/bombo.png' %}" alt="bombo"><br>BOMBO<p class="precio">$88.990</p></a></div>
             <div class="col-md-2"><a href="/ERNESTO/articulos/armonica.html" class="textos borde card">
                 <img class="img" src="{% static 'tiendita/img/articulos/armonica.png' %}" alt="armonica"><br>ARMONICA<p class="precio">$7.990</p></a></div>

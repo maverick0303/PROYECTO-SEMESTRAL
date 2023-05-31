@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import *
+from django.contrib.humanize.templatetags.humanize import intcomma
 # Create your views here.
 
 #ADMIN
@@ -61,6 +62,10 @@ def feriados(request):
 
 def tienda(request):
     productos = Producto.objects.all()
+
+    for producto in productos:
+        producto.precio = intcomma(producto.precio)
+
     contexto = {
         "productos":productos
     }
@@ -68,8 +73,15 @@ def tienda(request):
 
 
 #PRODUCTO
-def bombo(request):
-    return render(request,'tiendita/articulos/bombo.html')
+def producto(request, id):
+    producto = Producto.objects.get(cod_producto = id)
+
+    producto.precio = intcomma(producto.precio)
+
+    contexto = {
+        "producto": producto
+    }
+    return render(request,'tiendita/articulos/producto.html',contexto)
 
 
 

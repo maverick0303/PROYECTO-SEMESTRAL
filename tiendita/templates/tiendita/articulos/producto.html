@@ -1,0 +1,40 @@
+{% extends 'tiendita/plantilla/navbar.html' %}
+{% load static %}
+
+    {% block titulo %}
+    <title>{{ producto.nombre|capfirst }}</title>
+    {% endblock titulo %}
+
+    {% block head %}
+        <link type="text/css" rel="stylesheet" href="{% static 'tiendita/css/ernesto/design.css' %}">
+        <style>
+            .titulos {
+                text-align: left;
+                margin-top: 20px;
+                margin-bottom: 30px;
+            }
+            .body{
+                background: url("{% static 'tiendita/img/fondos/fondo5.jpg' %}");
+            }
+        </style>
+    {% endblock head %}
+
+
+    {% block body %}
+    <div class="row borde2">
+        <div class="col-md-6"><img class="img2" src="{{ producto.foto.url }}" alt="No disponible"></div>
+        <div class="col-md-6 textos borde-line">
+            <h1 class="titulos">{{ producto.nombre|upper }}</h1>
+            <p class="precio2">$ {{ producto.precio }}</p>
+
+            <button class="btn btn-primary d-block text-left" type="button">Agregar al Carrito</button>
+
+            <p class="textos">{{ producto.descripcion }}</p>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    {% endblock body %}
