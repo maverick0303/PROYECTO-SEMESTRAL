@@ -23,18 +23,26 @@
         </div>
 
         <div class="row">
-            <div class="col-md-2"><a href="/ERNESTO/articulos/triangulo.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/triangulo.png' %}" alt="triangulo"><br>TRIANGULO<p class="precio">$4.990</p></a></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/gong.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/gong.png' %}" alt="gong"><br>GONG<p class="precio">$29.990</p></a></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/carillones.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/carillones.png' %}" alt="carillones"><br>CARILLONES<p class="precio">$2.990</p></a></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/campana.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/campana.png' %}" alt="campana"><br>CAMPANA<p class="precio">$6.990</p></a></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/sanza.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/sanza.png' %}" alt="sanza"><br>SANZA<p class="precio">$31.900</p></a></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/vibrafono.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/vibrafono.png' %}" alt="vibrafono"><br>VIBRAFONO<p class="precio">$461.990</p></a></div>
+            <div class="col-md-2"></div>
+            {% for i in productos %}
+                {% if forloop.counter0|divisibleby:4 %}
+                        <div class="col-md-2"></div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                {% endif %}
+                <div class="col-md-2">
+                    <a href="{% url 'producto' i.cod_producto %}" class="textos borde card">
+                        <img class="img" src="{{ i.foto.url }}" alt="No disponible"><br>
+                        {{ i.nombre|upper }}
+                        <p class="precio">${{ i.precio }}</p>
+                    </a>
+                </div>
+            {% endfor %}
+            <div class="col-md-2"></div>
+            
         </div>
         <br>
 

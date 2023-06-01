@@ -46,19 +46,48 @@ def a_tienda(request):
 
 #TIENDA
 def prod_cuerda(request):
-    return render(request,'tiendita/tienda/prod_cuerda.html')
+    productos = Producto.objects.filter(categoria = 2)
+
+    for producto in productos:
+        producto.precio = intcomma(producto.precio)
+
+    contexto = {
+        "productos":productos
+    }
+    return render(request,'tiendita/tienda/prod_cuerda.html',contexto)
 
 def prod_idiofono(request):
-    return render(request,'tiendita/tienda/prod_idiofono.html')
+    productos = Producto.objects.filter(categoria = 3)
+
+    for producto in productos:
+        producto.precio = intcomma(producto.precio)
+
+    contexto = {
+        "productos":productos
+    }
+    return render(request,'tiendita/tienda/prod_idiofono.html',contexto)
 
 def prod_percusion(request):
-    return render(request,'tiendita/tienda/prod_percusion.html')
+    productos = Producto.objects.filter(categoria = 1)
+
+    for producto in productos:
+        producto.precio = intcomma(producto.precio)
+
+    contexto = {
+        "productos":productos
+    }
+    return render(request,'tiendita/tienda/prod_percusion.html',contexto)
 
 def prod_viento(request):
-    return render(request,'tiendita/tienda/prod_viento.html')
+    productos = Producto.objects.filter(categoria = 4)
 
-def feriados(request):
-    return render(request,'tiendita/tienda/feriados.html')
+    for producto in productos:
+        producto.precio = intcomma(producto.precio)
+
+    contexto = {
+        "productos":productos
+    }
+    return render(request,'tiendita/tienda/prod_viento.html',contexto)
 
 def tienda(request):
     productos = Producto.objects.all()
@@ -70,6 +99,9 @@ def tienda(request):
         "productos":productos
     }
     return render(request,'tiendita/tienda/tienda.html',contexto)
+
+def feriados(request):
+    return render(request,'tiendita/tienda/feriados.html')
 
 
 #PRODUCTO

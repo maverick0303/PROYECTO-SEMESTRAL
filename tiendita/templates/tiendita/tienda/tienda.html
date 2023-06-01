@@ -25,7 +25,7 @@
         <div class="row">
             <div class="col-md-2"></div>
             {% for i in productos %}
-                {% if forloop.counter|divisibleby:5 and not forloop.first %}
+                {% if forloop.counter0|divisibleby:4 %}
                         <div class="col-md-2"></div>
 
                     </div>
@@ -43,87 +43,6 @@
             {% endfor %}
             <div class="col-md-2"></div>
             
-        </div>
-
-
-
-
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-2"><a href="" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/bombo.png' %}" alt="bombo"><br>BOMBO<p class="precio">$88.990</p></a></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/armonica.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/armonica.png' %}" alt="armonica"><br>ARMONICA<p class="precio">$7.990</p></a></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/timbal.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/timbal.png' %}" alt="timbal"><br>TIMBAL<p class="precio">$200.990</p></a></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/saxofon.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/saxofon.png' %}" alt="saxofon"><br>SAXOFON<p class="precio">$449.900</p></a></div>
-            <div class="col-md-2"></div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/platillo.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/platillo.png' %}" alt="platillo"><br>PLATILLO<p class="precio">$10.990</p></a></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/flauta.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/flauta.png' %}" alt="flauta"><br>FLAUTA<p class="precio">$9.990</p></a></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/triangulo.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/triangulo.png' %}" alt="triangulo"><br>TRIANGULO<p class="precio">$4.990</p></a></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/violin.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/violin.png' %}" alt="violin"><br>VIOLIN<p class="precio">$26.200</p></a></div>
-            <div class="col-md-2"></div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/gong.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/gong.png' %}" alt="gong"><br>GONG<p class="precio">$29.990</p></a></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/guitarra_electrica.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/guitarra_electrica.png' %}" alt="guitarra_electrica"><br>GUITARRA ELECTRICA<p class="precio">$53.990</p></a></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/carillones.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/carillones.png' %}" alt="carillones"><br>CARILLONES<p class="precio">$2.990</p></a></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/guitarra.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/guitarra.png' %}" alt="guitarra"><br>GUITARRA<p class="precio">$34.990</p></a></div>
-            <div class="col-md-2"></div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/maracas.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/maracas.png' %}" alt="maracas"><br>MARACAS<p class="precio">$3.180</p></a></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/tuba.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/tuba.png' %}" alt="tuba"><br>TUBA<p class="precio">$1.419.990</p></a></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/caja.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/caja.png' %}" alt="caja"><br>CAJA<p class="precio">$83.180</p></a></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/trompeta.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/trompeta.png' %}" alt="trompeta"><br>TROMPETA<p class="precio">$199.990</p></a></div>
-            <div class="col-md-2"></div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/xilofono.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/xilofono.png' %}" alt="xilofono"><br>XILOFONO<p class="precio">$42.000</p></a></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/trombon.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/trombon.png' %}" alt="trombon"><br>TROMBON<p class="precio">$131.180</p></a></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/campana.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/campana.png' %}" alt="campana"><br>CAMPANA<p class="precio">$6.990</p></a></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/arpa.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/arpa.png' %}" alt="arpa"><br>ARPA<p class="precio">$465.990</p></a></div>
-            <div class="col-md-2"></div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/sanza.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/sanza.png' %}" alt="sanza"><br>SANZA<p class="precio">$31.900</p></a></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/banjo.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/banjo.png' %}" alt="banjo"><br>BANJO<p class="precio">$290.990</p></a></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/vibrafono.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/vibrafono.png' %}" alt="vibrafono"><br>VIBRAFONO<p class="precio">$461.990</p></a></div>
-            <div class="col-md-2"><a href="/ERNESTO/articulos/piano.html" class="textos borde card">
-                <img class="img" src="{% static 'tiendita/img/articulos/piano.png' %}" alt="piano"><br>PIANO<p class="precio">$4.690.990</p></a></div>
-            <div class="col-md-2"></div>
         </div>
         <br>
 
