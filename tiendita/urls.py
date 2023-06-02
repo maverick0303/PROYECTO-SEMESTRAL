@@ -22,6 +22,7 @@ urlpatterns = [
     #INICIO
     path('bienvenida/',bienvenida,name="bienvenida"),
     path('inicio_sesion/',inicio_sesion,name="inicio_sesion"),
+    path('inicio_sesion_verificar/',inicio_sesion_verificar,name="inicio_sesion_verificar"),
     path('nuevo_user/',nuevo_user, name="nuevo_user"),
     path('nuevo_user_agregar/',nuevo_user_agregar, name="nuevo_user_agregar"),
     path('restablecer/',restablecer, name="restablecer"),

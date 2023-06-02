@@ -27,12 +27,12 @@
                 <section>
                     <div class="form-box">
                         <div class="form-value">
-                            <form action="{% url 'tienda' %}" method="POST" name="form1" enctype="multipart/form-data" id="inicio">
+                            <form action="{% url 'inicio_sesion_verificar' %}" method="POST" name="form1" enctype="multipart/form-data" id="inicio">
                                 {% csrf_token %}
                                 <h2>Inicio de sesión</h2>
                                 <div class="row">
                                     <div class="col-xl ">
-                                        <label for="">Correo electrónico:</label>
+                                        <label for="correo">Correo electrónico:</label>
                                         <input type="text" class="form-control" id="correo" name="correo">
                                         <p class="alertas" id="correoalert"></p>
                                     </div>
@@ -42,6 +42,17 @@
                                         <label for="clave">Contraseña:</label>
                                         <input id="clave" type="password" class="form-control" name="contraseña">
                                         <p class="alertas" id="conactualalert"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl">
+                                        {% if messages %}
+                                            <ul class="messages">
+                                                {% for message in messages %}
+                                                    <li>{{ message }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
                                     </div>
                                 </div>
                                 <br><br>

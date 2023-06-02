@@ -124,11 +124,14 @@ def producto(request, id):
 #INICIO
 
 def bienvenida(request):
-    return render(request,'tiendita/inicio_sesion/bienvenida.html')
+    return render(request, 'tiendita/inicio_sesion/bienvenida.html')
 
 def inicio_sesion(request):
-    nombre1 = request.POST ['correo']
-    clave1 = request.POST ['contraseña']
+    return render(request, 'tiendita/inicio_sesion/inicio_sesion.html')
+
+def inicio_sesion_verificar(request):
+    nombre1 = request.POST['correo']
+    clave1 = request.POST['contraseña']
 
     try:
         usua1 = User.objects.get(username = nombre1)
@@ -141,9 +144,18 @@ def inicio_sesion(request):
         messages.error(request, 'El usuario o la contraseña son incorrectas')
         return redirect('inicio_sesion')
     
+    usuario2 = Usuario.objects.get(correo = nombre1, clave = clave1)
+    usua = authenticate(username = nombre1, password = clave1)
+    if usua is not None:
+        login(request, usua)
+        if usuario2.rol.id_rol == 2:
+            return redirect('a_tienda')
+        else:
+            return redirect('tienda')
+    else:
+        messages.error(request, 'El usuario o la contraseña son incorrectas')
+        return redirect('inicio_sesion')
 
-
-    return render(request, 'tiendita/inicio_sesion/inicio_sesion.html')
 
 def nuevo_user(request):
     region = Region.objects.all()

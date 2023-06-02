@@ -26,6 +26,9 @@ class Usuario(models.Model):
     rol = models.ForeignKey(Rol,on_delete=models.CASCADE)
     pregunta = models.ForeignKey(Pregunta,on_delete=models.CASCADE)
 
+    def __str__(self) -> str:
+        return self.nombre
+
 class Region(models.Model):
     id_region = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=20)
@@ -46,6 +49,9 @@ class Direccion(models.Model):
     direccion = models.CharField(max_length=30)
     comuna = models.ForeignKey(Comuna,on_delete=models.CASCADE)
     usuario = models.ForeignKey(Usuario,on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return self.direccion
 
 class Venta(models.Model):
     id_venta = models.AutoField(primary_key=True)
