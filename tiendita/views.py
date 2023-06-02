@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
 from .models import *
 from django.contrib.humanize.templatetags.humanize import intcomma
+from django.contrib.auth.models import User
+from django.contrib.auth.hashers import check_password
+from django.contrib.auth import authenticate,login, logout
+from django.contrib import messages
 # Create your views here.
 
 #ADMIN
@@ -123,6 +127,22 @@ def bienvenida(request):
     return render(request,'tiendita/inicio_sesion/bienvenida.html')
 
 def inicio_sesion(request):
+    nombre1 = request.POST ['correo']
+    clave1 = request.POST ['contraseña']
+
+    try:
+        usua1 = User.objects.get(username = nombre1)
+    except User.DoesNotExist:
+        messages.error(request, 'El usuario o la contraseña son incorrectas')
+        return redirect('inicio_sesion')
+    
+    pass_valida = check_password(clave1, usua1.password)
+    if not pass_valida:
+        messages.error(request, 'El usuario o la contraseña son incorrectas')
+        return redirect('inicio_sesion')
+    
+
+
     return render(request, 'tiendita/inicio_sesion/inicio_sesion.html')
 
 def nuevo_user(request):
@@ -136,16 +156,25 @@ def nuevo_user(request):
     return render(request, 'tiendita/inicio_sesion/nuevo_user.html',contexto)
 
 def nuevo_user_agregar(request):
-    nombre = request.POST ['nombre']
-    rut = request.POST ['Rut']
-    telefono = request.POST ['telefono']
-    correo = request.POST ['email']
-    contraseña = request.POST ['Contraseña']
+    nombreU = request.POST ['nombre']
+    rutU = request.POST ['Rut']
+    telefonoU = request.POST ['telefono']
+    correoU = request.POST ['email']
+    contraseñaU = request.POST ['Contraseña']
+    comunaU = request.POST ['comuna']
+    direccionU = request.POST ['direccion']
 
-    region = request.POST ['region']
-    
+    keycomuna = Comuna.objects.get(id_comuna = comunaU)
+    keyrol = Rol.objects.get(id_rol = 1)
+    keypregunta = Pregunta.objects.get(id_pregunta = 23)
 
-    Usuario.objects.create(nombre = nombre, rut = rut , telefono = telefono , correo = correo , contraseña = clave)
+    usuario = Usuario.objects.create(nombre = nombreU, rut = rutU , telefono = telefonoU , correo = correoU , clave = contraseñaU, respuesta = "hola", rol = keyrol, pregunta = keypregunta)
+    Direccion.objects.create(direccion = direccionU, comuna = keycomuna, usuario = usuario)
+
+    usua = User.objects.create_user(username = correoU, email = correoU, password = contraseñaU)
+    usua.is_staff = False
+    usua.is_active = True
+    usua.save()
     
     return redirect('tienda')
 
