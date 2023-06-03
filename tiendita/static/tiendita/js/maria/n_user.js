@@ -242,6 +242,25 @@ $(document).ready(function () {
 
 
         msjMostrar = "";
+        var respuesta = $("#respuesta").val();
+
+        //VALIDAR LAS RESPUESTAS:
+
+        if (respuesta == "") {
+            msjMostrar += "No puede quedar vacio ";
+            enviar = true;
+        }
+
+        if (enviar) {
+            
+            $("#respalert").html(msjMostrar);
+            e.preventDefault();
+        }
+        else {
+            $("#respalert").html("");
+           
+        }
+        msjMostrar = "";
 
 
 

@@ -193,7 +193,7 @@ def nuevo_user_agregar(request):
     usua.save()
     
     
-    return redirect('tienda')
+    return redirect('inicio_sesion')
 
 def restablecer(request):
     return render(request,'tiendita/inicio_sesion/restablecer.html')

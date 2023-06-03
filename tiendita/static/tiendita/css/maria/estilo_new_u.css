@@ -21,7 +21,7 @@ section {
 .form-box {
     position: relative;
     width: 1700px;
-    height: 680px;
+    height: 690px;
     background: rgba(88, 30, 30, 0.884);
     border: 2px solid rgba(88, 30, 30, 0.884);
     border-radius: 20px;
@@ -61,7 +61,7 @@ p {
 @media (max-width: 1180px) {
     .form-box {
         width: 1050px;
-        height: 1150px;
+        height: 1260px;
     }
 
     .form-control {
