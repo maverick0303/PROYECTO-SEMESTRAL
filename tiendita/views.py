@@ -158,11 +158,13 @@ def inicio_sesion_verificar(request):
 
 
 def nuevo_user(request):
+    pregunta = Pregunta.objects.all()
     region = Region.objects.all()
     comuna = Comuna.objects.all()
     contexto = {
         "region": region,
-        "comuna": comuna
+        "comuna": comuna,
+        "pregunta": pregunta
     }
 
     return render(request, 'tiendita/inicio_sesion/nuevo_user.html',contexto)
@@ -175,18 +177,21 @@ def nuevo_user_agregar(request):
     contraseñaU = request.POST ['Contraseña']
     comunaU = request.POST ['comuna']
     direccionU = request.POST ['direccion']
+    preguntaU = request.POST['pregunta']
+    respuestaU = request.POST['respuesta']
 
     keycomuna = Comuna.objects.get(id_comuna = comunaU)
     keyrol = Rol.objects.get(id_rol = 1)
-    keypregunta = Pregunta.objects.get(id_pregunta = 23)
+    keypregunta = Pregunta.objects.get(id_pregunta = preguntaU)
 
-    usuario = Usuario.objects.create(nombre = nombreU, rut = rutU , telefono = telefonoU , correo = correoU , clave = contraseñaU, respuesta = "hola", rol = keyrol, pregunta = keypregunta)
+    usuario = Usuario.objects.create(nombre = nombreU, rut = rutU , telefono = telefonoU , correo = correoU , clave = contraseñaU, respuesta = respuestaU , rol = keyrol, pregunta = keypregunta)
     Direccion.objects.create(direccion = direccionU, comuna = keycomuna, usuario = usuario)
 
     usua = User.objects.create_user(username = correoU, email = correoU, password = contraseñaU)
     usua.is_staff = False
     usua.is_active = True
     usua.save()
+    
     
     return redirect('tienda')
 

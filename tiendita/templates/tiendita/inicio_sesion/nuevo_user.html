@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{% static 'tiendita/css/maria/estilo_new_u.css' %}">
     <!--LINK DEL JQUARY-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    
+
 
     <style>
         body {
@@ -55,28 +55,26 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xl-12">
+                                    <div class="col-xl-4">
                                         <label for="">Correo electrónico:</label>
                                         <input type="text" class="form-control" name="email" id="correo"
                                             placeholder="gabitopero@gmail.com">
                                         <p class="alertas" id="emailalert"></p>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-6">
+                                    <div class="col-xl-4">
                                         <label for="connueva">Contraseña:</label>
                                         <input type="password" class="form-control" name="Contraseña" id="connueva"
                                             placeholder="****************">
                                         <p class="alertas" id="connuevaalert"></p>
                                     </div>
-                                    <div class="col-xl-6">
+                                    <div class="col-xl-4">
                                         <label for="">Repetir Contraseña:</label>
-                                        <input type="password" class="form-control" name="r_contraseña" id="converificar"
-                                            placeholder="****************">
+                                        <input type="password" class="form-control" name="r_contraseña"
+                                            id="converificar" placeholder="****************">
                                         <p class="alertas" id="converificaralert"></p>
                                     </div>
-
-                                </div>
+                                </div>   
+                      
                                 <div class="row">
                                     <div class="col-xl-4">
                                         <label for="">Dirección:</label>
@@ -91,7 +89,7 @@
                                             {% for i in region %}
                                             <option value="{{ i.id_region }}">{{ i.nombre }}</option>
                                             {% endfor %}
-                                            
+
                                         </select>
                                     </div>
                                     <div class="col-xl-4">
@@ -99,26 +97,53 @@
                                         <select class="form-control" name="comuna" id="comuna" disabled required>
                                             <option value="">Seleccionar</option>
                                             {% for i in comuna %}
-                                                <option value="{{ i.id_comuna }}" data-region="{{ i.region.id_region }}">{{ i.nombre }}</option>
+                                            <option value="{{ i.id_comuna }}" data-region="{{ i.region.id_region }}">{{i.nombre }}</option>
                                             {% endfor %}
-                                            
-                                            
                                         </select>
                                     </div>
 
                                 </div>
                                 <br>
                                 <div class="row">
+                                    <div class="col-xl-1"></div>
+                                    <div class="col-xl-10">
+                                        <p style="font-size: 18px; color: #fff; text-align: center;">Responda una de
+                                            estas preguntas, por si se le llega a olvidar su contraseña, pueda
+                                            recuperarla en otra ocación</p>
+                                    </div>
+                                    <div class="col-xl-1"></div>
+                                </div>
+                                <div class="row">
+                                    
+                                    <div class="col-md-6">
+                                        <label for="">Pregunta de seguridad</label>
+                                        <select name="pregunta" id="preguntas" class="custom-select" required>
+                                            
+                                            <option value="" selected>Seleccione una de estas opciones</option>
+                                            {% for i in pregunta %}
+                                            <option value="{{ i.id_pregunta}}">{{ i.nombre }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="">Escriba su respuesta:</label>
+                                        <input type="text" class="form-control" id="respuesta" name="respuesta">
+                                        <p class="alertas" id="respalert"></p>
+                                    </div>
+                                    
+                                </div>
+                               
+                                <div class="row">
                                     <div class="col-xl-3"></div>
                                     <div class="col-xl-7">
-                                        <p>¿Ya tiene una cuenta?<a style="color:#fff" href="{% url 'inicio_sesion' %}">
+                                        <p style="text-align: center;">¿Ya tiene una cuenta?<a style="color:#fff" href="{% url 'inicio_sesion' %}">
                                                 Inicia sesión</a></p>
                                     </div>
                                     <div class="col-xl-2"></div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xl-4"></div>
-                                    <div class="col-xl-4">
+                                    <div class="col-xl-5"></div>
+                                    <div class="col-xl-3">
                                         <input class="button" type="submit" value="Registrarse">
                                     </div>
                                     <div class="col-xl-4"></div>
