@@ -45,6 +45,16 @@ def a_prod_agregar(request):
     return redirect('a_prod_nuevo')
 
 def a_tienda(request):
+    if not request.user.is_authenticated:
+        messages.warning(request, 'Inicie sesión para continuar')
+        return redirect('inicio_sesion')
+    
+    usuario = Usuario.objects.get(correo = request.user.username)
+    if usuario.rol.id_rol == 1:
+        # El usuario tiene un rol de administrador (id_rol = 2)
+        return redirect('tienda')
+
+    
     return render(request,'tiendita/admin/tienda.html')
 
 
@@ -109,7 +119,12 @@ def feriados(request):
 
 
 #PRODUCTO
+
 def producto(request, id):
+    if not request.user.is_authenticated:
+        messages.warning(request, 'Inicie sesión para continuar')
+        return redirect('inicio_sesion')
+    
     producto = Producto.objects.get(cod_producto = id)
 
     producto.precio = intcomma(producto.precio)
@@ -125,6 +140,12 @@ def producto(request, id):
 
 def bienvenida(request):
     return render(request, 'tiendita/inicio_sesion/bienvenida.html')
+
+def cerrar_sesion(request):
+    logout(request)
+    messages.info(request, 'Sesion cerrada correctamente')
+    return redirect('inicio_sesion')
+
 
 def inicio_sesion(request):
     return render(request, 'tiendita/inicio_sesion/inicio_sesion.html')
@@ -180,6 +201,11 @@ def nuevo_user_agregar(request):
     preguntaU = request.POST['pregunta']
     respuestaU = request.POST['respuesta']
 
+    if Usuario.objects.filter(correo=correoU).exists():
+        # El correo ya está registrado, mostrar mensaje de error
+        messages.error(request, 'El correo ya está registrado')
+        return redirect('nuevo_user')
+
     keycomuna = Comuna.objects.get(id_comuna = comunaU)
     keyrol = Rol.objects.get(id_rol = 1)
     keypregunta = Pregunta.objects.get(id_pregunta = preguntaU)
@@ -191,7 +217,6 @@ def nuevo_user_agregar(request):
     usua.is_staff = False
     usua.is_active = True
     usua.save()
-    
     
     return redirect('inicio_sesion')
 
@@ -210,15 +235,30 @@ def verificar_agregar(request):
 #USUARIO
 
 def actu_datos(request):
+    if not request.user.is_authenticated:
+        messages.warning(request, 'Inicie sesión para continuar')
+        return redirect('inicio_sesion')
+    
     return render(request, 'tiendita/usuario/actu_datos.html')
 
 def carrito(request):
+    if not request.user.is_authenticated:
+        messages.warning(request, 'Inicie sesión para continuar')
+        return redirect('inicio_sesion')
+    
     return render(request, 'tiendita/usuario/carrito.html')
 
 def histo_compra(request):
+    if not request.user.is_authenticated:
+        messages.warning(request, 'Inicie sesión para continuar')
+        return redirect('inicio_sesion')
+    
     return render (request, 'tiendita/usuario/histo_compra.html')
 
 def mod_contra(request):
+    if not request.user.is_authenticated:
+        messages.warning(request, 'Inicie sesión para continuar')
+        return redirect('inicio_sesion')
 
     return render (request, 'tiendita/usuario/mod_contra.html')
 

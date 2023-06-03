@@ -21,6 +21,7 @@ urlpatterns = [
     path('a_bombo/',a_bombo,name="a_bombo"),
     #INICIO
     path('bienvenida/',bienvenida,name="bienvenida"),
+    path('cerrar_sesion/',cerrar_sesion,name="cerrar_sesion"),
     path('inicio_sesion/',inicio_sesion,name="inicio_sesion"),
     path('inicio_sesion_verificar/',inicio_sesion_verificar,name="inicio_sesion_verificar"),
     path('nuevo_user/',nuevo_user, name="nuevo_user"),

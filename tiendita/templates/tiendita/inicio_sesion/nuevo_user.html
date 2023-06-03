@@ -59,7 +59,14 @@
                                         <label for="">Correo electrónico:</label>
                                         <input type="text" class="form-control" name="email" id="correo"
                                             placeholder="gabitopero@gmail.com">
-                                        <p class="alertas" id="emailalert"></p>
+                                        <p class="alertas" id="emailalert">
+                                            {% if messages %}
+                                                <ul class="messages alertas">
+                                                    {% for message in messages %}
+                                                        <li>{{ message }}</li>
+                                                    {% endfor %}
+                                                </ul>
+                                            {% endif %}</p>
                                     </div>
                                     <div class="col-xl-4">
                                         <label for="connueva">Contraseña:</label>
