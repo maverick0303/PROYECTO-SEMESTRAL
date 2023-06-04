@@ -30,59 +30,56 @@
                     {% csrf_token %}
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="name">Nombres:</label>
-                            <input id="name" type="text" class="form-control" placeholder="Filemón Andrés">
+                            <label for="name">Nombre completo:</label>
+                            <input id="name" type="text" class="form-control" value="{{ datos.nombre }}">
                             <p class="alertas" id="namealert"></p>
+                            
                         </div>
                         <div class="col-md-6">
-                            <label for="apelli">Apellidos:</label>
-                            <input id="apelli" type="text" class="form-control" placeholder="Torres Contreras">
-                            <p class="alertas" id="apellialert"></p>
+                            <label for="rut">Rut:</label>
+                            <input id="rut" type="text" class="form-control" value="{{ datos.rut }}">
+                            <p class="alertas" id="rutalert"></p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <label for="email">Correo electrónico:</label>
-                            <input id="email" type="text" class="form-control" placeholder="pepelepu@gmail.com">
+                            <input id="email" type="text" class="form-control" value="{{ datos.correo }}">
                             <p class="alertas" id="emailalert"></p>
                         </div>
                         <div class="col-md-6">
                             <label for="phone">Teléfono:</label>
-                            <input id="phone" type="text" class="form-control" placeholder="+56923457198">
+                            <input id="phone" type="text" class="form-control" value="{{ datos.telefono }}">
                             <p class="alertas" id="phonealert"></p>
                         </div>
                     </div>
+
                     <div class="row">
-                        <div class="col-md-6">
-                            <label for="first-select">Region:</label>
-                                <select id="first-select" onchange="updateSecondSelect()" class="form-control">
-                                    <option value="option0">seleccione una opcion</option>
-                                    <option value="option1">Region Metropolitana</option>
-                                    <option value="option2">Region de Atacama</option>
-                                    <option value="option3">Region de Valparaiso</option>
-                                    <option value="option4">Region de O'higgins</option>
-                                </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="second-select">Comuna:</label>
-                                <select id="second-select" class="form-control">
-                                    <option value="o0" >seleccione una region</option>
-                                    <!-- options will be dynamically added here -->
-                                </select>
-                                <p class="alertas" id="comunaalert"></p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <label for="direc">Direccion:</label>
-                            <input id="direc" type="text" class="form-control" placeholder="Av.Pedro Fontova 1234">
+                            <input id="direc" type="text" class="form-control" value="{{ datos.id_direccion.direccion }}">
                             <p class="alertas" id="direcalert"></p>
                         </div>
-                        <div class="col-md-6">
-                            <label for="rut">Rut/Pasaporte:</label>
-                            <input id="rut" type="text" class="form-control" placeholder="23.554.978-0">
-                            <p class="alertas" id="rutalert"></p>
+                        <div class="col-md-4">
+                            <label for="cboregion">Región:</label>
+                            <select class="form-control" name="region" id="region" required>
+                                <option value="">Seleccionar</option>
+                                {% for i in region %}
+                                <option value="{{ i.id_region }}">{{ i.nombre }}</option>
+                                {% endfor %}
+
+                            </select>
                         </div>
+                        <div class="col-md-4">
+                            <label for="cbocomuna">Comuna:</label>
+                            <select class="form-control" name="comuna" id="comuna" disabled required>
+                                <option value="">Seleccionar</option>
+                                {% for i in comuna %}
+                                <option value="{{ i.id_comuna }}" data-region="{{ i.region.id_region }}">{{ i.nombre }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                       
                     </div>
                     <div class="row">
                         <div class="col-md-3"></div>
@@ -103,119 +100,7 @@
                     </div>
                 </form>
                 <script src="{% static 'tiendita/js/ernesto/actualizar_datos.js' %}"></script>
-                <script>
-                    function updateSecondSelect() {
-                        const firstSelect = document.getElementById("first-select");
-                        const secondSelect = document.getElementById("second-select");
-
-                        // clear existing options
-                        secondSelect.innerHTML = "<option value='o1'>seleccione una opcion</option>";
-
-                        // get selected option from first select
-                        const selectedOption = firstSelect.value;
-
-                        // add appropriate options to second select based on selected option
-                        if (selectedOption === "option0") {
-                            secondSelect.innerHTML = "<option value='o0'>seleccione una region</option>";
-
-                        } else if (selectedOption === "option1") {
-                            const option2 = document.createElement("option");
-                            option2.value = "option1b";
-                            option2.text = "Independencia";
-                            secondSelect.appendChild(option2);
-
-                            
-                            const option3 = document.createElement("option");
-                            option3.value = "option1d";
-                            option3.text = "Conchali";
-                            secondSelect.appendChild(option3);
-
-                            
-                            const option4 = document.createElement("option");
-                            option4.value = "option1b";
-                            option4.text = "Vivaceta";
-                            secondSelect.appendChild(option4);
-
-                            
-                            const option5= document.createElement("option");
-                            option5.value = "option1b";
-                            option5.text = "Huechuraba";
-                            secondSelect.appendChild(option5);
-
-                        } else if (selectedOption === "option2") {
-                            const option2 = document.createElement("option");
-                            option2.value = "option2b";
-                            option2.text = "Caldera";
-                            secondSelect.appendChild(option2);
-
-                            
-                            const option3 = document.createElement("option");
-                            option3.value = "option1b";
-                            option3.text = "Tierra Amarilla";
-                            secondSelect.appendChild(option3);
-
-                            const option4 = document.createElement("option");
-                            option4.value = "option1b";
-                            option4.text = "Copiapó";
-                            secondSelect.appendChild(option4);
-
-                            const option5= document.createElement("option");
-                            option5.value = "option1b";
-                            option5.text = "Huasco";
-                            secondSelect.appendChild(option5);
-                            
-                            
-                        } else if (selectedOption === "option3") {
-                            const option2 = document.createElement("option");
-                            option2.value = "option1b";
-                            option2.text = "Calle Larga";
-                            secondSelect.appendChild(option2);
-
-                            
-                            const option3 = document.createElement("option");
-                            option3.value = "option1d";
-                            option3.text = "Los Andes";
-                            secondSelect.appendChild(option3);
-
-                            
-                            const option4 = document.createElement("option");
-                            option4.value = "option1b";
-                            option4.text = "Santo Domingo";
-                            secondSelect.appendChild(option4);
-
-                            
-                            const option5= document.createElement("option");
-                            option5.value = "option1b";
-                            option5.text = "Zapallar";
-                            secondSelect.appendChild(option5);
-
-                        } else if (selectedOption === "option4") {
-                            const option2 = document.createElement("option");
-                            option2.value = "option1b";
-                            option2.text = "Codegua";
-                            secondSelect.appendChild(option2);
-
-                            
-                            const option3 = document.createElement("option");
-                            option3.value = "option1d";
-                            option3.text = "Coinco";
-                            secondSelect.appendChild(option3);
-
-                            
-                            const option4 = document.createElement("option");
-                            option4.value = "option1b";
-                            option4.text = "Rancagua";
-                            secondSelect.appendChild(option4);
-
-                            
-                            const option5= document.createElement("option");
-                            option5.value = "option1b";
-                            option5.text = "San Vicente de Tagua Tagua";
-                            secondSelect.appendChild(option5);
-                        }
-                        
-                    }
-                </script>
+  
             </div>
         </div>
 

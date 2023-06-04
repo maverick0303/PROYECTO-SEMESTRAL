@@ -1,4 +1,15 @@
 $(document).ready(function(){
+    
+    const $region = $('#region');
+    const $comuna = $('#comuna');
+
+    $region.change(function () {
+        $comuna.val('');
+
+        $comuna.prop('disabled', !Boolean($region.val()));
+        $comuna.find('option[data-region]').hide();
+        $comuna.find('option[data-region="' + $region.val() + '"]').show();
+    });
     $("#form").submit(function(e){
 
         

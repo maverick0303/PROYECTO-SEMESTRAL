@@ -254,11 +254,19 @@ def verificar_agregar(request):
 #USUARIO
 
 def actu_datos(request):
+   
+    region = Region.objects.all()
+    comuna = Comuna.objects.all()
+    contexto = {
+        "region": region,
+        "comuna": comuna
+    }
     if not request.user.is_authenticated:
         messages.warning(request, 'Inicie sesión para continuar')
         return redirect('inicio_sesion')
     
-    return render(request, 'tiendita/usuario/actu_datos.html')
+    return render(request, 'tiendita/usuario/actu_datos.html', contexto)
+
 
 def carrito(request):
     if not request.user.is_authenticated:
