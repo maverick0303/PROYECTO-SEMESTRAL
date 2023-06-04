@@ -255,13 +255,13 @@ def verificar_agregar(request):
 
 def actu_datos(request):
     usuario = Usuario.objects.get(correo = request.user.username)
-    
-    region = Region.objects.all()
-    comuna = Comuna.objects.all()
+    direccion = Direccion.objects.get(usuario = usuario)
+   
+
     contexto = {
-        "datos": usuario,
-        "region": region,
-        "comuna": comuna
+        "dire": direccion,
+        "datos": usuario
+
     }
     if not request.user.is_authenticated:
         messages.warning(request, 'Inicie sesión para continuar')

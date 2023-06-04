@@ -57,7 +57,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <label for="direc">Direccion:</label>
-                            <input id="direc" type="text" class="form-control" value="{{ datos.id_direccion.direccion }}" readonly>
+                            <input id="direc" type="text" class="form-control" value="{{ dire.direccion }}" readonly>
                             <p class="alertas" id="direcalert"></p>
                         </div>
                         <div class="col-md-4">
@@ -74,6 +74,7 @@
                             <label for="cbocomuna">Comuna:</label>
                             <select class="form-control" name="comuna" id="comuna" disabled required>
                                 <option value="">Seleccionar</option>
+
                                 {% for i in comuna %}
                                 <option value="{{ i.id_comuna }}" data-region="{{ i.region.id_region }}">{{ i.nombre }}</option>
                                 {% endfor %}
