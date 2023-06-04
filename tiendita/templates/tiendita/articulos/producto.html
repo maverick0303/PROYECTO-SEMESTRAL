@@ -6,6 +6,8 @@
     {% endblock titulo %}
 
     {% block head %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
         <link type="text/css" rel="stylesheet" href="{% static 'tiendita/css/ernesto/design.css' %}">
         <style>
             .titulos {
@@ -27,14 +29,49 @@
             <h1 class="titulos">{{ producto.nombre|upper }}</h1>
             <p class="precio2">$ {{ producto.precio }}</p>
 
-            <button class="btn btn-primary d-block text-left" type="button">Agregar al Carrito</button>
-
+            <button class="btn btn-primary d-block text-left" style="float: left;" type="button">Agregar al Carrito</button>
+            {% if usuario.rol.id_rol == 2 %}
+                <button class="btn btn-primary d-block text-left" type="button" id="eliminarProducto">Eliminar Producto</button>
+            {% endif %}
+            
             <p class="textos">{{ producto.descripcion }}</p>
         </div>
     </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
+
+        <script>
+            $(document).ready(function() {
+                $("#eliminarProducto").click(function() {
+                    // Mostrar cuadro de diálogo de confirmación
+                    if (confirm("¿Estás seguro que quieres eliminar este producto?")) {
+                        // Realizar solicitud AJAX al servidor
+                        $.ajax({
+                            url: "{% url 'a_prod_eliminar' %}",
+                            type: "POST",
+                            data: {
+                                id_producto: "{{ producto.cod_producto }}",
+                                csrfmiddlewaretoken: "{{ csrf_token }}"
+
+                            },
+                            success: function(response) {
+                                // Éxito de la solicitud AJAX
+                                // Aquí puedes realizar acciones adicionales, como mostrar un mensaje al usuario
+                                alert("Artículo eliminado correctamente");
+                                // Redirigir al carrito
+                                window.location.href = "{% url 'tienda' %}";
+                            },
+                            error: function(xhr, textStatus, errorThrown) {
+                                // Error en la solicitud AJAX
+                                // Aquí puedes manejar el error según tus necesidades
+                                alert("Error al eliminar el producto");
+                            }
+                        });
+                    }
+                });
+            });
+        </script>
     {% endblock body %}

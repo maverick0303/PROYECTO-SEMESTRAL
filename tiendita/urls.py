@@ -2,15 +2,12 @@ from django.contrib import admin
 from django.urls import path, include
 from .views import *
 urlpatterns = [
-    #TIENDA
-    path('',tienda,name="tienda"),
-    path('a_prod_cuerda/',a_prod_cuerda,name="a_prod_cuerda"),
-    path('a_prod_idiofono/',a_prod_idiofono,name="a_prod_idiofono"),
-    path('a_prod_percusion/',a_prod_percusion,name="a_prod_percusion"),
-    path('a_prod_viento/',a_prod_viento,name="a_prod_viento"),
+    #ADMIN
     path('a_prod_nuevo/',a_prod_nuevo,name="a_prod_nuevo"),
     path('a_prod_agregar/',a_prod_agregar,name="a_prod_agregar"),
-    path('a_tienda/',a_tienda,name="a_tienda"),
+    path('a_prod_eliminar/',a_prod_eliminar,name="a_prod_eliminar"),
+    #TIENDA
+    path('',tienda,name="tienda"),
     path('prod_cuerda/',prod_cuerda,name="prod_cuerda"),
     path('prod_idiofono/',prod_idiofono,name="prod_idiofono"),
     path('prod_percusion/',prod_percusion,name="prod_percusion"),
@@ -18,7 +15,6 @@ urlpatterns = [
     path('feriados/',feriados,name="feriados"),
     #PRODUCTO
     path('producto/<id>',producto,name="producto"),
-    path('a_bombo/',a_bombo,name="a_bombo"),
     #INICIO
     path('bienvenida/',bienvenida,name="bienvenida"),
     path('cerrar_sesion/',cerrar_sesion,name="cerrar_sesion"),

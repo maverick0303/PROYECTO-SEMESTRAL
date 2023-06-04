@@ -18,6 +18,9 @@
         <div class="row">
             <div class="col-md-12">
                 <h1 class="titulos">Instrumentos de viento</h1>
+                {% if usuario.rol.id_rol == 2 %}
+                    <a href="{% url 'a_prod_nuevo' %}"><button class="btn btn-primary text-left">Añadir producto</button></a>
+                {% endif %}
             </div>
         </div>
 

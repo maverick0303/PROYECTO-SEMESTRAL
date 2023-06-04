@@ -67,6 +67,7 @@
                         </div>
                     </h3>
                     <ul>
+                        {% if user.is_authenticated %}
                         <li>
                             <span class="material-icons icons-size"><img src="{% static 'tiendita/img/iconos/1icon-usuario.png' %}"></span>
                             <a href="{% url 'actu_datos' %}">Mi perfil</a>
@@ -81,6 +82,12 @@
                             <span class="material-icons icons-size"><img src="{% static 'tiendita/img/iconos/1icon-cerrar-sesion.png' %}"></span>
                             <a href="{% url 'cerrar_sesion' %}">Salir</a>
                         </li>
+                        {% else %}
+                        <li>
+                            <span class="material-icons icons-size"><img src="{% static 'tiendita/img/iconos/1icon-iniciar-sesion.png' %}"></span>
+                            <a href="{% url 'inicio_sesion' %}">Iniciar Sesion</a>
+                        </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>

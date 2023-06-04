@@ -5,25 +5,20 @@ from django.contrib.auth.models import User
 from django.contrib.auth.hashers import check_password
 from django.contrib.auth import authenticate,login, logout
 from django.contrib import messages
+from django.http import JsonResponse
 # Create your views here.
 
 #ADMIN
-def a_bombo(request):
-    return render(request,'tiendita/admin/bombo.html')
-
-def a_prod_cuerda(request):
-    return render(request,'tiendita/admin/prod_cuerda.html')
-
-def a_prod_idiofono(request):
-    return render(request,'tiendita/admin/prod_idiofono.html')
-
-def a_prod_percusion(request):
-    return render(request,'tiendita/admin/prod_percusion.html')
-
-def a_prod_viento(request):
-    return render(request,'tiendita/admin/prod_viento.html')
-
 def a_prod_nuevo(request):
+    if not request.user.is_authenticated:
+        messages.warning(request, 'Inicie sesión para continuar')
+        return redirect('inicio_sesion')
+    
+    usuario = Usuario.objects.get(correo = request.user.username)
+    if usuario.rol.id_rol == 1:
+        # El usuario tiene un rol de usuario (id_rol = 1)
+        return redirect('tienda')
+    
     categoria = Categoria.objects.all()
     contexto = {
         "categoria": categoria
@@ -44,73 +39,99 @@ def a_prod_agregar(request):
 
     return redirect('a_prod_nuevo')
 
-def a_tienda(request):
-    if not request.user.is_authenticated:
-        messages.warning(request, 'Inicie sesión para continuar')
-        return redirect('inicio_sesion')
-    
-    usuario = Usuario.objects.get(correo = request.user.username)
-    if usuario.rol.id_rol == 1:
-        # El usuario tiene un rol de administrador (id_rol = 2)
-        return redirect('tienda')
 
-    
-    return render(request,'tiendita/admin/tienda.html')
+def a_prod_eliminar(request):
+    if request.method == 'POST':
+        id_producto = request.POST.get('id_producto')
+        producto = Producto.objects.get(cod_producto = id_producto)
 
+        producto.delete()
+        
+        return JsonResponse({'success': True})
+    else:
+        return JsonResponse({'success': False})
+
+
+    return redirect('producto')
 
 #TIENDA
 def prod_cuerda(request):
     productos = Producto.objects.filter(categoria = 2)
+    if request.user.is_authenticated:
+        usuario = Usuario.objects.get(correo = request.user.username)
+    else:
+        usuario = Usuario.rol.id_rol = 1
 
     for producto in productos:
         producto.precio = intcomma(producto.precio)
 
     contexto = {
-        "productos":productos
+        "productos" :productos,
+        "usuario" :usuario
     }
     return render(request,'tiendita/tienda/prod_cuerda.html',contexto)
 
 def prod_idiofono(request):
     productos = Producto.objects.filter(categoria = 3)
+    if request.user.is_authenticated:
+        usuario = Usuario.objects.get(correo = request.user.username)
+    else:
+        usuario = Usuario.rol.id_rol = 1
 
     for producto in productos:
         producto.precio = intcomma(producto.precio)
 
     contexto = {
-        "productos":productos
+        "productos" :productos,
+        "usuario" :usuario
     }
     return render(request,'tiendita/tienda/prod_idiofono.html',contexto)
 
 def prod_percusion(request):
     productos = Producto.objects.filter(categoria = 1)
+    if request.user.is_authenticated:
+        usuario = Usuario.objects.get(correo = request.user.username)
+    else:
+        usuario = Usuario.rol.id_rol = 1
 
     for producto in productos:
         producto.precio = intcomma(producto.precio)
 
     contexto = {
-        "productos":productos
+        "productos" :productos,
+        "usuario" :usuario
     }
     return render(request,'tiendita/tienda/prod_percusion.html',contexto)
 
 def prod_viento(request):
     productos = Producto.objects.filter(categoria = 4)
+    if request.user.is_authenticated:
+        usuario = Usuario.objects.get(correo = request.user.username)
+    else:
+        usuario = Usuario.rol.id_rol = 1
 
     for producto in productos:
         producto.precio = intcomma(producto.precio)
 
     contexto = {
-        "productos":productos
+        "productos" :productos,
+        "usuario" :usuario
     }
     return render(request,'tiendita/tienda/prod_viento.html',contexto)
 
 def tienda(request):
     productos = Producto.objects.all()
+    if request.user.is_authenticated:
+        usuario = Usuario.objects.get(correo = request.user.username)
+    else:
+        usuario = Usuario.rol.id_rol = 1
 
     for producto in productos:
         producto.precio = intcomma(producto.precio)
 
     contexto = {
-        "productos":productos
+        "productos" :productos,
+        "usuario" :usuario
     }
     return render(request,'tiendita/tienda/tienda.html',contexto)
 
@@ -126,11 +147,13 @@ def producto(request, id):
         return redirect('inicio_sesion')
     
     producto = Producto.objects.get(cod_producto = id)
+    usuario = Usuario.objects.get(correo = request.user.username)
 
     producto.precio = intcomma(producto.precio)
 
     contexto = {
-        "producto": producto
+        "producto" :producto,
+        "usuario" :usuario
     }
     return render(request,'tiendita/articulos/producto.html',contexto)
 
@@ -165,14 +188,10 @@ def inicio_sesion_verificar(request):
         messages.error(request, 'El usuario o la contraseña son incorrectas')
         return redirect('inicio_sesion')
     
-    usuario2 = Usuario.objects.get(correo = nombre1, clave = clave1)
     usua = authenticate(username = nombre1, password = clave1)
     if usua is not None:
         login(request, usua)
-        if usuario2.rol.id_rol == 2:
-            return redirect('a_tienda')
-        else:
-            return redirect('tienda')
+        return redirect('tienda')
     else:
         messages.error(request, 'El usuario o la contraseña son incorrectas')
         return redirect('inicio_sesion')
