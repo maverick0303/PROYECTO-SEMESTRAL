@@ -30,4 +30,5 @@ urlpatterns = [
     path('carrito/', carrito, name="carrito"),
     path('histo_compra/', histo_compra, name= "histo_compra"),
     path('mod_contra/',mod_contra, name="mod_contra"),
+    
 ]

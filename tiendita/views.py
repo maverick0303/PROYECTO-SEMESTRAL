@@ -254,10 +254,12 @@ def verificar_agregar(request):
 #USUARIO
 
 def actu_datos(request):
-   
+    usuario = Usuario.objects.get(correo = request.user.username)
+    
     region = Region.objects.all()
     comuna = Comuna.objects.all()
     contexto = {
+        "datos": usuario,
         "region": region,
         "comuna": comuna
     }

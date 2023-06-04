@@ -31,25 +31,25 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label for="name">Nombre completo:</label>
-                            <input id="name" type="text" class="form-control" value="{{ datos.nombre }}">
+                            <input id="name" type="text" class="form-control" value="{{ datos.nombre }}" readonly>
                             <p class="alertas" id="namealert"></p>
                             
                         </div>
                         <div class="col-md-6">
                             <label for="rut">Rut:</label>
-                            <input id="rut" type="text" class="form-control" value="{{ datos.rut }}">
+                            <input id="rut" type="text" class="form-control" value="{{ datos.rut }}" readonly>
                             <p class="alertas" id="rutalert"></p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <label for="email">Correo electrónico:</label>
-                            <input id="email" type="text" class="form-control" value="{{ datos.correo }}">
+                            <input id="email" type="text" class="form-control" value="{{ datos.correo }}"readonly>
                             <p class="alertas" id="emailalert"></p>
                         </div>
                         <div class="col-md-6">
                             <label for="phone">Teléfono:</label>
-                            <input id="phone" type="text" class="form-control" value="{{ datos.telefono }}">
+                            <input id="phone" type="text" class="form-control" value="{{ datos.telefono }}" readonly>
                             <p class="alertas" id="phonealert"></p>
                         </div>
                     </div>
@@ -57,12 +57,12 @@
                     <div class="row">
                         <div class="col-md-4">
                             <label for="direc">Direccion:</label>
-                            <input id="direc" type="text" class="form-control" value="{{ datos.id_direccion.direccion }}">
+                            <input id="direc" type="text" class="form-control" value="{{ datos.id_direccion.direccion }}" readonly>
                             <p class="alertas" id="direcalert"></p>
                         </div>
                         <div class="col-md-4">
                             <label for="cboregion">Región:</label>
-                            <select class="form-control" name="region" id="region" required>
+                            <select class="form-control" name="region" id="region" disabled required>
                                 <option value="">Seleccionar</option>
                                 {% for i in region %}
                                 <option value="{{ i.id_region }}">{{ i.nombre }}</option>
