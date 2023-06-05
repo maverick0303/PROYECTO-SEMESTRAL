@@ -29,7 +29,7 @@
             <h1 class="titulos">{{ producto.nombre|upper }}</h1>
             <p class="precio2">$ {{ producto.precio }}</p>
 
-            <button class="btn btn-primary d-block text-left" style="float: left;" type="button">Agregar al Carrito</button>
+            <button class="btn btn-primary d-block text-left" type="button">Agregar al Carrito</button>
             {% if usuario.rol.id_rol == 2 %}
                 <button class="btn btn-primary d-block text-left" type="button" id="eliminarProducto">Eliminar Producto</button>
             {% endif %}
