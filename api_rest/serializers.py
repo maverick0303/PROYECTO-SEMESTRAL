@@ -6,7 +6,6 @@ class comunaSerializers(serializers.ModelSerializer):
         model = Comuna
         fields = ['id_comuna', 'nombre', 'region']
 
-
 class regionSerializers(serializers.ModelSerializer):
     class Meta:
         model = Region
