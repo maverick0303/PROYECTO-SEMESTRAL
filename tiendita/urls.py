@@ -17,6 +17,7 @@ urlpatterns = [
     path('feriados/',feriados,name="feriados"),
     #PRODUCTO
     path('producto/<id>',producto,name="producto"),
+    path('busqueda/',busqueda,name="busqueda"),
     #INICIO
     path('bienvenida/',bienvenida,name="bienvenida"),
     path('cerrar_sesion/',cerrar_sesion,name="cerrar_sesion"),

@@ -203,6 +203,16 @@ def producto(request, id):
     return render(request,'tiendita/articulos/producto.html',contexto)
 
 
+def busqueda(request):
+    if request.method == "POST":
+        buscar = request.POST['buscar']
+
+        resultado = Producto.objects.filter(nombre__contains = buscar)
+
+        return render(request,'tiendita/articulos/busqueda.html', {'buscar':buscar, 'resultado':resultado})
+    else:
+        return render(request,'tiendita/articulos/busqueda.html')
+
 
 #INICIO
 

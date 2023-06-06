@@ -1,0 +1,73 @@
+{% extends 'tiendita/plantilla/navbar.html' %}
+{% load static %}
+
+
+    {% block titulo %}
+    <title>Tienda</title>
+    {% endblock titulo %}
+
+    {% block head %}
+        <link type="text/css" rel="stylesheet" href="{% static 'tiendita/css/ernesto/design.css' %}">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&family=Shrikhand&display=swap');
+            .body{
+                background: url("{% static 'tiendita/img/fondos/fondo5.jpg' %}");
+            }
+            .til{
+                text-align: center;
+                font-family: 'Montserrat Alternates', sans-serif;
+                font-size: 49px;
+                font-weight: bold;
+                color: rgb(0, 0, 0);
+            }
+        </style>
+    {% endblock head %}
+    
+    {% block body %}
+        
+        {% if buscar %}
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="til">Resultados de: {{buscar}} </h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2"></div>
+                {% for i in resultado %}
+                    {% if forloop.counter0|divisibleby:4 %}
+                            <div class="col-md-2"></div>
+    
+                        </div>
+    
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                    {% endif %}
+                    <div class="col-md-2">
+                        <a href="{% url 'producto' i.cod_producto %}" class="textos borde card">
+                            <img class="img" src="{{ i.foto.url }}" alt="No disponible"><br>
+                            {{ i.nombre|upper }}
+                            <p class="precio">${{ i.precio }}</p>
+                        </a>
+                    </div>
+                {% endfor %}
+                <div class="col-md-2"></div>
+                
+            </div>
+            <br>
+
+        {% else %}
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="til">Se te olvido realizar la busqueda.</h1>
+                    <h1 class="til">Mira este gatito por mientras.</h1>
+                    <img src="https://media.tenor.com/bJC8QxaulvEAAAAM/cat-dance.gif">
+                </div>
+            </div>
+        {% endif %}
+        
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    {% endblock body %}

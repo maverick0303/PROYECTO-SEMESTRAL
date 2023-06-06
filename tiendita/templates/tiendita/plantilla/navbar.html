@@ -48,8 +48,9 @@
                         <a class="nav-link" href="{% url 'feriados' %}">Feriados</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0 mx-auto">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                <form class="form-inline my-2 my-lg-0 mx-auto" method="POST" action="{% url 'busqueda' %}">
+                    {% csrf_token %}
+                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar" name="buscar">
                     <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Buscar</button>
                     <a style="margin-left: 20px;" href="{% url 'carrito' %}"><img class="imagenav" src="{% static 'tiendita/img/iconos/1carro.png' %}"></a>
                 </form>
