@@ -311,18 +311,22 @@ def verificar_agregar(request):
 def actu_datos(request):
     usuario = Usuario.objects.get(correo = request.user.username)
     direccion = Direccion.objects.get(usuario = usuario)
+    comuna = Comuna.objects.get(id_comuna = direccion.comuna.id_comuna)
+    region = Region.objects.get(id_region = comuna.region.id_region)
    
 
     contexto = {
         "dire": direccion,
-        "datos": usuario
+        "datos": usuario,
+        "comuna": comuna,
+        "region": region
 
     }
     if not request.user.is_authenticated:
         messages.warning(request, 'Inicie sesión para continuar')
         return redirect('inicio_sesion')
     
-    return render(request, 'tiendita/usuario/actu_datos.html', contexto)
+    return render(request, 'tiendita/usuario/actu_2.html', contexto)
 
 
 def carrito(request):

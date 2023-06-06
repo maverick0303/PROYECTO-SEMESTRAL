@@ -101,7 +101,11 @@ input{
 }
 
 p {
+    font-family: 'Montserrat Alternates', sans-serif;
     margin-bottom: 0px;
+}
+select{
+    font-family: 'Montserrat Alternates', sans-serif;
 }
 
 a {

@@ -31,25 +31,30 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label for="name">Nombre completo:</label>
-                            <input id="name" type="text" class="form-control" value="{{ datos.nombre }}" readonly>
+                            <input id="name" type="text" class="form-control" value="{{ datos.nombre }}" >
                             <p class="alertas" id="namealert"></p>
                             
                         </div>
                         <div class="col-md-6">
                             <label for="rut">Rut:</label>
-                            <input id="rut" type="text" class="form-control" value="{{ datos.rut }}" readonly>
+                            <input id="rut" type="text" class="form-control" value="{{ datos.rut }}" >
                             <p class="alertas" id="rutalert"></p>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
+                            <p class="borde2" style="background-color: #fff; color: black;">por su seguridad no se podra editar su correo, 
+                                si necesita hacerlo es preferible que cree otra cuenta y use el correo que le estime conveniente
+                            </p>
+                        </div>
+                        <div class="col-md-4">
                             <label for="email">Correo electrónico:</label>
                             <input id="email" type="text" class="form-control" value="{{ datos.correo }}"readonly>
                             <p class="alertas" id="emailalert"></p>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <label for="phone">Teléfono:</label>
-                            <input id="phone" type="text" class="form-control" value="{{ datos.telefono }}" readonly>
+                            <input id="phone" type="text" class="form-control" value="{{ datos.telefono }}" >
                             <p class="alertas" id="phonealert"></p>
                         </div>
                     </div>
@@ -57,12 +62,12 @@
                     <div class="row">
                         <div class="col-md-4">
                             <label for="direc">Direccion:</label>
-                            <input id="direc" type="text" class="form-control" value="{{ dire.direccion }}" readonly>
+                            <input id="direc" type="text" class="form-control" value="{{ dire.direccion }}" >
                             <p class="alertas" id="direcalert"></p>
                         </div>
                         <div class="col-md-4">
                             <label for="cboregion">Región:</label>
-                            <select class="form-control" name="region" id="region" disabled required>
+                            <select class="form-control" name="region" id="region"  >
                                 
                                 <option value="{{ region.id_region }}">{{ region.nombre }}</option>
                                 
@@ -71,7 +76,7 @@
                         </div>
                         <div class="col-md-4">
                             <label for="cbocomuna">Comuna:</label>
-                            <select class="form-control" name="comuna" id="comuna" disabled required>
+                            <select class="form-control" name="comuna" id="comuna" >
                                 
                                 <option value="{{ comuna.id_comuna }}" data-region="{{ comuna.region.id_region }}">{{ comuna.nombre }}</option>
                                 
@@ -79,14 +84,7 @@
                         </div>
                        
                     </div>
-                    <div class="row">
-                        <div class="col-md-3"></div>
-                        <div class="col-md-6">
-                            <a class="a2" href="{% url 'mod_contra' %}" style="font-family: 'Montserrat Alternates', sans-serif; font-size: 25px; color: gray;">
-                                modificar la contraseña
-                            </a>
-                        </div>
-                    </div>
+                   
                     <div class="row">
                         <div class="col-md-3"></div>
                         <div class="col-md-6">
