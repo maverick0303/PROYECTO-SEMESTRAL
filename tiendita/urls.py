@@ -3,6 +3,8 @@ from django.urls import path, include
 from .views import *
 urlpatterns = [
     #ADMIN
+    path('a_prod_modificar/<id>',a_prod_modificar,name="a_prod_modificar"),
+    path('a_prod_editar/',a_prod_editar,name="a_prod_editar"),
     path('a_prod_nuevo/',a_prod_nuevo,name="a_prod_nuevo"),
     path('a_prod_agregar/',a_prod_agregar,name="a_prod_agregar"),
     path('a_prod_eliminar/',a_prod_eliminar,name="a_prod_eliminar"),

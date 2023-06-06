@@ -34,43 +34,52 @@
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-8">
-                <form action="{% url 'a_prod_agregar' %}" class="borde2" method="POST" enctype="multipart/form-data" id="form">
+                <form action="{% url 'a_prod_editar' %}" class="borde2" method="POST" enctype="multipart/form-data" id="form">
                     {% csrf_token %}
                     <div class="form-group">
                         <br>
                         <label for="prodname" class="textos">Nombre del producto: </label>
-                        <input id="prodname" class="textos form-control" type="text" name="nombre">
+                        <input id="prodname" class="textos form-control" type="text" name="nombre" value="{{ producto.nombre }}">
                         <p class="alertas" id="namealert"></p><br>
 
                         <label for="prodprice" class="textos">Precio del producto: </label>
-                        <input id="prodprice" class="textos form-control" type="text" name="precio">
+                        <input id="prodprice" class="textos form-control" type="text" name="precio" value="{{ producto.precio }}">
                         <p class="alertas" id="pricealert"></p><br>
 
                         <label for="prodtype" class="textos">Categoria de instrumento: </label>
                         <select id="prodtype" class="textos form-control" name="categoria">
                             {% for i in categoria %}
-                            <option value="{{i.id_categoria}}">Instrumento de {{i.nombre}}</option>
+                                {% if i.id_categoria == producto.categoria.id_categoria %}
+                                    <option value="{{ i.id_categoria}}" selected>Instrumento de {{ i.nombre }}</option>
+                                {% else %}
+                                    <option value="{{ i.id_categoria}}">Instrumento de {{ i.nombre }}</option>
+                                {% endif %}
                             {% endfor %}
                         </select><br>
 
                         <label for="proddesc" class="textos">Descripcion del producto: </label>
-                        <textarea id="proddesc" class="textos form-control" rows="5" cols="40" name="descripcion"></textarea>
+                        <textarea id="proddesc" class="textos form-control" rows="5" cols="40" name="descripcion">{{ producto.descripcion }}</textarea>
                         <p class="alertas" id="descalert"></p><br>
 
                         <label for="prodstock" class="textos">Stock del producto: </label>
-                        <input id="prodstock" class="textos form-control" type="text" name="stock">
+                        <input id="prodstock" class="textos form-control" type="text" name="stock" value="{{ producto.stock }}">
                         <p class="alertas" id="stockalert"></p><br>
+
+                        <label class="textos">Imagen actual del producto: </label><br>
+                        <img src="{{ producto.foto.url }}" style="width: 150px;"><br>
 
                         <label for="prodfoto" class="textos">Foto del producto: </label>
                         <input id="prodfoto" class="textos form-control" type="file" accept="image/png" name="foto">
                         <p class="alertas" id="fotoalert"></p><br>
 
-                        <input class="btn btn-primary text-left" type="submit" value="Enviar" style="margin-left: 30px;">
+                        <input class="textos form-control" type="text" name="id" value="{{ producto.cod_producto }}" hidden>
+
+                        <input class="btn btn-primary text-left" type="submit" value="Guardar Cambios" style="margin-left: 30px;">
                         <input class="btn btn-primary text-left" type="reset" value="Borrar Datos">
 
                     </div>
                 </form>
-                <script src="{% static 'tiendita/js/ernesto/nuevo_producto.js' %}"></script>
+                <script src="{% static 'tiendita/js/ernesto/mod_producto.js' %}"></script>
             </div>
             <div class="col-md-2"></div>
         </div>
@@ -78,7 +87,7 @@
         <br>
     
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
         {% endblock body %}

@@ -49,12 +49,11 @@ $(document).ready(function(){
                 msjMostrar += "El precio no puede ser 0";
                 enviar = true;
             }
-
+            
             if(!/^[\d]+$/.test(precio)){
                 msjMostrar += "El precio no puede tener caracteres especiales o letras";
                 enviar = true;
             }
-
         }
         if(enviar){
             $("#pricealert").html(msjMostrar);
@@ -107,8 +106,6 @@ $(document).ready(function(){
         
         //VALIDACIONES IMAGEN
         if(foto.val()==""){
-            msjMostrar += "Seleccione una imagen";
-            enviar = true;
         }
         else{
             //CONSEGUIR ALTO Y ANCHO

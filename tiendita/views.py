@@ -9,6 +9,53 @@ from django.http import JsonResponse
 # Create your views here.
 
 #ADMIN
+def a_prod_modificar(request, id):
+    if not request.user.is_authenticated:
+        messages.warning(request, 'Inicie sesión para continuar')
+        return redirect('inicio_sesion')
+    
+    usuario = Usuario.objects.get(correo = request.user.username)
+    if usuario.rol.id_rol == 1:
+        # El usuario tiene un rol de usuario (id_rol = 1)
+        return redirect('tienda')
+
+    producto = Producto.objects.get(cod_producto = id)
+    categoria = Categoria.objects.all()
+    contexto = {
+        "producto" :producto,
+        "categoria" :categoria
+    }
+
+    return render(request,'tiendita/admin/prod_modificar.html',contexto)
+
+def a_prod_editar(request):
+    idP = request.POST['id']
+    nombreP = request.POST['nombre']
+    precioP = request.POST['precio']
+    categoriaP = request.POST['categoria']
+    descripcionP = request.POST['descripcion']
+    stockP = request.POST['stock']
+    
+    producto = Producto.objects.get(cod_producto = idP)
+
+    try:
+        fotoP = request.FILES['foto']
+    except:
+        fotoP = producto.foto
+
+    producto.nombre = nombreP
+    producto.precio = precioP
+    producto.descripcion = descripcionP
+    producto.stock = stockP
+    producto.foto = fotoP
+
+    keycategoria = Categoria.objects.get(id_categoria = categoriaP)
+
+    producto.categoria = keycategoria
+
+    producto.save()
+    return redirect('tienda')
+
 def a_prod_nuevo(request):
     if not request.user.is_authenticated:
         messages.warning(request, 'Inicie sesión para continuar')
@@ -51,8 +98,6 @@ def a_prod_eliminar(request):
     else:
         return JsonResponse({'success': False})
 
-
-    return redirect('producto')
 
 #TIENDA
 def prod_cuerda(request):
