@@ -46,11 +46,11 @@
                                 <div class="row">
                                     <div class="col-md-2"></div>
                                     <div class="col-md-8">
-                                        <select name="Preguntas de recordatorio" id="preguntas" class="custom-select" required>
+                                        <select name="pregunta" id="preguntas" class="custom-select" required>
                                             <option value="" selected>Seleccione una de estas opciones</option>
-                                            <option value="1">¿Cuándo fue la ultima vez que viajó?</option>
-                                            <option value="2">¿Cuándo es su cumpleaños</option>
-                                            <option value="3">¿Nombre completo de su madre?</option>
+                                            {% for i in pregunta %}
+                                            <option value="{{ i.id_pregunta }}">{{ i.nombre }}</option>
+                                            {% endfor %}
                                             <p class="alertas" id="pregalert"></p>
                                         </select>
                                     </div>
@@ -59,9 +59,18 @@
                                 <div class="row">
                                     <div class="col-md-3"></div>
                                     <div class="col-md-6">
-                                        <label for="">Escriba su respuesta:</label>
+                                        <label for="respuesta">Escriba su respuesta:</label>
                                         <input type="text" class="form-control" id="respuesta" name="respuesta">
-                                        <p class="alertas" id="respalert"></p>
+                                        <input type="text" class="form-control" name="usuario" hidden value="{{ id }}">
+                                        <p class="alertas" id="respalert">
+                                            {% if messages %}
+                                                <ul class="messages alertas">
+                                                {% for message in messages %}
+                                                    <li>{{ message }}</li>
+                                                {% endfor %}
+                                                </ul>
+                                            {% endif %}
+                                        </p>
                                     </div>
                                     <div class="col-md-3"></div>
                                 </div>

@@ -297,14 +297,49 @@ def nuevo_user_agregar(request):
 def restablecer(request):
     return render(request,'tiendita/inicio_sesion/restablecer.html')
 
-def verificar(request):
-    return render(request,'tiendita/inicio_sesion/verificar.html')
+def restablecer_verificar(request):
+    correoU = request.POST['correo']
+    try:
+        usua1 = User.objects.get(username = correoU)
+    except User.DoesNotExist:
+        messages.error(request, 'El correo ingresado es incorrecto')
+        return redirect('restablecer')
+    
+    if not Usuario.objects.filter(correo=correoU).exists():
+        # El correo ya está registrado, mostrar mensaje de error
+        messages.error(request, 'El correo ingresado es incorrecto')
+        return redirect('restablecer')
+    else:
+        usua = Usuario.objects.get(correo = correoU)
+        return redirect('verificar', id=usua.correo)
+    
+
+
+def verificar(request, id):
+    pregunta = Pregunta.objects.all()
+    contexto = {
+        "pregunta":pregunta,
+        "id":id
+    }
+
+    return render(request,'tiendita/inicio_sesion/verificar.html',contexto)
 
 def verificar_agregar(request):
+    preguntaR = request.POST['pregunta']
     respuestaR = request.POST['respuesta']
+    usuarioid = request.POST['usuario']
 
-    Pregunta.objects.create(respuesta = respuestaR)
-    return redirect('tienda')
+    usuario = Usuario.objects.get(correo = usuarioid)
+
+    if int(usuario.pregunta.id_pregunta) == int(preguntaR):
+        if usuario.respuesta == respuestaR:
+            return redirect('mod_contra')
+        else:
+            messages.error(request, 'La respuesta ingresada es incorrecta')
+            return redirect('verificar', id=usuario.correo)
+    else:
+        messages.error(request, 'La respuesta ingresada es incorrecta')
+        return redirect('verificar', id=usuario.correo)
 
 #USUARIO
 

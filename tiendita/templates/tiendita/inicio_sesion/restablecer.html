@@ -29,7 +29,7 @@
                 <section>
                     <div class="form-box">
                         <div class="form-value">
-                            <form action="{% url 'verificar' %}" method="post" name="form1" enctype="multipart/form-data" id="restablecer">
+                            <form action="{% url 'restablecer_verificar' %}" method="POST" name="form1" enctype="multipart/form-data" id="restablecer">
                                 {% csrf_token %}
                                 <h2>Recuperar clave</h2>
                                 <div class="row">
@@ -40,8 +40,16 @@
                                     <div class="col-xl-2"></div>
                                     <div class="col-xl-8">
                                         <label for="email">Correo electronico:</label>
-                                        <input id="correo" type="text" class="form-control" placeholder="juanitopirulin@gmail.com" >
-                                        <p class="alertas" id="emailalert"></p>
+                                        <input id="correo" type="text" class="form-control" placeholder="juanitopirulin@gmail.com" name="correo">
+                                        <p class="alertas" id="emailalert">
+                                            {% if messages %}
+                                                <ul class="messages alertas">
+                                                {% for message in messages %}
+                                                    <li>{{ message }}</li>
+                                                {% endfor %}
+                                                </ul>
+                                            {% endif %}
+                                        </p>
                                         <br>
                                     </div>
                                     <div class="col-xl-2"></div>

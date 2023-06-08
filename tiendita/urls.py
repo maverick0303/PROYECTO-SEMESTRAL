@@ -26,7 +26,8 @@ urlpatterns = [
     path('nuevo_user/',nuevo_user, name="nuevo_user"),
     path('nuevo_user_agregar/',nuevo_user_agregar, name="nuevo_user_agregar"),
     path('restablecer/',restablecer, name="restablecer"),
-    path('verificar/',verificar, name="verificar"),
+    path('restablecer_verificar/',restablecer_verificar, name="restablecer_verificar"),
+    path('verificar/<id>',verificar, name="verificar"),
     path('verificar_agregar/',verificar_agregar, name="verificar_agregar"),
     #USUARIO
     path('actu_datos/',actu_datos,name="actu_datos"),
