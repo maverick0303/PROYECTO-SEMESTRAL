@@ -29,12 +29,13 @@ urlpatterns = [
     path('restablecer_verificar/',restablecer_verificar, name="restablecer_verificar"),
     path('verificar/<id>',verificar, name="verificar"),
     path('verificar_agregar/',verificar_agregar, name="verificar_agregar"),
+    path('recu_contra/',recu_contra, name="recu_contra"),
     #USUARIO
     path('actu_datos/',actu_datos,name="actu_datos"),
     path('carrito/', carrito, name="carrito"),
     path('histo_compra/', histo_compra, name= "histo_compra"),
     path('mod_contra/',mod_contra, name="mod_contra"),
+    path('contra_modificar/',contra_modificar,name="contra_modificar"),
     path('actu_2/',actu_2,name="actu_2"),
     path('modificarDatos/',modificarDatos,name="modificarDatos"),
-    
 ]

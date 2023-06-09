@@ -18,7 +18,7 @@ $(document).ready(function(){
         var apellido    = $("#apelli").val();
         var correo      = $("#email").val();
         var telefono    = $("#phone").val();
-        var comuna      = $("#second-select").val();
+        var comuna      = $("#comuna").val();
         var direccion   = $("#direc").val();
         var rut         = $("#rut").val();
 
@@ -115,7 +115,7 @@ $(document).ready(function(){
 
 
         //VALIDACIONES COMUNA
-        if(comuna=="o1"){
+        if(comuna==""){
             msjMostrar += "seleccione una comuna";
             enviar = true;
         }

@@ -26,18 +26,18 @@
         <div class="row borde2">
             <div class="col-md-12">
                 <h1 class="titulos">Datos personales:</h1>
-                <form action="" id="form">
+                <form action="{% url 'modificarDatos' %}" id="form" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="row">
                         <div class="col-md-6">
                             <label for="name">Nombre completo:</label>
-                            <input id="name" type="text" class="form-control" value="{{ datos.nombre }}" >
+                            <input id="name" type="text" class="form-control" value="{{ datos.nombre }}" name="nombre">
                             <p class="alertas" id="namealert"></p>
                             
                         </div>
                         <div class="col-md-6">
                             <label for="rut">Rut:</label>
-                            <input id="rut" type="text" class="form-control" value="{{ datos.rut }}" >
+                            <input id="rut" type="text" class="form-control" value="{{ datos.rut }}" name="rut">
                             <p class="alertas" id="rutalert"></p>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                         </div>
                         <div class="col-md-4">
                             <label for="phone">Teléfono:</label>
-                            <input id="phone" type="text" class="form-control" value="{{ datos.telefono }}" >
+                            <input id="phone" type="text" class="form-control" value="{{ datos.telefono }}" name="telefono">
                             <p class="alertas" id="phonealert"></p>
                         </div>
                     </div>
@@ -62,36 +62,39 @@
                     <div class="row">
                         <div class="col-md-4">
                             <label for="direc">Direccion:</label>
-                            <input id="direc" type="text" class="form-control" value="{{ dire.direccion }}" >
+                            <input id="direc" type="text" class="form-control" value="{{ dire.direccion }}" name="direccion">
                             <p class="alertas" id="direcalert"></p>
                         </div>
                         <div class="col-md-4">
                             <label for="cboregion">Región:</label>
-                            <select class="form-control" name="region" id="region"  >
-                                
-                                <option value="{{ region.id_region }}">{{ region.nombre }}</option>
-                                
-
+                            <select class="form-control" name="region" id="region">
+                                {% for i in region %}
+                                    {% if i.id_region == dire.comuna.region.id_region %}
+                                        <option value="{{ i.id_region }}" selected>{{ i.nombre }}</option>
+                                    {% else %}
+                                        <option value="{{ i.id_region }}">{{ i.nombre }}</option>
+                                    {% endif %}
+                                {% endfor %}
                             </select>
                         </div>
                         <div class="col-md-4">
                             <label for="cbocomuna">Comuna:</label>
-                            <select class="form-control" name="comuna" id="comuna" >
-                                
-                                <option value="{{ comuna.id_comuna }}" data-region="{{ comuna.region.id_region }}">{{ comuna.nombre }}</option>
-                                
+                            <select class="form-control" name="comuna" id="comuna" required>
+                                <option value="">Seleccionar</option>
+                                {% for i in comuna %}
+                                    {% if i.id_comuna == dire.comuna.id_comuna and i.id_comuna == dire.comuna.id_comuna %}
+                                        <option value="{{ i.id_comuna }}" data-region="{{ i.region.id_region }}" selected>{{ i.nombre }}</option>
+                                    {% else %}
+                                        <option value="{{ i.id_comuna }}" data-region="{{ i.region.id_region }}">{{ i.nombre }}</option>
+                                    {% endif %}
+                                {% endfor %}
                             </select>
                         </div>
-                       
                     </div>
-                   
                     <div class="row">
                         <div class="col-md-3"></div>
                         <div class="col-md-6">
-                            <a class="btn" href="{% url 'actu_2' %}"
-                            style="font-family: Montserrat Alternates, sans-serif; font-size: 30px; border-radius: 15px;" >Guardar Datos</a>
-                            
-                                
+                            <input class="btn" type="submit" value="Guardar Datos" style="font-family: Montserrat Alternates, sans-serif; font-size: 30px; border-radius: 15px;">
                         </div>
                         <div class="col-md-3"></div>
                     </div>

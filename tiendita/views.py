@@ -333,7 +333,7 @@ def verificar_agregar(request):
 
     if int(usuario.pregunta.id_pregunta) == int(preguntaR):
         if usuario.respuesta == respuestaR:
-            return redirect('mod_contra')
+            return render(request, 'tiendita/inicio_sesion/recu_contra.html', {'id':usuarioid})
         else:
             messages.error(request, 'La respuesta ingresada es incorrecta')
             return redirect('verificar', id=usuario.correo)
@@ -341,14 +341,32 @@ def verificar_agregar(request):
         messages.error(request, 'La respuesta ingresada es incorrecta')
         return redirect('verificar', id=usuario.correo)
 
+def recu_contra(request):
+    usuarioid = request.POST['usuario']
+    contra_nueva = request.POST['contra_nueva']
+
+    usuario = Usuario.objects.get(correo = usuarioid)
+
+    user = User.objects.get(username = usuarioid)
+
+    usuario.clave = contra_nueva
+    user.set_password(contra_nueva)
+
+    usuario.save()
+    user.save()
+
+    return redirect('inicio_sesion')
 #USUARIO
 
 def actu_datos(request):
+    if not request.user.is_authenticated:
+        messages.warning(request, 'Inicie sesión para continuar')
+        return redirect('inicio_sesion')
+    
     usuario = Usuario.objects.get(correo = request.user.username)
-    direccion = Direccion.objects.get(usuario = usuario)
+    direccion = Direccion.objects.get(usuario = usuario.id_usuario)
     comuna = Comuna.objects.get(id_comuna = direccion.comuna.id_comuna)
     region = Region.objects.get(id_region = comuna.region.id_region)
-   
 
     contexto = {
         "dire": direccion,
@@ -357,18 +375,19 @@ def actu_datos(request):
         "region": region
 
     }
-    if not request.user.is_authenticated:
-        messages.warning(request, 'Inicie sesión para continuar')
-        return redirect('inicio_sesion')
+    
     
     return render(request, 'tiendita/usuario/actu_datos.html', contexto)
 
 def actu_2(request):
+    if not request.user.is_authenticated:
+        messages.warning(request, 'Inicie sesión para continuar')
+        return redirect('inicio_sesion')
 
     usuario = Usuario.objects.get(correo = request.user.username)
     direccion = Direccion.objects.get(usuario = usuario)
-    comuna = Comuna.objects.get(id_comuna = direccion.comuna.id_comuna)
-    region = Region.objects.get(id_region = comuna.region.id_region)
+    comuna = Comuna.objects.all()
+    region = Region.objects.all()
    
 
     contexto = {
@@ -382,9 +401,26 @@ def actu_2(request):
     return render(request, 'tiendita/usuario/actu_2.html' ,contexto)
 
 def modificarDatos(request):
+    nombreU = request.POST['nombre']
+    rutU = request.POST['rut']
+    telefonoU = request.POST['telefono']
+    direccionU = request.POST['direccion']
+    comunaU = request.POST['comuna']
 
+    usuario = Usuario.objects.get(correo = request.user.username)
+    direccion = Direccion.objects.get(usuario = usuario.id_usuario)
+    comuna = Comuna.objects.get(id_comuna = comunaU)
 
-    return render(request, 'tiendita/usuario/actu_2.html' ,contexto)
+    usuario.nombre = nombreU
+    usuario.rut = rutU
+    usuario.telefono = telefonoU
+    direccion.direccion = direccionU
+    direccion.comuna = comuna
+
+    usuario.save()
+    direccion.save()    
+
+    return redirect('actu_datos')
 
 def carrito(request):
     if not request.user.is_authenticated:
@@ -407,4 +443,29 @@ def mod_contra(request):
 
     return render (request, 'tiendita/usuario/mod_contra.html')
 
+def contra_modificar(request):
+    contra_actual = request.POST['contra_actual']
+    contra_nueva = request.POST['contra_nueva']
+
+    usuario = Usuario.objects.get(correo = request.user.username)
+    user = User.objects.get(username = usuario.correo)
+
+    pass_valida = check_password(usuario.clave, user.password)
+    if pass_valida:
+        if contra_actual == usuario.clave:
+            usuario.clave = contra_nueva
+            user.set_password(contra_nueva)
+
+            usuario.save()
+            user.save()
+        else:
+            messages.error(request, 'Contraseña actual incorrecta')
+            return redirect('mod_contra')
+    else:
+        messages.error(request, 'Contraseña actual incorrecta')
+        return redirect('mod_contra')
+
+    
+
+    return redirect('actu_datos')
 
