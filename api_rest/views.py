@@ -1,15 +1,19 @@
 from django.shortcuts import render
 from rest_framework import status
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view,permission_classes
 from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
 from django.views.decorators.csrf import csrf_exempt
 from tiendita.models import Comuna, Region
 from .serializers import comunaSerializers, regionSerializers
+
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 # Create your views here.
 
 @csrf_exempt
 @api_view(['GET', 'POST'])
+@permission_classes((IsAuthenticated,))
 def lista_comuna(request):
     if request.method == 'GET':
         comuna = Comuna.objects.all()
@@ -25,6 +29,7 @@ def lista_comuna(request):
 
 @csrf_exempt
 @api_view(['GET', 'PUT', 'DELETE'])
+@permission_classes((IsAuthenticated,))
 def lista_comuna_id(request, id):
     try:
         comuna = Comuna.objects.get(id_comuna = id)
@@ -46,6 +51,7 @@ def lista_comuna_id(request, id):
 
 @csrf_exempt
 @api_view(['GET', 'POST'])
+@permission_classes((IsAuthenticated,))
 def lista_region(request):
     if request.method == 'GET':
         region = Region.objects.all()
@@ -61,6 +67,7 @@ def lista_region(request):
 
 @csrf_exempt
 @api_view(['GET', 'PUT', 'DELETE'])
+@permission_classes((IsAuthenticated,))
 def lista_region_id(request, id):
     try:
         region = Region.objects.get(id_region = id)
