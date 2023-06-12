@@ -1,7 +1,6 @@
 {% extends 'tiendita/plantilla/navbar.html' %}
 {% load static %}
 
-
     {% block titulo %}
     <title>Tienda</title>
     {% endblock titulo %}
@@ -21,6 +20,7 @@
                 <h1 class="titulos">Tienda cosas musicales</h1>
                 {% if usuario.rol.id_rol == 2 %}
                     <a href="{% url 'a_prod_nuevo' %}"><button class="btn btn-primary text-left">Añadir producto</button></a>
+                    <a href="{% url 'usuarios' %}"><button class="btn btn-primary text-left">Usuarios</button></a>
                 {% endif %}
             </div>
         </div>

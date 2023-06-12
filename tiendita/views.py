@@ -61,8 +61,8 @@ def a_prod_nuevo(request):
         messages.warning(request, 'Inicie sesión para continuar')
         return redirect('inicio_sesion')
     
-    usuario = Usuario.objects.get(correo = request.user.username)
-    if usuario.rol.id_rol == 1:
+    usuarioac = Usuario.objects.get(correo = request.user.username)
+    if usuarioac.rol.id_rol == 1:
         # El usuario tiene un rol de usuario (id_rol = 1)
         return redirect('tienda')
     
@@ -89,6 +89,14 @@ def a_prod_agregar(request):
 
 def a_prod_eliminar(request):
     if request.method == 'POST':
+        if not request.user.is_authenticated:
+            messages.warning(request, 'Inicie sesión para continuar')
+            return redirect('inicio_sesion')
+    
+        usuarioac = Usuario.objects.get(correo = request.user.username)
+        if usuarioac.rol.id_rol == 1:
+        # El usuario tiene un rol de usuario (id_rol = 1)
+            return redirect('tienda')
         id_producto = request.POST.get('id_producto')
         producto = Producto.objects.get(cod_producto = id_producto)
 
@@ -220,6 +228,10 @@ def bienvenida(request):
     return render(request, 'tiendita/inicio_sesion/bienvenida.html')
 
 def cerrar_sesion(request):
+    if not request.user.is_authenticated:
+        messages.warning(request, 'Inicie sesión para continuar')
+        return redirect('inicio_sesion')
+
     logout(request)
     messages.info(request, 'Sesion cerrada correctamente')
     return redirect('inicio_sesion')
@@ -468,4 +480,74 @@ def contra_modificar(request):
     
 
     return redirect('actu_datos')
+
+def usuarios(request):
+    if not request.user.is_authenticated:
+        messages.warning(request, 'Inicie sesión para continuar')
+        return redirect('inicio_sesion')
+    
+    usuarioac = Usuario.objects.get(correo = request.user.username)
+    if usuarioac.rol.id_rol == 1:
+        # El usuario tiene un rol de usuario (id_rol = 1)
+        return redirect('tienda')
+
+    usuario = Usuario.objects.exclude(correo = request.user.username)
+
+    contexto = {
+        "usuario":usuario
+    }
+    return render (request, 'tiendita/admin/usuarios.html',contexto)
+
+def usuario_rol(request, id):
+    if not request.user.is_authenticated:
+        messages.warning(request, 'Inicie sesión para continuar')
+        return redirect('inicio_sesion')
+    
+    usuarioac = Usuario.objects.get(correo = request.user.username)
+    if usuarioac.rol.id_rol == 1:
+        # El usuario tiene un rol de usuario (id_rol = 1)
+        return redirect('tienda')
+    
+    usuario = Usuario.objects.get(correo = id)
+    user = User.objects.get(username = id)
+    rolus = Rol.objects.get(id_rol = 1)
+    rolad  = Rol.objects.get(id_rol = 2)
+
+    if usuario.rol.id_rol == 1:
+        usuario.rol = rolad
+        user.is_staff = True
+
+        usuario.save()
+        user.save()
+        return redirect('usuarios')
+    else:
+        usuario.rol = rolus
+        user.is_staff = False
+
+        usuario.save()
+        user.save()
+        return redirect('usuarios')
+
+def usuario_eliminar(request):
+    if request.method == 'POST':
+        if not request.user.is_authenticated:
+            messages.warning(request, 'Inicie sesión para continuar')
+            return redirect('inicio_sesion')
+    
+        usuarioac = Usuario.objects.get(correo = request.user.username)
+        if usuarioac.rol.id_rol == 1:
+        # El usuario tiene un rol de usuario (id_rol = 1)
+            return redirect('tienda')
+        
+        id_usuario = request.POST.get('id_usuario')
+        usuario = Usuario.objects.get(correo = id_usuario)
+        direccion = Direccion.objects.get(usuario = usuario)
+        user = User.objects.get(username = id_usuario)
+
+        usuario.delete()
+        direccion.delete()
+        user.delete()
+        return JsonResponse({'success': True})
+    else:
+        return JsonResponse({'success': False})
 
