@@ -36,10 +36,21 @@ urlpatterns = [
     path('recu_contra/',recu_contra, name="recu_contra"),
     #USUARIO
     path('actu_datos/',actu_datos,name="actu_datos"),
-    path('carrito/', carrito, name="carrito"),
     path('histo_compra/', histo_compra, name= "histo_compra"),
     path('mod_contra/',mod_contra, name="mod_contra"),
     path('contra_modificar/',contra_modificar,name="contra_modificar"),
     path('actu_2/',actu_2,name="actu_2"),
     path('modificarDatos/',modificarDatos,name="modificarDatos"),
+    #CARRITO:
+    path('carrito/', carrito2, name="carrito2"),
+    path('carrito/', carrito, name="carrito"),
+    path('carrito/<int:id>/', add_product, name="add_product"),
+    path('carrito/resert/<int:id>/', subtract_product, name="subtract_product"),
+    path('carrito/<int:id>/', delete_product, name="delete_product"),
+    path('carrito/clean/', clean_product, name="clean_product"),
+
+    path('comprar/', comprar, name="comprar"),
+  
+   
+
 ]

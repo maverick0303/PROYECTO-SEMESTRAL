@@ -6,6 +6,9 @@ from django.contrib.auth.hashers import check_password
 from django.contrib.auth import authenticate,login, logout
 from django.contrib import messages
 from django.http import JsonResponse
+from .Carrito import Carrito
+from datetime import datetime
+
 # Create your views here.
 
 #ADMIN
@@ -254,10 +257,10 @@ def tienda(request):
     for producto in productos:
         producto.precio = intcomma(producto.precio)
 
-    contexto = {
+        contexto = {
         "productos" :productos,
         "usuario" :usuario
-    }
+        }
     return render(request,'tiendita/tienda/tienda.html',contexto)
 
 def feriados(request):
@@ -518,12 +521,94 @@ def carrito(request):
     
     return render(request, 'tiendita/usuario/carrito.html')
 
+def carrito2(request):
+    if not request.user.is_authenticated:
+        messages.warning(request, 'Inicie sesión para continuar')
+        return redirect('inicio_sesion')
+        
+    productos = Producto.objects.all()
+   
+    for producto in productos:
+        producto.precio = intcomma(producto.precio)
+
+        contexto = {
+        "productos" :productos    
+        }
+    return render(request,'tiendita/usuario/carrito.html',contexto)
+
+def add_product(request,id):
+    carrito = Carrito(request)
+    producto = Producto.objects.get(cod_producto = id)
+    carrito.add(producto)
+    contexto = {
+        "producto" :producto
+    }
+    return render(request,'tiendita/usuario/carrito.html', contexto)
+
+def subtract_product(request, id):
+    carrito = Carrito(request)
+    producto = Producto.objects.get(cod_producto = id)
+    carrito.subtract(producto)
+    return redirect ('carrito')
+
+def delete_product(request, id):
+    carrito = Carrito(request)
+    producto = Producto.objects.get(cod_producto = id)
+    carrito.delete(producto)
+    return redirect ('carrito')
+
+def clean_product(request):
+    carrito = Carrito(request)
+    carrito.clean()
+    return redirect ('carrito')
+
+def comprar(request):
+    
+    f_ventaU = datetime.now()
+    if "carrito" in request.session:
+        #obtengo el usuario con la sesion actual
+            usuarioU = Usuario.objects.get(correo = request.user)
+            #registro mi nueva venta en su tablsa
+            reg = Venta.objects.create(f_venta = f_ventaU, f_despacho = f_ventaU, f_entrega = f_ventaU, usuario = usuarioU, carrito = 0,total =0)
+            #variable acumuladora para guardar el total de la compra
+            Ttotal = 0
+            #recorro toda mi variable de sesion carrito
+            for key, value in request.session["carrito"].items():
+                #obtengo los datos de cada item de esa variable de session
+                id_prod = value["product_id"]
+                cant_prod = int(value["cantidad"])
+                #busco el producto completo
+                producto_comp = Producto.objects.get(cod_producto = id_prod)
+                #inserto en la tabla boleta
+                subtotal2 = int(cant_prod) * int(producto_comp.precio)
+                Boleta.objects.create(cantidad = cant_prod,subtotal = subtotal2,venta = reg, producto = producto_comp)
+                Ttotal += subtotal2
+            
+            reg.total = Ttotal
+            reg.save()
+            #reiniciar la variable carrito
+            
+
+    #redireccionar a el html compra realizada
+    return redirect('carrito')
+
+"""
+f_ventaU = datetime.now()
+    f_despachoU = f_ventaU + datetime.timedelta(days = 1)
+    f_entregaU = f_despachoU + datetime.timedelta(days = 1)
+    totalU = request.POST["total"]
+    """
 def histo_compra(request):
     if not request.user.is_authenticated:
         messages.warning(request, 'Inicie sesión para continuar')
         return redirect('inicio_sesion')
-    
-    return render (request, 'tiendita/usuario/histo_compra.html')
+
+    usuarioU = Usuario.objects.get(correo = request.user.username)
+    venta = Venta.objects.filter(usuario = usuarioU)
+    contexto = {
+        'venta':venta
+    }
+    return render (request, 'tiendita/usuario/histo_compra.html',contexto)
 
 def mod_contra(request):
     if not request.user.is_authenticated:

@@ -21,48 +21,42 @@
     {% endblock head %}
    
     {% block body %}
+        {% for venta in venta %}
+            <div class="row borde2">
+                <div class="col-md-6">
+                    <h1 class="titulos">venta n° {{ venta.id_venta }}</h1>
+                </div>
+            </div>
+            {% for boleta in venta.boleta_set.all %}
         <div class="row borde2">
             <div class="col-md-6">
-                <h1 class="titulos">Pedido n° 234987</h1>
+                <h1 class="titulos">Pedido n° {{ boleta.id_boleta }}</h1>
                 <h1 class="titulos">Detalles</h1>
+                <h1 class="titulos"></h1>
                 <p class="textos">
-                    Cantidad: 1
+                    Nombre del producto: {{ boleta.producto.nombre }}
                     <br>
-                    Total de compra: $290.000
+                    Cantidad: {{ boleta.cantidad }}
+                    <br>
+                    Total de compra: ${{boleta.subtotal}}
                     <br>
                     Despacho: Entrega a domicilio
                     <br>
-                    Fecha de despacho: 13/09/2022
+                    Fecha de venta: {{ venta.f_venta }}
                     <br>
-                    Dirección: Calle las Rosas 1142
+                    Fecha de despacho:  {{ venta.f_despacho }}
+                    <br>
+                    Fecha de entrega:  {{ venta.f_entrega }}
                 </p>
             </div>
+            
             <div class="col-md-6">
-                <img class="img2" src="{% static 'tiendita/img/articulos/banjo.png' %}" alt="Banjo">
-            </div>
-        </div>
-        <br>
-        <div class="row borde2">
-            <div class="col-md-6">
-                <h1 class="titulos">Pedido n° 87653</h1>
-                <h1 class="titulos">Detalles</h1>
-                <p class="textos">
-                    Cantidad: 1
-                    <br>
-                    Total de compra: $469.990
-                    <br>
-                    Despacho: Entrega a domicilio
-                    <br>
-                    Fecha de despacho: 1/09/2022
-                    <br>
-                    Dirección: Ciudad empresarial 3456
-                </p>
-            </div>
-            <div class="col-md-6">
-                <img class="img2" src="{% static 'tiendita/img/articulos/arpa.png' %}" alt="Banjo">
+                <img class="img2" src="{{ boleta.producto.foto.url }}" alt="Banjo">
             </div>
 
         </div>
+        {% endfor %}
+            {% endfor %}
         <br>
         <br>
 
