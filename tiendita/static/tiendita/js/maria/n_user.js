@@ -18,6 +18,7 @@ $(document).ready(function () {
         var rut = $("#rut").val();
         var telefono = $("#telefono").val();
         var correo = $("#correo").val();
+        var correoUtilizado = $("#correoUtilizado").val();
         var contra_nueva = nuevo.connueva.value;
         var contra_verificar = nuevo.converificar.value;
         var direccion = $("#direccion").val();
@@ -138,6 +139,11 @@ $(document).ready(function () {
 
             if (!emailv.test(correo)) {
                 msjMostrar += "Ingrese un correo valido";
+                enviar = true;
+            }
+
+            if (correoUtilizado == "true") {
+                msjMostrar += "correo ya utilizado";
                 enviar = true;
             }
         }

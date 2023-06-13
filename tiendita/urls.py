@@ -26,6 +26,7 @@ urlpatterns = [
     path('cerrar_sesion/',cerrar_sesion,name="cerrar_sesion"),
     path('inicio_sesion/',inicio_sesion,name="inicio_sesion"),
     path('inicio_sesion_verificar/',inicio_sesion_verificar,name="inicio_sesion_verificar"),
+    path('verificar_correo/',verificar_correo,name="verificar_correo"),
     path('nuevo_user/',nuevo_user, name="nuevo_user"),
     path('nuevo_user_agregar/',nuevo_user_agregar, name="nuevo_user_agregar"),
     path('restablecer/',restablecer, name="restablecer"),
