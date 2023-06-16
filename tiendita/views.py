@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate,login, logout
 from django.contrib import messages
 from django.http import JsonResponse
 from .Carrito import Carrito
-from datetime import datetime
+from datetime import datetime, timedelta
 
 # Create your views here.
 
@@ -565,11 +565,13 @@ def clean_product(request):
 def comprar(request):
     
     f_ventaU = datetime.now()
+    f_despachoU = f_ventaU + timedelta(days = 1)
+    f_entregaU = f_despachoU + timedelta(days = 2)
     if "carrito" in request.session:
         #obtengo el usuario con la sesion actual
             usuarioU = Usuario.objects.get(correo = request.user)
             #registro mi nueva venta en su tablsa
-            reg = Venta.objects.create(f_venta = f_ventaU, f_despacho = f_ventaU, f_entrega = f_ventaU, usuario = usuarioU, carrito = 0,total =0)
+            reg = Venta.objects.create(f_venta = f_ventaU, f_despacho = f_despachoU, f_entrega = f_entregaU, usuario = usuarioU, carrito = 0,total =0)
             #variable acumuladora para guardar el total de la compra
             Ttotal = 0
             #recorro toda mi variable de sesion carrito
@@ -592,12 +594,7 @@ def comprar(request):
     #redireccionar a el html compra realizada
     return redirect('carrito')
 
-"""
-f_ventaU = datetime.now()
-    f_despachoU = f_ventaU + datetime.timedelta(days = 1)
-    f_entregaU = f_despachoU + datetime.timedelta(days = 1)
-    totalU = request.POST["total"]
-    """
+
 def histo_compra(request):
     if not request.user.is_authenticated:
         messages.warning(request, 'Inicie sesión para continuar')
