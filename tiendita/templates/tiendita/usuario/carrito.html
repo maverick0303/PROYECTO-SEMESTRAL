@@ -25,7 +25,7 @@
         <div class="row">
             
             <!--STOCK-->
-            <div class="col-md-5">
+            <div class="col-md-12">
                 <div class="borde2">
                     <table class="table table-bordered">
                         <thead> 
@@ -34,9 +34,9 @@
                             <th scope="row" colspan="3" class="text-center">CARRITO</th>
                         </tr>
                         <tr>
-                            <th scope="col">NOMBRE</th>
-                            <th scope="col">PRECIO</th>
-                            <th scope="col">CANTIDAD</th>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Cantidad </th>
                         </tr>
                         
                     </thead>
@@ -56,7 +56,7 @@
                         {% endfor %}
                         {% else %}
                         <tr>
-                            <div class="alert alert-danger text-center">SIN PRODUCTO</div>
+                            <div class="alert alert-danger text-center">TU CARRITO ESTA VACIO</div>
                         </tr>
                         {% endif %}
                         <tr>
@@ -70,7 +70,7 @@
                     </table>
                     <br>
                     <div class="row text-center">
-                        <div class="col-6"><a class="btn btn-danger" href="{% url 'clean_product'  %}">LIMPIAR</a></div>
+                        <div class="col-6"><a class="btn btn-danger" href="{% url 'clean_product'  %}">ELIMINAR</a></div>
                         <div class="col-6"><a class="btn btn-success" href="{% url 'comprar' %}">COMPRAR</a></div>
                     </div>
                    

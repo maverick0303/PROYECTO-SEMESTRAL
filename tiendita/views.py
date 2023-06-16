@@ -590,6 +590,7 @@ def comprar(request):
             reg.save()
             #reiniciar la variable carrito
             
+            
 
     #redireccionar a el html compra realizada
     return redirect('carrito')
