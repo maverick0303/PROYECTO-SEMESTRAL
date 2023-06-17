@@ -35,8 +35,8 @@
 
             <a class="btn btn-primary" href="{% url 'add_product' producto.cod_producto %}">Agregar al carrito</a>
             {% if usuario.rol.id_rol == 2 %}
-                <button class="btn btn-danger d-block text-left" style="float: left;" type="button" id="eliminarProducto">Eliminar Producto</button>
-                <a href="{% url 'a_prod_modificar' producto.cod_producto %}" class="a"><button class="btn btn-primary d-block text-left" type="button">Modificar Producto</button></a>
+                <a href="{% url 'a_prod_modificar' producto.cod_producto %}" class="a"><button class="btn btn-primary text-left" type="button">Modificar Producto</button></a>
+                <button class="btn btn-danger text-left" type="button" id="eliminarProducto">Eliminar Producto</button>
             {% endif %}
             
             <p class="textos">{{ producto.descripcion }}</p>
