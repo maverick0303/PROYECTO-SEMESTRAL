@@ -576,6 +576,7 @@ def comprar(request):
             Ttotal = 0
             #recorro toda mi variable de sesion carrito
             for key, value in request.session["carrito"].items():
+                x = request.session["carrito"]
                 #obtengo los datos de cada item de esa variable de session
                 id_prod = value["product_id"]
                 cant_prod = int(value["cantidad"])
@@ -589,7 +590,7 @@ def comprar(request):
             reg.total = Ttotal
             reg.save()
             #reiniciar la variable carrito
-            
+            request.session["carrito"] = {}
     #redireccionar a el html compra realizada
     return redirect('pago')
 
