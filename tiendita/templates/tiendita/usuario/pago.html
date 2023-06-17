@@ -1,0 +1,40 @@
+{% extends 'tiendita/plantilla/navbar.html' %}
+{% load static %}
+
+    {% block titulo %}
+    <title>Pago</title>
+    {% endblock titulo %}
+    
+    {% block head %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+        <link type="text/css" rel="stylesheet" href="{% static 'tiendita/css/maria/estilo_datos.css' %}">
+
+        <style>
+            .titulos {
+                text-align: center;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+            .body{
+                background: url("{% static 'tiendita/img/fondos/fondo9.jpg' %}");
+            }
+        </style>
+    {% endblock head %}
+    
+    {% block body %}
+    <br>
+        <div class="row borde2">
+            <div class="row">
+                <div class="col-md-12">
+                    <img src="https://media.tenor.com/bJC8QxaulvEAAAAM/cat-dance.gif">
+                    <p class="titulos" style="text-align: center;">Gracias por su compra!!!</p>
+                    <p class="textos">Vuelva pronto...</p> 
+                </div>
+            </div>
+        </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    {% endblock body %}

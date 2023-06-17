@@ -590,11 +590,11 @@ def comprar(request):
             reg.save()
             #reiniciar la variable carrito
             
-            
-
     #redireccionar a el html compra realizada
-    return redirect('carrito')
+    return redirect('pago')
 
+def pago(request):
+    return render (request, 'tiendita/usuario/pago.html')
 
 def histo_compra(request):
     if not request.user.is_authenticated:

@@ -48,7 +48,7 @@ urlpatterns = [
     path('carrito/resert/<int:id>/', subtract_product, name="subtract_product"),
     path('carrito/<int:id>/', delete_product, name="delete_product"),
     path('carrito/clean/', clean_product, name="clean_product"),
-
+    path('pago/', pago, name="pago"),
     path('comprar/', comprar, name="comprar"),
   
    
