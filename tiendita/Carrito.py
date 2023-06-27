@@ -25,6 +25,12 @@ class Carrito:
         else:
             self.carrito[id]["cantidad"] += 1
             self.carrito[id]["acumulado"] += producto.precio
+        if self.carrito[id]["stock"] > 0:
+            self.carrito[id]["stock"] -= 1
+
+        # Actualizar el stock en el objeto producto original
+        producto.stock = self.carrito[id]["stock"]
+        producto.save()
         self.save()
     
     # RESTAR PRODUCTO:
