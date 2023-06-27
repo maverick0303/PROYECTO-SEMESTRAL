@@ -31,6 +31,7 @@
         <div class="col-md-6"><img class="img2" src="{{ producto.foto.url }}" alt="No disponible"></div>
         <div class="col-md-6 textos borde-line">
             <h1 class="titulos">{{ producto.nombre|upper }}</h1>
+            <p class="textos" style="text-align: left;">Stock disponible: {{producto.stock}}</p>
             <p class="precio2">$ {{ producto.precio }}</p>
 
             <a class="btn btn-primary" href="{% url 'add_product' producto.cod_producto %}">Agregar al carrito</a>
