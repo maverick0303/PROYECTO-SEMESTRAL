@@ -1,86 +1,96 @@
 {% extends 'tiendita/plantilla/navbar.html' %}
 {% load static %}
 
-    {% block titulo %}
-    <title>Carrito</title>
-    {% endblock titulo %}
-    
-    {% block head %}
-        <link type="text/css" rel="stylesheet" href="{% static 'tiendita/css/ernesto/design.css' %}">
-        
+{% block titulo %}
+<title>Carrito</title>
+{% endblock titulo %}
 
-        <style>
-            .titulos {
-                text-align: left;
-                margin-top: 20px;
-                margin-bottom: 30px;
-            }
-            .body{
-                background: url("{% static 'tiendita/img/fondos/fondo6.jpg' %}");
-            }
-        </style>
-    {% endblock head %}
-    
-    {% block body %}
-        <div class="row">
-            
-            <!--STOCK-->
-            <div class="col-md-12">
-                <div class="borde2">
-                    <table class="table table-bordered">
-                        <thead> 
-                            
-                        <tr>
-                            <th scope="row" colspan="3" class="text-center">CARRITO</th>
-                        </tr>
-                        <tr>
-                            <th scope="col">Producto</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Cantidad </th>
-                        </tr>
-                        
-                    </thead>
-                    <tbody>
-                        {% if request.session.carrito.items %}
-                        {% for key, value in request.session.carrito.items %}
-                        <tr>
-                            <td>{{ value.nombre }}</td>
-                            <td>{{ value.acumulado }}</td>
-                            <td>{{ value.cantidad }}</td>
-                            <td>
-                                
-                                <a class="badge btn btn-dark badge-dark" href="{% url 'add_product' value.product_id %}">+</a>
-                                <a class="badge btn btn-dark badge-dark" href="{% url 'subtract_product' value.product_id %}">-</a>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                        {% else %}
-                        <tr>
-                            <div class="alert alert-danger text-center">TU CARRITO ESTA VACIO</div>
-                        </tr>
-                        {% endif %}
-                        <tr>
-                            <th>TOTAL</th>
-                            <td colspan="2" name="total">{{total_carrito}}</td>
-                            <th colspan="2">{{total_cantidad}}</th>
-                        </tr>
+{% block head %}
+<link type="text/css" rel="stylesheet" href="{% static 'tiendita/css/ernesto/design.css' %}">
 
-                    </tbody>
-                       
-                    </table>
-                    <br>
-                    <div class="row text-center">
-                        <div class="col-6"><a class="btn btn-danger" href="{% url 'clean_product'  %}">ELIMINAR</a></div>
-                        <div class="col-6"><a class="btn btn-success" href="{% url 'comprar' %}">COMPRAR</a></div>
-                    </div>
-                   
+<style>
+    .titulos {
+        text-align: left;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
 
-                </div>
+    .body {
+        background: url("{% static 'tiendita/img/fondos/fondo6.jpg' %}");
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Verificar si el carrito tiene elementos
+        if ($(".carrito-item").length > 0) {
+            $("#boton_comprar").show();
+        }
+    });
+</script>
+{% endblock head %}
+
+{% block body %}
+<div class="row">
+
+    <!--STOCK-->
+    <div class="col-md-12">
+        <div class="borde2">
+            <table class="table table-bordered">
+                <thead>
+
+                    <tr>
+                        <th scope="row" colspan="3" class="text-center">CARRITO</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Cantidad</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    {% if request.session.carrito.items %}
+                    {% for key, value in request.session.carrito.items %}
+                    <tr class="carrito-item">
+                        <td>{{ value.nombre }}</td>
+                        <td>{{ value.acumulado }}</td>
+                        <td>{{ value.cantidad }}</td>
+                        <td>
+
+                            <a class="badge btn btn-dark badge-dark"
+                                href="{% url 'add_product' value.product_id %}">+</a>
+                            <a class="badge btn btn-dark badge-dark"
+                                href="{% url 'subtract_product' value.product_id %}">-</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    <tr>
+                        <div class="alert alert-danger text-center">TU CARRITO ESTÁ VACÍO</div>
+                    </tr>
+                    {% endif %}
+                    <tr>
+                        <th>TOTAL</th>
+                        <td colspan="2" name="total">{{total_carrito}}</td>
+                        <th colspan="2">{{total_cantidad}}</th>
+                    </tr>
+
+                </tbody>
+
+            </table>
+            <br>
+            <div class="row text-center">
+                <div class="col-6"><a class="btn btn-danger" href="{% url 'clean_product' %}">ELIMINAR</a></div>
+                <div class="col-6"><a class="btn btn-success" id="boton_comprar" style="display: none;"
+                        href="{% url 'comprar' %}">COMPRAR</a></div>
             </div>
+
+
+
         </div>
+    </div>
+</div>
 
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    {% endblock body %}
+{% endblock body %}
