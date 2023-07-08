@@ -31,10 +31,18 @@
         <div class="col-md-6"><img class="img2" src="{{ producto.foto.url }}" alt="No disponible"></div>
         <div class="col-md-6 textos borde-line">
             <h1 class="titulos">{{ producto.nombre|upper }}</h1>
-            <p class="textos" style="text-align: left;">Stock disponible: {{producto.stock}}</p>
+            <p class="textos" style="text-align: left;">Stock disponible:
+                {% if producto.stock > 0 %}
+                    {{ producto.stock }}
+                {% else %}
+                    PRODUCTO NO DISPONIBLE
+                {% endif %}
+            </p>
             <p class="precio2">$ {{ producto.precio }}</p>
-
-            <a class="btn btn-primary" href="{% url 'add_product' producto.cod_producto %}">Agregar al carrito</a>
+            
+            {% if producto.stock > 0 %}
+                <a class="btn btn-primary" href="{% url 'add_product' producto.cod_producto %}">Agregar al carrito</a>
+            {% endif %}
             {% if usuario.rol.id_rol == 2 %}
                 <a href="{% url 'a_prod_modificar' producto.cod_producto %}" class="a"><button class="btn btn-primary text-left" type="button">Modificar Producto</button></a>
                 <button class="btn btn-danger text-left" type="button" id="eliminarProducto">Eliminar Producto</button>
