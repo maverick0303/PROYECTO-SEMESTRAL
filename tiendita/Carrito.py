@@ -58,13 +58,15 @@ class Carrito:
     def delete(self, producto):
         id = str(producto.cod_producto)
         if id in self.carrito:
+            cantidad_eliminada = self.carrito[id].get("cantidad", 0)
             del self.carrito[id]
 
         # Restaurar el stock en el objeto producto original
-        producto.stock = producto.stock + self.carrito[id].get("cantidad", 0)
+        producto.stock = producto.stock + cantidad_eliminada
         producto.save()
 
         self.save()
+
 
     def clean(self):
         for id, item in self.carrito.items():
