@@ -2,6 +2,10 @@ from django.contrib import admin
 from django.urls import path, include
 from .views import *
 urlpatterns = [
+
+    #CREATEORDER
+    path('create_paypal_order/',create_paypal_order,name="create_paypal_order"),
+
     #ADMIN
     path('a_prod_modificar/<id>',a_prod_modificar,name="a_prod_modificar"),
     path('a_prod_editar/',a_prod_editar,name="a_prod_editar"),

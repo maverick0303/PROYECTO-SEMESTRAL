@@ -21,6 +21,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-at0o4ron-1deukf^1rh@cqddm0^-&1ewstxg9%t#88#@48%#%f'
+# settings.py
+PAYPAL_CLIENT_ID = 'ATHkZmxCFUcL3908UkYED9YHYAII6rPTBzBaOLUZPMUZ_6efGdu6Nk2sHjQNOIHxWG4NdTGS9TGE61wp'
+PAYPAL_CLIENT_SECRET = 'EDGghHbngr8oeqiz5O6qKFq0JhRBenKRMzai07XD8l3KEBNXtFqAYX0R33h2ruAnS4FFM0JxKW84DnkY'
+PAYPAL_API_BASE_URL = 'https://api.sandbox.paypal.com'  # Usa la URL del entorno sandbox para pruebas
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

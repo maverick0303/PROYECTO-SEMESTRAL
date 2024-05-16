@@ -1,5 +1,9 @@
+import json
 from django.shortcuts import render, redirect
+from django.http import HttpResponse, request
+import requests
 from .models import *
+from django.http import JsonResponse
 from django.contrib.humanize.templatetags.humanize import intcomma
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import check_password
@@ -8,8 +12,46 @@ from django.contrib import messages
 from django.http import JsonResponse
 from .Carrito import Carrito
 from datetime import datetime, timedelta
+from django.conf import settings
 
 # Create your views here.
+
+def create_paypal_order(request):
+    client_id = settings.PAYPAL_CLIENT_ID
+    secret_key = settings.PAYPAL_CLIENT_SECRET
+
+    paypal_url = 'https://api-m.paypal.com/v2/checkout/orders'
+
+    headers = {
+        'Content-Type': 'application/json',
+        'Authorization': f'Bearer {get_access_token(client_id, secret_key)}'
+    }
+
+    payload = {
+        "intent": "CAPTURE",
+        "purchase_units": [{
+            "amount": {
+                "currency_code": "USD",
+                "value": "100.00"  # Precio de tu producto o servicio
+            }
+        }]
+    }
+
+    response = requests.post(paypal_url, headers=headers, data=json.dumps(payload))
+
+    response_data = response.json()
+    return JsonResponse(response_data['links'][1])
+    
+
+    
+def get_access_token(client_id, secret_key):
+    auth_url = 'https://api.sandbox.paypal.com/v1/oauth2/token'
+    auth_data = {'grant_type': 'client_credentials'}
+    auth_response = requests.post(auth_url, auth=(client_id, secret_key), data=auth_data)
+    return auth_response.json()['access_token']    
+
+
+
 
 #ADMIN
 def a_prod_modificar(request, id):
