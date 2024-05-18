@@ -16,42 +16,39 @@ from django.conf import settings
 
 # Create your views here.
 
-def create_paypal_order(request):
-    client_id = settings.PAYPAL_CLIENT_ID
-    secret_key = settings.PAYPAL_CLIENT_SECRET
+from django.shortcuts import render 
+from django.http import HttpResponse 
+import requests 
 
-    paypal_url = 'https://api-m.paypal.com/v2/checkout/orders'
+def process_payment(request): 
+    if request.method == 'POST': 
+        # Datos de la pasarela de pago (en un escenario real, estos serían proporcionados por la pasarela de pago) 
+        fakepay_api_key = 'your_fakepay_api_key' 
+        fakepay_amount = 100 # Monto a cobrar en centavos ($1.00) 
+        
+        # Datos del formulario 
+        card_number = request.POST['card_number'] 
+        expiry_date = request.POST['expiry_date'] 
+        cvv = request.POST['cvv']
 
-    headers = {
-        'Content-Type': 'application/json',
-        'Authorization': f'Bearer {get_access_token(client_id, secret_key)}'
-    }
-
-    payload = {
-        "intent": "CAPTURE",
-        "purchase_units": [{
-            "amount": {
-                "currency_code": "USD",
-                "value": "100.00"  # Precio de tu producto o servicio
-            }
-        }]
-    }
-
-    response = requests.post(paypal_url, headers=headers, data=json.dumps(payload))
-
-    response_data = response.json()
-    return JsonResponse(response_data['links'][1])
+        # Procesamiento del pago utilizando la pasarela de pago FakePay (ejemplo) 
+        response = fakepay_process_payment(fakepay_api_key, fakepay_amount, card_number, expiry_date, cvv) 
+        
+        # Verificación de la respuesta de la pasarela de pago 
+        if response['success']: 
+            # El pago fue exitoso 
+            return redirect('pago') 
+        else: 
+            # El pago falló 
+            return HttpResponse("Lo siento, ha ocurrido un error durante el procesamiento del pago:  " + response['error']) 
     
+    return render(request, 'payment_form.html') 
 
-    
-def get_access_token(client_id, secret_key):
-    auth_url = 'https://api.sandbox.paypal.com/v1/oauth2/token'
-    auth_data = {'grant_type': 'client_credentials'}
-    auth_response = requests.post(auth_url, auth=(client_id, secret_key), data=auth_data)
-    return auth_response.json()['access_token']    
-
-
-
+# Función para procesar el pago utilizando la pasarela de pago FakePay (ejemplo) 
+def fakepay_process_payment(api_key, amount, card_number, expiry_date, cvv):  
+    # Aquí iría la lógica de conexión y envío de datos a la pasarela de pago real  
+    # En este ejemplo, simplemente simularemos un pago exitoso 
+    return {'success': True, 'error': ''}
 
 #ADMIN
 def a_prod_modificar(request, id):
@@ -604,37 +601,39 @@ def clean_product(request):
     carrito.clean()
     return redirect ('carrito')
 
+from django.shortcuts import render
+
 def comprar(request):
-    
+    from django.db.models import Sum
+
     f_ventaU = datetime.now()
-    f_despachoU = f_ventaU + timedelta(days = 1)
-    f_entregaU = f_despachoU + timedelta(days = 2)
+    f_despachoU = f_ventaU + timedelta(days=1)
+    f_entregaU = f_despachoU + timedelta(days=2)
+    
     if "carrito" in request.session:
-        #obtengo el usuario con la sesion actual
-            usuarioU = Usuario.objects.get(correo = request.user)
-            #registro mi nueva venta en su tablsa
-            reg = Venta.objects.create(f_venta = f_ventaU, f_despacho = f_despachoU, f_entrega = f_entregaU, usuario = usuarioU, carrito = 0,total =0)
-            #variable acumuladora para guardar el total de la compra
-            Ttotal = 0
-            #recorro toda mi variable de sesion carrito
-            for key, value in request.session["carrito"].items():
-                x = request.session["carrito"]
-                #obtengo los datos de cada item de esa variable de session
-                id_prod = value["product_id"]
-                cant_prod = int(value["cantidad"])
-                #busco el producto completo
-                producto_comp = Producto.objects.get(cod_producto = id_prod)
-                #inserto en la tabla boleta
-                subtotal2 = int(cant_prod) * int(producto_comp.precio)
-                Boleta.objects.create(cantidad = cant_prod,subtotal = subtotal2,venta = reg, producto = producto_comp)
-                Ttotal += subtotal2
-            
-            reg.total = Ttotal
-            reg.save()
-            #reiniciar la variable carrito
-            request.session["carrito"] = {}
-    #redireccionar a el html compra realizada
-    return redirect('pago')
+        usuarioU = Usuario.objects.get(correo=request.user)
+        reg = Venta.objects.create(f_venta=f_ventaU, f_despacho=f_despachoU, f_entrega=f_entregaU, usuario=usuarioU, carrito=0, total=0)
+        Ttotal = 0
+
+        for key, value in request.session["carrito"].items():
+            id_prod = value["product_id"]
+            cant_prod = int(value["cantidad"])
+            producto_comp = Producto.objects.get(cod_producto=id_prod)
+            subtotal2 = int(cant_prod) * int(producto_comp.precio)
+            Boleta.objects.create(cantidad=cant_prod, subtotal=subtotal2, venta=reg, producto=producto_comp)
+            Ttotal += subtotal2
+
+        reg.total = Ttotal
+        reg.save()
+
+        total_carrito = Ttotal  # Definir total_carrito como el total calculado
+    
+        request.session["carrito"] = {}
+
+        return render(request, 'tiendita/usuario/payment_form.html', {'total_carrito': total_carrito})
+    else:
+        # Si no hay productos en el carrito, puedes manejar este caso de acuerdo a tus necesidades
+        return render(request, 'tiendita/usuario/payment_form.html', {'total_carrito': 0, 'total_cantidad': 0})
 
 def pago(request):
     return render (request, 'tiendita/usuario/pago.html')

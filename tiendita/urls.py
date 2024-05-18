@@ -4,7 +4,8 @@ from .views import *
 urlpatterns = [
 
     #CREATEORDER
-    path('create_paypal_order/',create_paypal_order,name="create_paypal_order"),
+    path('process-payment/', process_payment, name='process_payment'),
+
 
     #ADMIN
     path('a_prod_modificar/<id>',a_prod_modificar,name="a_prod_modificar"),
