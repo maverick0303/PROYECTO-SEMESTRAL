@@ -7,6 +7,7 @@
 
 {% block head %}
 <link type="text/css" rel="stylesheet" href="{% static 'tiendita/css/ernesto/design.css' %}">
+<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
 
 <style>
     .titulos {
@@ -28,6 +29,25 @@
             $("#boton_comprar").show();
         }
     });
+
+    function createOrder() {
+            fetch('/payment/create/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.approval_url) {
+                    window.location.href = data.approval_url;
+                } else {
+                    console.error('Error creating order:', data.error);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
 
 </script>
 {% endblock head %}
@@ -85,8 +105,7 @@
 
             <div class="row text-center">
                 <div class="col-6"><a class="btn btn-danger" href="{% url 'clean_product' %}">ELIMINAR</a></div>
-                <div class="col-6"><a class="btn btn-success" id="boton_comprar" style="display: none;"
-                        href="{% url 'comprar' %}">COMPRAR</a></div>
+                <div class="col-6"><button onclick="createOrder()">Pagar con PayPal</button></div>
             </div>
         </div>
     </div>

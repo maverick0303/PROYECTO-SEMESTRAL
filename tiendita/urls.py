@@ -1,7 +1,11 @@
 from django.contrib import admin
 from django.urls import path, include
 from .views import *
+from .views import create_order, execute_payment
 urlpatterns = [
+    path('payment/create/', create_order, name='create_order'),
+    path('payment/execute/', execute_payment, name='execute_payment'),
+    
 
     #CREATEORDER
     path('process-payment/', process_payment, name='process_payment'),

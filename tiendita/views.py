@@ -20,6 +20,79 @@ from django.shortcuts import render
 from django.http import HttpResponse 
 import requests 
 
+
+#funcion definitiva
+def get_paypal_access_token():
+    url = f"{settings.PAYPAL_API_BASE_URL}/v1/oauth2/token"
+    headers = {
+        "Accept": "application/json",
+        "Accept-Language": "en_US",
+    }
+    auth = (settings.PAYPAL_CLIENT_ID, settings.PAYPAL_CLIENT_SECRET)
+    data = {
+        "grant_type": "client_credentials"
+    }
+    
+    response = requests.post(url, headers=headers, data=data, auth=auth)
+    response.raise_for_status()
+    return response.json()['access_token']
+
+def create_order(request):
+    if request.method == 'POST':
+        access_token = get_paypal_access_token()
+        
+        url = f"{settings.PAYPAL_API_BASE_URL}/v2/checkout/orders"
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {access_token}"
+        }
+        data = {
+            "intent": "CAPTURE",
+            "purchase_units": [
+                {
+                    "amount": {
+                        "currency_code": "USD",
+                        "value": "10.00"  # Monto de la transacción
+                    }
+                }
+            ],
+            "application_context": {
+                "return_url": "http://localhost:8000/payment/execute",
+                "cancel_url": "http://localhost:8000/payment/cancel"
+            }
+        }
+        
+        response = requests.post(url, headers=headers, json=data)
+        response.raise_for_status()
+        order = response.json()
+        approval_url = next(link['href'] for link in order['links'] if link['rel'] == 'approve')
+        
+        return JsonResponse({"approval_url": approval_url})
+    
+    return JsonResponse({"error": "Invalid request method"})
+
+def execute_payment(request):
+    order_id = request.GET.get('token')  # 'token' es el parámetro devuelto por PayPal en la URL
+
+    access_token = get_paypal_access_token()
+    url = f"{settings.PAYPAL_API_BASE_URL}/v2/checkout/orders/{order_id}/capture"
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {access_token}"
+    }
+
+    response = requests.post(url, headers=headers)
+    response.raise_for_status()
+    capture = response.json()
+    
+    if capture['status'] == 'COMPLETED':
+        return JsonResponse({"status": "success"})
+    else:
+        return JsonResponse({"status": "error"})
+
+
+
+
 def process_payment(request): 
     if request.method == 'POST': 
         # Datos de la pasarela de pago (en un escenario real, estos serían proporcionados por la pasarela de pago) 
