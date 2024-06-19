@@ -23,7 +23,7 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    $(document).ready(function () {
+   $(document).ready(function () {
         // Verificar si el carrito tiene elementos
         if ($(".carrito-item").length > 0) {
             $("#boton_comprar").show();
@@ -48,6 +48,7 @@
             })
             .catch(error => console.error('Error:', error));
         }
+
 
 </script>
 {% endblock head %}

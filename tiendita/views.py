@@ -39,8 +39,27 @@ def get_paypal_access_token():
 
 def create_order(request):
     if request.method == 'POST':
+        usuario = request.user
+        carrito = Carrito(request)
+
+        if not carrito.carrito:
+            return JsonResponse({"error": "El carrito está vacío."})
+
+        purchase_units = []
+        total = 0
+
+        for key, value in carrito.carrito.items():
+            total += value['acumulado']
+            purchase_units.append({
+                "name": value['nombre'],
+                "unit_amount": {
+                    "currency_code": "USD",
+                    "value": str(value['acumulado'] / value['cantidad'])
+                },
+                "quantity": str(value['cantidad'])
+            })
+
         access_token = get_paypal_access_token()
-        
         url = f"{settings.PAYPAL_API_BASE_URL}/v2/checkout/orders"
         headers = {
             "Content-Type": "application/json",
@@ -48,28 +67,34 @@ def create_order(request):
         }
         data = {
             "intent": "CAPTURE",
-            "purchase_units": [
-                {
-                    "amount": {
-                        "currency_code": "USD",
-                        "value": "10.00"  # Monto de la transacción
+            "purchase_units": [{
+                "amount": {
+                    
+                    "currency_code": "USD",
+                    "value": str(total),
+                    "breakdown": {
+                        "item_total": {
+                            "currency_code": "USD",
+                            "value": str(total)
+                        }
                     }
-                }
-            ],
+                },
+                "items": purchase_units
+            }],
             "application_context": {
-                "return_url": "http://localhost:8000/payment/execute",
-                "cancel_url": "http://localhost:8000/payment/cancel"
+                "return_url": "http://localhost:8000/pago",
+                "cancel_url": "http://127.0.0.1:8000/carrito/"
             }
         }
-        
+
         response = requests.post(url, headers=headers, json=data)
         response.raise_for_status()
         order = response.json()
         approval_url = next(link['href'] for link in order['links'] if link['rel'] == 'approve')
-        
+
         return JsonResponse({"approval_url": approval_url})
-    
-    return JsonResponse({"error": "Invalid request method"})
+
+    return JsonResponse({"error": "Método de solicitud no válido."})
 
 def execute_payment(request):
     order_id = request.GET.get('token')  # 'token' es el parámetro devuelto por PayPal en la URL
