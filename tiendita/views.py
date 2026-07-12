@@ -407,12 +407,11 @@ def feriados(request):
 #PRODUCTO
 
 def producto(request, id):
-    if not request.user.is_authenticated:
-        messages.warning(request, 'Inicie sesión para continuar')
-        return redirect('inicio_sesion')
-    
     producto = Producto.objects.get(cod_producto = id)
-    usuario = Usuario.objects.get(correo = request.user.username)
+    if request.user.is_authenticated:
+        usuario = Usuario.objects.get(correo = request.user.username)
+    else:
+        usuario = Usuario.rol.id_rol = 1
 
     producto.precio = intcomma(producto.precio)
 
@@ -421,7 +420,6 @@ def producto(request, id):
         "usuario" :usuario
     }
     return render(request,'tiendita/articulos/producto.html',contexto)
-
 
 def busqueda(request):
     if request.method == "POST":
